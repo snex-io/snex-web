@@ -1,0 +1,10 @@
+body {
+  align-items: flex-end;
+  background: #000;
+  display: flex;
+  margin: 0;
+}
+
+#controller {
+  width: 100%;
+}
