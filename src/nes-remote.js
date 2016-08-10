@@ -22,6 +22,10 @@ window.addEventListener('load', function() {
     if (states[key] === state) {
       return;
     }
+    if (state) {
+      navigator.vibrate(50);
+    }
+
     states[key] = state;
     const payload = {
       key,
