@@ -7,6 +7,7 @@ window.addEventListener('load', function() {
   };
 
   let conn = null;
+  const keys = [];
   const areas = [];
   const states = {};
 
@@ -26,29 +27,28 @@ window.addEventListener('load', function() {
       key,
       state: state ? 'keydown' : 'keyup',
     };
-    console.log(payload);
+    console.log('Sending update', payload);
     if (conn) {
       conn.send(payload);
     }
   }
 
   function handleTouch(event) {
-    //console.log(event);
     event.preventDefault();
-    const touches = [...event.touches];
-    if (touches.length) {
-      touches.forEach(touch => {
+    //console.log([...event.touches].map(touch => touch.radiusX));
+
+    const filter = {};
+    if (event.touches.length) {
+      [...event.touches].forEach(touch => {
         areas.forEach(area => {
-          const intersects = circlesIntersect(area.radius, touch.radiusX,
+          console.log(touch);
+          const intersects = circlesIntersect(area.radius, 12,
             area.pos.x, area.pos.y, touch.clientX, touch.clientY);
-          sendEvent(area.id, intersects && event.type !== 'touchend');
+          filter[area.id] = filter[area.id] || intersects;
         });
       });
-    } else {
-      Object.keys(states).forEach(key => {
-        sendEvent(key, false);
-      });
     }
+    keys.forEach(key => sendEvent(key, filter[key] || false));
   }
 
   const svg = controller.contentDocument;
@@ -64,6 +64,7 @@ window.addEventListener('load', function() {
       radius: rect.width * .9,
     };
     areas.push(area);
+    keys.push(area.id);
     states[area.id] = false;
   }
 
@@ -76,7 +77,7 @@ window.addEventListener('load', function() {
     const peer = new Peer({key: 'lwjd5qra8257b9'});
     conn = peer.connect(id);
     conn.on('open', function() {
-      // Receive messages
+      console.log('Connection established', conn);
       conn.on('data', function(data) {
         console.log('Received', data);
       });
