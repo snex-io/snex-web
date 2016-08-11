@@ -39,13 +39,11 @@ window.addEventListener('load', function() {
 
   function handleTouch(event) {
     event.preventDefault();
-    //console.log([...event.touches].map(touch => touch.radiusX));
 
     const filter = {};
     if (event.touches.length) {
       [...event.touches].forEach(touch => {
         areas.forEach(area => {
-          console.log(touch);
           const intersects = circlesIntersect(area.radius, 12,
             area.pos.x, area.pos.y, touch.clientX, touch.clientY);
           filter[area.id] = filter[area.id] || intersects;
