@@ -1,0 +1,27 @@
+{
+  "name": "gamepad-remotes",
+  "version": "0.0.0",
+  "description": "Hosted browser loadable gamepad remotes for controlling games on a smart phone.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node service.js",
+    "test": "mocha test/**.spec.js"
+  },
+  "engines": {
+    "node": "6.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snakesilk/gamepad-remotes.git"
+  },
+  "author": "Pontus Alexander <pontus.alexander@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/snakesilk/gamepad-remotes/issues"
+  },
+  "homepage": "https://github.com/snakesilk/gamepad-remotes#readme",
+  "dependencies": {
+    "ejs": "^2.5.5",
+    "express": "^4.14.0"
+  }
+}
