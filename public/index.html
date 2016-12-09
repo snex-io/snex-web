@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Gamepad Remotes for Android</title>
+  <link href="/style.css" rel="stylesheet" />
+
+  <script src="//cdn.peerjs.com/0.3/peer.js"></script>
+</head>
+<body>
+  <section class="headline">
+    <h1>Gamepads for Android</h1>
+    <h3>Control your games with a gamepad on your smart phone.</h3>
+  </section>
+
+  <section class="how-it-works">
+    <h2>How it works</h2>
+
+    <h3>Start Gamepad on your device</h3>
+
+    <h3>Play your game with it</h3>
+
+  </section>
+
+  <section class="demo">
+    <h2>Try it!</h2>
+  </section>
+
+  <section class="get-started">
+    <h2>Get started</h2>
+
+    <h3>Include Peer.js script</h3>
+    <code>
+      <script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
+    </code>
+
+    <h3>Open channel</h3>
+    <pre>
+      var peer = new Peer({key: 'lwjd5qra8257b9'});
+      peer.on('open', function(id) {
+        console.log('My peer ID is: ' + id);
+      });
+    </pre>
+
+    <h3>Open Remote</h3>
+    <pre>
+      var url = 'http://gamepad.pomle.com/nes/?key=lwjd5qra8257b9'
+        + '&id=' + id;
+      window.open(url);
+    </pre>
+
+    <h3>Receive events</h3>
+    <pre>
+      peer.on('connection', function(conn) {
+        conn.on('data', function(data) {
+          if (data.key === 'A' && data.state === 'keydown') {
+            game.character.jump();
+          }
+        });
+      });
+    </pre>
+
+  </section>
+</body>
+</html>

@@ -1,0 +1,12 @@
+html, body {
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+section.headline {
+  text-align: center;
+}
