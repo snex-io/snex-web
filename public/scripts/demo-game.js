@@ -11,7 +11,7 @@ window.addEventListener('load', function() {
       }
     }
 
-    const G = new Vec(0, 200);
+    const G = new Vec(0, 160);
     const F = new Vec();
     const V = new Vec();
     const P = new Vec();
@@ -58,7 +58,7 @@ window.addEventListener('load', function() {
     onFrame();
   }
 
-
+  const link = document.body.querySelector('.demo .link');
   const canvas = document.body.querySelector('.demo .game canvas');
   const game = new Game(canvas);
 
@@ -68,7 +68,7 @@ window.addEventListener('load', function() {
   const peer = new Peer({key: 'b0gtzdyp37ffxbt9'});
   peer.on('open', function(id) {
     var url = '/nes/?key=b0gtzdyp37ffxbt9&id=' + id;
-    iframe.src = url;
+    link.href = url;
   });
 
   peer.on('connection', function(conn) {
