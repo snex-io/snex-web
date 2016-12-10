@@ -88,7 +88,7 @@ window.addEventListener('load', function() {
       }
 
       if (key === 'A' && state === 'keydown') {
-        game.velocity.y -= 1000;
+        game.velocity.y -= 2000;
       }
     });
   });
