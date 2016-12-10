@@ -39,6 +39,11 @@ app.get('/:controller', (req, res, next) => {
     res.render('remote');
 });
 
+
+app.get('/', (req, res) => {
+    res.render('front');
+});
+
 const server = app.listen(PORT);
 server.on('listening', () => {
     const bound = server.address();
