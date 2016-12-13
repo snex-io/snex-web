@@ -46,8 +46,11 @@ window.addEventListener('load', function() {
     const S = new Vec(10, 10);
 
     function draw() {
-      ctx.fillStyle = '#000';
+      ctx.fillStyle = '#5db7ff';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#ffbd89';
+      ctx.fillRect(0, canvas.height - 40, canvas.width, canvas.height);
 
       ctx.fillStyle = '#fff';
       ctx.fillRect(P.x, P.y, S.x, S.y);
