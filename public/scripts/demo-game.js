@@ -88,23 +88,21 @@ window.addEventListener('load', function() {
       V.x = Math.abs(V.x) > 0.1 ? V.x * 0.9 : 0;
     };
 
-    const step = 1/120;
-    let last = 0;
-    let acc = 0;
-    const onFrame = (time) => {
-      if (last && time) {
-        acc += (time - last) / 1000;
+    function timer(step, update, draw) {
+      let prev = 0, acc = 0;
+      return function onFrame(time = 0) {
+        acc = acc + (time - prev) / 1000;
         while (acc > step) {
           update(step);
           acc = acc - step;
         }
         draw();
+        prev = time;
+        requestAnimationFrame(onFrame);
       }
-      last = time;
-      requestAnimationFrame(onFrame);
-    };
+    }
 
-    onFrame();
+    timer(1/120, update, draw)();
 
     this.dir = 0;
     this.jump = 0;
