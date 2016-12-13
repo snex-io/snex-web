@@ -91,7 +91,10 @@ window.addEventListener('load', function() {
     onFrame();
   }
 
-  const link = document.body.querySelector('.demo .link');
+  function resize() {
+    canvas.width = canvas.parentNode.getBoundingClientRect().width;
+  }
+
   const canvas = document.body.querySelector('.demo .game canvas');
   const game = new Game(canvas);
 
@@ -126,6 +129,10 @@ window.addEventListener('load', function() {
       }
     });
   });
+
+
+  window.addEventListener('resize', resize);
+  resize()
 
   window.game = game;
 });
