@@ -30,10 +30,12 @@ window.addEventListener('load', function() {
   function Game(canvas) {
     const ctx = canvas.getContext('2d');
 
+    const SPEED = 2000;
+
     function Vec(x, y) {
       this.x = x || 0;
       this.y = y || 0;
-      this.add = (v, m) => {
+      this.add = (v, m = 1) => {
         this.x += v.x * m;
         this.y += v.y * m;
       }
@@ -45,7 +47,7 @@ window.addEventListener('load', function() {
     const P = new Vec();
     const S = new Vec(10, 10);
 
-    function draw() {
+    const draw = () => {
       ctx.fillStyle = '#5db7ff';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -54,9 +56,12 @@ window.addEventListener('load', function() {
 
       ctx.fillStyle = '#fff';
       ctx.fillRect(P.x, P.y, S.x, S.y);
-    }
+    };
 
-    function update(dt) {
+    const update = (dt) => {
+      F.x = this.dir * SPEED;
+      F.y = G.y;
+
       V.add(F, dt);
       P.add(V, dt);
 
@@ -72,27 +77,26 @@ window.addEventListener('load', function() {
         P.x = -S.x;
       }
 
-      F.add(G, dt);
-    }
+      V.x = V.x > 0.1 ? V.x * 0.9 : 0;
+    };
 
     let last;
-    function onFrame(time) {
+    const onFrame = (time) => {
       if (last && time) {
         update((time - last) / 1000);
         draw();
       }
       last = time;
       requestAnimationFrame(onFrame);
-    }
-
-    this.force = F;
-    this.velocity = V;
+    };
 
     onFrame();
+
+    this.dir = 0;
   }
 
   function resize() {
-    canvas.width = canvas.parentNode.getBoundingClientRect().width;
+    canvas.width = canvas.getBoundingClientRect().width;
   }
 
   const canvas = document.body.querySelector('.demo .game canvas');
@@ -113,15 +117,15 @@ window.addEventListener('load', function() {
       const { key, state } = data;
 
       if (key === 'LEFT') {
-        game.force.x += state === 'keydown'
-          ? -500
-          : 500;
+        game.dir += state === 'keydown'
+          ? -1
+          : 1;
       }
 
       if (key === 'RIGHT') {
-        game.force.x += state === 'keydown'
-          ? 500
-          : -500;
+        game.dir += state === 'keydown'
+          ? 1
+          : -1;
       }
 
       if (key === 'A' && state === 'keydown') {
