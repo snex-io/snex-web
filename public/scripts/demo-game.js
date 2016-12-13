@@ -42,11 +42,11 @@ window.addEventListener('load', function() {
       }
     }
 
+    const S = new Vec(10, 10);
     const G = new Vec(0, 500);
     const F = new Vec();
     const V = new Vec();
-    const P = new Vec();
-    const S = new Vec(10, 10);
+    const P = new Vec((canvas.width / 2) - (S.x / 2), 0);
 
     const draw = () => {
       ctx.fillStyle = '#5db7ff';
@@ -85,7 +85,7 @@ window.addEventListener('load', function() {
         P.x = -S.x;
       }
 
-      V.x = Math.abs(V.x) > 0.1 ? V.x * 0.9 : 0;
+      V.x = Math.abs(V.x) > 0.1 ? V.x * 0.95 : 0;
     };
 
     function timer(step, update, draw) {
@@ -113,6 +113,7 @@ window.addEventListener('load', function() {
   }
 
   const canvas = document.body.querySelector('.demo .game canvas');
+  const log = document.body.querySelector('.demo .game .log');
 
   const peer = new Peer({key: 'b0gtzdyp37ffxbt9'});
   peer.on('open', function(id) {
@@ -125,6 +126,8 @@ window.addEventListener('load', function() {
     const game = new Game(canvas);
 
     conn.on('data', function(data) {
+      log.textContent = JSON.stringify(data);
+
       const { key, state } = data;
 
       if (key === 'LEFT') {

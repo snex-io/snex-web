@@ -3,8 +3,34 @@
 
 }
 
+.demo .game,
+.demo .game canvas,
+.demo .game .screen {
+  height: 240px;
+}
+
+.demo .game .screen {
+  position: relative;
+}
+
+.demo .game .screen {
+  position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.demo .screen .log {
+  font-family: 'Consolas', monospace;
+  font-size: 24px;
+  position: absolute;
+  top: 25%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  text-shadow: 1px 1px 4px #000;
+}
+
 .demo canvas {
-  margin: 0 -8px;
   width: 100%;
 }
 
