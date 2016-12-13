@@ -1,0 +1,26 @@
+.demo {
+
+
+}
+
+.demo .input {
+  zoom: .8;
+}
+
+.demo .input .overlay {
+  background: url('./images/htc.png') no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+  height: 382px;
+  width: 768px;
+  position: relative;
+}
+
+.demo .input .controllers .controller .link {
+  text-align: center;
+}
+
+.demo .input .controllers .controller iframe {
+  border: 0;
+  padding: 22px 0 0 79px;
+}

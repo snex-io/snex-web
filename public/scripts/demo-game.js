@@ -1,4 +1,32 @@
 window.addEventListener('load', function() {
+  const args = document.body.attributes;
+  const API_KEY = args['data-api-key'].value;
+  const controllers = args['data-controllers'].value.split(',');
+
+  const controllerTemplate = document.querySelector('template.controller');
+  const controllerPool = document.querySelector('.demo .controllers');
+
+  function createLink(type, channel) {
+    return `/${type}/?key=${API_KEY}&id=${channel}`;
+  }
+
+  function createController(type, channel) {
+    const element = document
+      .importNode(controllerTemplate.content, true)
+      .children[0];
+
+    const url = createLink(type, channel);
+
+    const link = element.querySelector('a');
+    link.href = url;
+    link.textContent = link.href;
+    link.target = '_blank';
+    const iframe = element.querySelector('iframe');
+    iframe.src = url;
+
+    controllerPool.appendChild(element);
+  }
+
   function Game(canvas) {
     const ctx = canvas.getContext('2d');
 
@@ -15,28 +43,30 @@ window.addEventListener('load', function() {
     const F = new Vec();
     const V = new Vec();
     const P = new Vec();
+    const S = new Vec(10, 10);
 
     function draw() {
       ctx.fillStyle = '#000';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.fillStyle = '#fff';
-      ctx.fillRect(P.x, P.y, 10, 10);
+      ctx.fillRect(P.x, P.y, S.x, S.y);
     }
-
-    const ground = canvas.height * 0.75;
 
     function update(dt) {
       V.add(F, dt);
       P.add(V, dt);
 
+      const ground = canvas.height - 40;
       if (P.y > ground) {
         P.y = ground;
         V.y = 0;
       }
 
-      if (P.x < -30 || P.x > canvas.width) {
-        P.x = canvas.width / 2;
+      if (P.x < -S.x) {
+        P.x = canvas.width;
+      } else if (P.x > canvas.width) {
+        P.x = -S.x;
       }
 
       F.add(G, dt);
@@ -67,8 +97,9 @@ window.addEventListener('load', function() {
 
   const peer = new Peer({key: 'b0gtzdyp37ffxbt9'});
   peer.on('open', function(id) {
-    var url = '/nes/?key=b0gtzdyp37ffxbt9&id=' + id;
-    link.href = url;
+    controllers.forEach(type => {
+      const element = createController(type, id);
+    });
   });
 
   peer.on('connection', function(conn) {

@@ -1,5 +1,6 @@
 const express = require('express');
 
+const API_KEY = 'b0gtzdyp37ffxbt9';
 const PORT = process.env.PORT || 8080;
 
 const controllers = {
@@ -39,8 +40,12 @@ app.get('/:controller', (req, res, next) => {
     res.render('remote');
 });
 
-
 app.get('/', (req, res) => {
+    res.locals = {
+        controllers: Object.keys(controllers),
+        api_key: API_KEY,
+    };
+
     res.render('front');
 });
 
