@@ -31,6 +31,7 @@ window.addEventListener('load', function() {
     const ctx = canvas.getContext('2d');
 
     const SPEED = 2000;
+    let canJump = false;
 
     function Vec(x, y) {
       this.x = x || 0;
@@ -62,11 +63,18 @@ window.addEventListener('load', function() {
       F.x = this.dir * SPEED;
       F.y = G.y;
 
+      if (canJump && this.jump) {
+        V.y -= 400;
+        canJump = false;
+      }
+      this.jump = false;
+
       V.add(F, dt);
       P.add(V, dt);
 
       const ground = canvas.height - 40;
       if (P.y > ground) {
+        canJump = true;
         P.y = ground;
         V.y = 0;
       }
@@ -99,6 +107,7 @@ window.addEventListener('load', function() {
     onFrame();
 
     this.dir = 0;
+    this.jump = 0;
   }
 
   function resize() {
@@ -135,7 +144,7 @@ window.addEventListener('load', function() {
       }
 
       if (key === 'A' && state === 'keydown') {
-        game.velocity.y -= 2000;
+        game.jump = true;
       }
     });
   });
