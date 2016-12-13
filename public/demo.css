@@ -3,6 +3,11 @@
 
 }
 
+.demo canvas {
+  margin: 0 -8px;
+  width: 100%;
+}
+
 .demo .input {
   zoom: .8;
 }
