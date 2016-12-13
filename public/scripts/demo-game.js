@@ -25,6 +25,15 @@ window.addEventListener('load', function() {
     iframe.src = url;
 
     controllerPool.appendChild(element);
+
+    fetch('/api/v1/link?url=' + encodeURIComponent(link.href))
+      .then(res => res.json())
+      .then(payload => {
+        if (payload.status_code === 200) {
+          link.href = payload.data.url;
+          link.textContent = payload.data.url;
+        }
+      });
   }
 
   function Game(canvas) {
