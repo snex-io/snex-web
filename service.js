@@ -1,6 +1,7 @@
 const express = require('express');
+const api = require('./server/api');
 
-const API_KEY = 'b0gtzdyp37ffxbt9';
+const PEERJS_API_KEY = process.env.PEERJS_API_KEY || 'lwjd5qra8257b9';
 const PORT = process.env.PORT || 8080;
 
 const controllers = {
@@ -43,11 +44,13 @@ app.get('/:controller', (req, res, next) => {
 app.get('/', (req, res) => {
     res.locals = {
         controllers: Object.keys(controllers),
-        api_key: API_KEY,
+        api_key: PEERJS_API_KEY,
     };
 
     res.render('front');
 });
+
+app.use('/api', api);
 
 const server = app.listen(PORT);
 server.on('listening', () => {
