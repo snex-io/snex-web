@@ -80,10 +80,16 @@ window.addEventListener('load', function() {
       V.x = V.x > 0.1 ? V.x * 0.9 : 0;
     };
 
-    let last;
+    const step = 1/120;
+    let last = 0;
+    let acc = 0;
     const onFrame = (time) => {
       if (last && time) {
-        update((time - last) / 1000);
+        acc += (time - last) / 1000;
+        while (acc > step) {
+          update(step);
+          acc = acc - step;
+        }
         draw();
       }
       last = time;
