@@ -30,7 +30,7 @@ window.addEventListener('load', function() {
   function Game(canvas) {
     const ctx = canvas.getContext('2d');
 
-    const SPEED = 2000;
+    const SPEED = 3000;
     let canJump = false;
 
     function Vec(x, y) {
@@ -42,7 +42,7 @@ window.addEventListener('load', function() {
       }
     }
 
-    const G = new Vec(0, 160);
+    const G = new Vec(0, 500);
     const F = new Vec();
     const V = new Vec();
     const P = new Vec();
@@ -72,7 +72,7 @@ window.addEventListener('load', function() {
       V.add(F, dt);
       P.add(V, dt);
 
-      const ground = canvas.height - 40;
+      const ground = canvas.height - 40 - S.y;
       if (P.y > ground) {
         canJump = true;
         P.y = ground;
@@ -85,7 +85,7 @@ window.addEventListener('load', function() {
         P.x = -S.x;
       }
 
-      V.x = V.x > 0.1 ? V.x * 0.9 : 0;
+      V.x = Math.abs(V.x) > 0.1 ? V.x * 0.9 : 0;
     };
 
     const step = 1/120;
@@ -115,10 +115,6 @@ window.addEventListener('load', function() {
   }
 
   const canvas = document.body.querySelector('.demo .game canvas');
-  const game = new Game(canvas);
-
-  const iframe = document.body.querySelector('.demo .controller iframe');
-
 
   const peer = new Peer({key: 'b0gtzdyp37ffxbt9'});
   peer.on('open', function(id) {
@@ -128,30 +124,21 @@ window.addEventListener('load', function() {
   });
 
   peer.on('connection', function(conn) {
+    const game = new Game(canvas);
+
     conn.on('data', function(data) {
       const { key, state } = data;
 
       if (key === 'LEFT') {
-        game.dir += state === 'keydown'
-          ? -1
-          : 1;
-      }
-
-      if (key === 'RIGHT') {
-        game.dir += state === 'keydown'
-          ? 1
-          : -1;
-      }
-
-      if (key === 'A' && state === 'keydown') {
+        game.dir += state === 'keydown' ? -1 : 1;
+      } else if (key === 'RIGHT') {
+        game.dir += state === 'keydown' ? 1 : -1;
+      } else if (key === 'A' && state === 'keydown') {
         game.jump = true;
       }
     });
   });
 
-
   window.addEventListener('resize', resize);
   resize()
-
-  window.game = game;
 });
