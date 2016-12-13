@@ -76,10 +76,29 @@ window.addEventListener('load', function() {
     keys.forEach(key => sendEvent(key, filter[key] || false));
   }
 
+  function handleMouse(event) {
+    event.preventDefault();
+
+    const filter = Object.create(null);
+    if (event.buttons > 0) {
+      areas.forEach(area => {
+        const intersects = circlesIntersect(area.radius, 12,
+          area.pos.x, area.pos.y, event.clientX, event.clientY);
+        filter[area.id] = filter[area.id] || intersects;
+      });
+    }
+    keys.forEach(key => sendEvent(key, filter[key] || false));
+  }
+
   const svg = controller.contentDocument;
   svg.addEventListener('touchstart', handleTouch);
   svg.addEventListener('touchend', handleTouch);
   svg.addEventListener('touchmove', handleTouch);
+
+  svg.addEventListener('mousedown', handleMouse);
+  svg.addEventListener('mouseup', handleMouse);
+  svg.addEventListener('mousemove', handleMouse);
+
 
   mapKeys();
   window.addEventListener('resize', mapKeys)
