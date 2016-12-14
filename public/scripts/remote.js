@@ -103,14 +103,16 @@ window.addEventListener('load', function() {
   mapKeys();
   window.addEventListener('resize', mapKeys)
 
-  const peer = new Peer({key: API_KEY});
-  const conn = peer.connect(CHANNEL);
-  conn.on('open', function() {
-    conns.add(conn);
-    console.info('Connection established on channel "%s"', CHANNEL);
+  if (API_KEY && CHANNEL) {
+    const peer = new Peer({key: API_KEY});
+    const conn = peer.connect(CHANNEL);
+    conn.on('open', function() {
+      conns.add(conn);
+      console.info('Connection established on channel "%s"', CHANNEL);
 
-    conn.on('data', function(data) {
-      console.info('Received', data);
+      conn.on('data', function(data) {
+        console.info('Received', data);
+      });
     });
-  });
+  }
 });
