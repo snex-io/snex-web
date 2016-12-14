@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1600px" height="900px" viewBox="0 0 1600 900" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #000000;">
+    <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
+    <title>SNES</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter id="noise">
+            <feTurbulence type="fractalNoise" baseFrequency="1" numOctaves="1" stitchTiles="stitch"/>
+            <feColorMatrix type="saturate" values="0"/>
+        </filter>
+
+        <pattern id="pattern-9" width="256" height="256" x="0" y="0" patternUnits="userSpaceOnUse">
+            <rect width='256' height='256' filter="url(#noise)" />
+        </pattern>
+
+        <linearGradient x1="37.7755923%" y1="-5.32758062%" x2="50%" y2="74.6315414%" id="linearGradient-1">
+            <stop stop-color="#EEEEEE" offset="0%"></stop>
+            <stop stop-color="#BEBEBE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="54.4663846%" y1="84.2429475%" x2="54.4663867%" y2="-7.39542071%" id="linearGradient-2">
+            <stop stop-color="#ADADAD" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="28.5770469%" y1="0%" x2="65.4934877%" y2="78.3770968%" id="linearGradient-3">
+            <stop stop-color="#C6C6CA" offset="0%"></stop>
+            <stop stop-color="#95959B" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="55.7296521%" y1="106.881066%" x2="55.7296515%" y2="-10.4503455%" id="linearGradient-4">
+            <stop stop-color="#D2D2D2" offset="0%"></stop>
+            <stop stop-color="#787878" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-5" cx="1107.7" cy="301" r="301"></circle>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="602" height="602" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+        <linearGradient x1="55.7296521%" y1="106.881066%" x2="55.7296515%" y2="-10.4503455%" id="linearGradient-7">
+            <stop stop-color="#F9F9F9" offset="0%"></stop>
+            <stop stop-color="#979797" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-8" cx="191" cy="303" r="191"></circle>
+        <mask id="mask-9" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="382" height="382" fill="white">
+            <use xlink:href="#path-8"></use>
+        </mask>
+        <linearGradient x1="64.4858465%" y1="90.1658984%" x2="36.1793241%" y2="9.50490626%" id="linearGradient-10">
+            <stop stop-color="#F2F2F2" offset="0%"></stop>
+            <stop stop-color="#545454" offset="100%"></stop>
+        </linearGradient>
+        <path d="M119.569584,258.853333 C107.420487,267.088932 92.7611691,271.9 76.9781658,271.9 C35.0045248,271.9 0.978165822,237.873641 0.978165822,195.9 C0.978165822,168.186701 15.8114957,143.937911 37.9718371,130.65995 L186.916778,12.1837949 L187.232942,12.581268 C199.213912,4.69129722 213.559862,0.0999999866 228.978166,0.0999999866 C270.951807,0.0999999866 304.978166,34.126359 304.978166,76.1 C304.978166,97.713123 295.956282,117.219072 281.473045,131.057315 L281.539002,131.140235 L280.533056,131.940401 C277.775258,134.487807 274.828346,136.833485 271.715752,138.954001 L120.116788,259.541262 L119.569584,258.853333 Z" id="path-11"></path>
+        <mask id="mask-12" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="304" height="271.8" fill="white">
+            <use xlink:href="#path-11"></use>
+        </mask>
+        <path d="M272.069584,376.453332 C259.920487,384.688932 245.261169,389.5 229.478166,389.5 C187.504525,389.5 153.478166,355.473641 153.478166,313.5 C153.478166,285.786701 168.311496,261.537911 190.471837,248.25995 L339.416778,129.783795 L339.732942,130.181268 C351.713912,122.291297 366.059862,117.7 381.478166,117.7 C423.451807,117.7 457.478166,151.726359 457.478166,193.7 C457.478166,215.313123 448.456282,234.819072 433.973045,248.657315 L434.039002,248.740235 L433.033056,249.540401 C430.275258,252.087807 427.328346,254.433485 424.215752,256.554001 L272.616788,377.141262 L272.069584,376.453332 Z" id="path-13"></path>
+        <mask id="mask-14" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="304" height="271.8" fill="white">
+            <use xlink:href="#path-13"></use>
+        </mask>
+        <linearGradient x1="50%" y1="-30.6557623%" x2="50%" y2="100%" id="linearGradient-15">
+            <stop stop-color="#7E7E90" offset="0%"></stop>
+            <stop stop-color="#19191D" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="20.5004631%" y1="137.971237%" x2="33.8411%" y2="-33.0190795%" id="linearGradient-16">
+            <stop stop-color="#E7E7E7" offset="0%"></stop>
+            <stop stop-color="#979797" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-17" x="1.70530257e-13" y="0" width="129.318152" height="43" rx="21.5"></rect>
+        <mask id="mask-18" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-13" y="-13" width="155.318152" height="69">
+            <rect x="-13" y="-13" width="155.318152" height="69" fill="white"></rect>
+            <use xlink:href="#path-17" fill="black"></use>
+        </mask>
+        <linearGradient x1="76.4165927%" y1="-229.247966%" x2="35.6321599%" y2="50%" id="linearGradient-19">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#34353B" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-20" x="3.26012147" y="3" width="122.797909" height="37" rx="18.5"></rect>
+        <mask id="mask-21" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="122.797909" height="37" fill="white">
+            <use xlink:href="#path-20"></use>
+        </mask>
+        <linearGradient x1="50%" y1="-22.4047782%" x2="50%" y2="80.6098321%" id="linearGradient-22">
+            <stop stop-color="#8E81C5" offset="0%"></stop>
+            <stop stop-color="#5E47AF" offset="100%"></stop>
+        </linearGradient>
+        <radialGradient cx="50%" cy="5.31873199%" fx="50%" fy="5.31873199%" r="82.7231228%" id="radialGradient-23">
+            <stop stop-color="#9B91CB" offset="0%"></stop>
+            <stop stop-color="#634DB1" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="50%" y1="-3.55571671%" x2="50%" y2="66.142252%" id="linearGradient-24">
+            <stop stop-color="#A59BCF" offset="0%"></stop>
+            <stop stop-color="#5E47AF" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-25" cx="63.723741" cy="64.3683453" r="55.2517986"></circle>
+        <mask id="mask-26" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="110.503597" height="110.503597" fill="white">
+            <use xlink:href="#path-25"></use>
+        </mask>
+        <circle id="path-27" cx="63.723741" cy="64.3683453" r="55.2517986"></circle>
+        <mask id="mask-28" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="110.503597" height="110.503597" fill="white">
+            <use xlink:href="#path-27"></use>
+        </mask>
+        <linearGradient x1="50%" y1="-70.2039409%" x2="50%" y2="43.5541051%" id="linearGradient-29">
+            <stop stop-color="#D4D3F4" offset="0%"></stop>
+            <stop stop-color="#BAB8E6" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="108.125262%" x2="50%" y2="21.3265858%" id="linearGradient-30">
+            <stop stop-color="#D3D1F2" offset="0%"></stop>
+            <stop stop-color="#ADACDE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="-34.5494052%" id="linearGradient-31">
+            <stop stop-color="#BAB8E6" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-32" cx="63.723741" cy="63.9079137" r="55.2517986"></circle>
+        <mask id="mask-33" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="110.503597" height="110.503597" fill="white">
+            <use xlink:href="#path-32"></use>
+        </mask>
+        <circle id="path-34" cx="63.723741" cy="63.9079137" r="55.2517986"></circle>
+        <mask id="mask-35" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="110.503597" height="110.503597" fill="white">
+            <use xlink:href="#path-34"></use>
+        </mask>
+        <rect id="path-36" x="1.70530257e-13" y="0" width="129.318152" height="43" rx="21.5"></rect>
+        <mask id="mask-37" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-13" y="-13" width="155.318152" height="69">
+            <rect x="-13" y="-13" width="155.318152" height="69" fill="white"></rect>
+            <use xlink:href="#path-36" fill="black"></use>
+        </mask>
+        <rect id="path-38" x="3.26012147" y="3" width="122.797909" height="37" rx="18.5"></rect>
+        <mask id="mask-39" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="122.797909" height="37" fill="white">
+            <use xlink:href="#path-38"></use>
+        </mask>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-40">
+            <stop stop-color="#4A4B54" offset="0%"></stop>
+            <stop stop-color="#2B2B31" offset="100%"></stop>
+        </linearGradient>
+        <path d="M92.2,92.9 L19.198652,92.9 C8.70992566,92.9 0.199999988,101.404433 0.199999988,111.895183 L0.199999988,169.904817 C0.199999988,180.401707 8.70598624,188.9 19.198652,188.9 L92.2,188.9 L92.2,259.901348 C92.2,270.390074 100.704433,278.9 111.195183,278.9 L169.204817,278.9 C179.701707,278.9 188.2,270.394014 188.2,259.901348 L188.2,188.9 L259.201348,188.9 C269.690074,188.9 278.2,180.395567 278.2,169.904817 L278.2,111.895183 C278.2,101.398293 269.694014,92.9 259.201348,92.9 L188.2,92.9 L188.2,19.8986521 C188.2,9.4099257 179.695567,0.900000028 169.204817,0.900000028 L111.195183,0.900000028 C100.698293,0.900000028 92.2,9.40598628 92.2,19.8986521 L92.2,92.9 Z" id="path-41"></path>
+        <mask id="mask-42" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-3" y="-3" width="284" height="284">
+            <rect x="-2.80000001" y="-2.09999997" width="284" height="284" fill="white"></rect>
+            <use xlink:href="#path-41" fill="black"></use>
+        </mask>
+        <linearGradient x1="50%" y1="29.2636273%" x2="50%" y2="100%" id="linearGradient-43">
+            <stop stop-color="#34353C" offset="0%"></stop>
+            <stop stop-color="#4A4A53" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="-22.5215617%" x2="50%" y2="70.0046371%" id="linearGradient-44">
+            <stop stop-color="#7A7A8A" offset="0%"></stop>
+            <stop stop-color="#2E2E35" offset="100%"></stop>
+        </linearGradient>
+        <path d="M102.42996,102.539684 L23.0970409,102.539684 C15.3629877,102.539684 9.09999997,108.803408 9.09999997,116.530104 L9.09999997,164.947683 C9.09999997,172.669877 15.3666886,178.938103 23.0970409,178.938103 L102.42996,178.938103 L102.42996,256.102959 C102.42996,263.837012 108.693685,270.1 116.420381,270.1 L164.837959,270.1 C172.560153,270.1 178.828379,263.833311 178.828379,256.102959 L178.828379,178.938103 L256.302959,178.938103 C264.037012,178.938103 270.3,172.674378 270.3,164.947683 L270.3,116.530104 C270.3,108.80791 264.033311,102.539684 256.302959,102.539684 L178.828379,102.539684 L178.828379,22.897041 C178.828379,15.1629878 172.564655,8.90000007 164.837959,8.90000007 L116.420381,8.90000007 C108.698187,8.90000007 102.42996,15.1666887 102.42996,22.897041 L102.42996,102.539684 Z" id="path-45"></path>
+        <mask id="mask-46" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-2" y="-2" width="265.2" height="265.2">
+            <rect x="7.09999997" y="6.90000007" width="265.2" height="265.2" fill="white"></rect>
+            <use xlink:href="#path-45" fill="black"></use>
+        </mask>
+        <linearGradient x1="50%" y1="171.941078%" x2="50%" y2="20.4674321%" id="linearGradient-47">
+            <stop stop-color="#575762" offset="0%"></stop>
+            <stop stop-color="#2C2C33" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-48">
+            <stop stop-color="#222226" offset="0%"></stop>
+            <stop stop-color="#898A97" offset="100%"></stop>
+        </linearGradient>
+        <path d="M8,29 L7.10542736e-15,29 L28.5,61 L57,29 L49,29 L49,3.0005775 C49,1.35196465 47.6576526,0 46.0017833,0 L10.9982167,0 C9.34083335,0 8,1.34340431 8,3.0005775 L8,29 Z" id="path-49"></path>
+        <mask id="mask-50" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="59" height="63">
+            <rect x="-1" y="-1" width="59" height="63" fill="white"></rect>
+            <use xlink:href="#path-49" fill="black"></use>
+        </mask>
+        <path d="M8,29 L7.10542736e-15,29 L28.5,61 L57,29 L49,29 L49,3.0005775 C49,1.35196465 47.6576526,0 46.0017833,0 L10.9982167,0 C9.34083335,0 8,1.34340431 8,3.0005775 L8,29 Z" id="path-51"></path>
+        <mask id="mask-52" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="59" height="63">
+            <rect x="-1" y="-1" width="59" height="63" fill="white"></rect>
+            <use xlink:href="#path-51" fill="black"></use>
+        </mask>
+        <path d="M8,29 L7.10542736e-15,29 L28.5,61 L57,29 L49,29 L49,3.0005775 C49,1.35196465 47.6576526,0 46.0017833,0 L10.9982167,0 C9.34083335,0 8,1.34340431 8,3.0005775 L8,29 Z" id="path-53"></path>
+        <mask id="mask-54" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="59" height="63">
+            <rect x="-1" y="-1" width="59" height="63" fill="white"></rect>
+            <use xlink:href="#path-53" fill="black"></use>
+        </mask>
+        <linearGradient x1="43.9468563%" y1="60.6820629%" x2="43.9468548%" y2="-11.8119897%" id="linearGradient-55">
+            <stop stop-color="#222226" offset="0%"></stop>
+            <stop stop-color="#898A97" offset="100%"></stop>
+        </linearGradient>
+        <path d="M8,29 L7.10542736e-15,29 L28.5,61 L57,29 L49,29 L49,3.0005775 C49,1.35196465 47.6576526,0 46.0017833,0 L10.9982167,0 C9.34083335,0 8,1.34340431 8,3.0005775 L8,29 Z" id="path-56"></path>
+        <mask id="mask-57" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="59" height="63">
+            <rect x="-1" y="-1" width="59" height="63" fill="white"></rect>
+            <use xlink:href="#path-56" fill="black"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SNES">
+            <g id="L-R-Buttons" transform="translate(169.000000, 194.000000)" stroke="#F8F8F8" stroke-width="3" fill="#CDCDCD">
+                <path  data-button="R" d="M1263.2,22.9 L1263.2,9.89999998 C1263.2,9.89999998 1263.2,0.899999984 1250.2,0.899999984 L1075.2,0.899999984 C1075.2,0.899999984 992.2,2.89999998 926.2,40.9 C916.2,46.9 919.2,63.9 919.2,63.9 L1263.20145,63.9 L1263.2,22.9 Z" id="R-Button" transform="translate(1090.989789, 32.400000) scale(-1, 1) translate(-1090.989789, -32.400000) "></path>
+                <path data-button="L" d="M345,23 L345,9.99999999 C345,9.99999999 345,0.999999985 332,0.999999985 L157,0.999999985 C157,0.999999985 74,2.99999999 8,41 C-2,47 1,64 1,64 L345.001453,64 L345,23 Z" id="L-Button"></path>
+            </g>
+            <g id="Controller" transform="translate(0.000000, 217.000000)" stroke="url(#linearGradient-2)" stroke-width="16" fill="url(#linearGradient-1)">
+                <path d="M1259,0.899999939 L336,0.899999939 L336,0.935911042 C149.97611,3.60958997 0,155.240396 0,341.9 C0,530.2291 152.6709,682.9 341,682.9 C427.888308,682.9 507.18652,650.402939 567.403455,596.9 L1032.59655,596.9 C1092.81348,650.402939 1172.11169,682.9 1259,682.9 C1447.3291,682.9 1600,530.2291 1600,341.9 C1600,153.5709 1447.3291,0.899999939 1259,0.899999939 Z" id="Background"></path>
+            </g>
+            <g id="Group-5" transform="translate(1026.978166, 359.700000)"></g>
+            <g id="Group-4" transform="translate(1178.978166, 477.700000)"></g>
+            <g id="Circles" transform="translate(146.000000, 256.000000)" stroke-width="8">
+                <use id="Circle-buttons" stroke="url(#linearGradient-4)" mask="url(#mask-6)" fill="url(#linearGradient-3)" xlink:href="#path-5"></use>
+                <use id="Circle-thumpad" stroke="url(#linearGradient-7)" mask="url(#mask-9)" fill="#D3D3D3" xlink:href="#path-8"></use>
+            </g>
+            <g id="Graphics" transform="translate(599.000000, 341.000000)">
+                <path d="M195.702297,394.068555 C195.529531,394.658727 195.166848,395.140493 194.614225,395.513867 C194.061588,395.887241 193.429157,396.073926 192.716923,396.073926 L184.12656,396.073926 C183.414327,396.073926 182.884039,395.887241 182.535693,395.513867 C182.187362,395.140493 182.099764,394.658727 182.272885,394.068555 L184.376825,386.896191 L187.40619,386.896191 L185.366789,393.851758 L192.735453,393.851758 L194.709065,387.112988 L188.059944,377.682324 C187.597168,377.03193 187.480621,376.315303 187.710272,375.532422 L189.390244,369.805371 C189.563365,369.215199 189.933335,368.733433 190.500152,368.360059 C191.066955,367.986684 191.706006,367.8 192.417338,367.8 L200.996824,367.8 C201.708156,367.8 202.230538,367.986684 202.563997,368.360059 C202.897471,368.733433 202.977829,369.215199 202.805063,369.805371 L200.879965,376.381543 L197.852027,376.381543 L199.714524,370.022168 L192.353723,370.022168 L190.605665,375.984082 L197.29852,385.414746 C197.739891,386.041051 197.845998,386.745634 197.616818,387.528516 L195.702297,394.068555 Z M222.314745,370.022168 L217.044587,370.022168 L209.434943,396.073926 L206.404332,396.073926 L214.017512,370.022168 L208.703798,370.022168 L209.353718,367.8 L222.963309,367.8 L222.314745,370.022168 Z M234.503492,396.073926 L231.494685,396.073926 L232.126096,389.786816 L225.347287,389.786816 L222.315642,396.073926 L219.394046,396.073926 L233.736548,367.727734 L236.71976,367.727734 L234.503492,396.073926 Z M232.380805,387.564648 L233.857965,372.244336 L226.387278,387.564648 L232.380805,387.564648 Z M255.603905,396.073926 L252.420674,396.073926 L250.473421,380.934277 L251.034316,380.428418 L256.43766,380.428418 L259.457508,370.022168 L251.682935,370.022168 L244.113749,396.073926 L241.083139,396.073926 L249.3018,367.8 L260.712081,367.8 C261.423412,367.8 261.949923,367.986684 262.291641,368.360059 C262.633374,368.733433 262.718652,369.215199 262.547467,369.805371 L259.434705,380.536816 C259.039931,381.897826 257.738543,382.57832 255.530501,382.57832 C255.312602,382.57832 254.995644,382.569287 254.579616,382.551221 C254.16359,382.533154 253.861159,382.524121 253.672314,382.524121 C254.32615,387.028701 254.970008,391.545257 255.603905,396.073926 Z M281.905287,370.022168 L276.635128,370.022168 L269.095087,396.073926 L266.064477,396.073926 L273.608053,370.022168 L268.29434,370.022168 L268.938322,367.8 L282.547914,367.8 L281.905287,370.022168 Z" id="START" stroke="#979797" stroke-width="1.5" fill="#979797"></path>
+                <path d="M13.9200619,393.068555 C13.8338787,393.658727 13.5382018,394.140493 13.0315075,394.513867 C12.5277113,394.887241 11.9100656,395.073926 11.1763392,395.073926 L2.32674481,395.073926 C1.59301843,395.073926 1.0066374,394.887241 0.568742754,394.513867 C0.132446907,394.140493 -0.0538684274,393.658727 0.0133872656,393.068555 L1.34606549,385.896191 L4.50746729,385.896191 L3.17922395,392.851758 L10.8134314,392.851758 L12.1408933,386.112988 L5.46364912,376.682324 C5.06970756,376.03193 5.05071795,375.315303 5.40716926,374.532422 L8.35981357,368.805371 C8.69859107,368.215199 9.20538342,367.733433 9.87567875,367.360059 C10.5463316,366.986684 11.2303475,366.8 11.9275195,366.8 L20.3362244,366.8 C21.0333963,366.8 21.5013028,366.986684 21.7430722,367.360059 C21.9889415,367.733433 21.966033,368.215199 21.6749595,368.805371 L18.7607379,375.381543 L15.6603929,375.381543 L18.5608383,369.022168 L11.2454032,369.022168 L8.29595481,374.984082 L14.7650542,384.414746 C15.249574,385.041051 15.3941556,385.745634 15.2008021,386.528516 L13.9200619,393.068555 Z M33.2728726,395.073926 L21.7279703,395.073926 L30.3621701,366.8 L41.2038505,366.8 L40.3508307,369.022168 L32.3644533,369.022168 L28.4796733,379.572949 L36.0657014,379.572949 L35.4143795,381.83125 L27.7970063,381.83125 L25.2185433,392.851758 L33.688448,392.851758 L33.2728726,395.073926 Z M51.9328885,395.073926 L40.7024388,395.073926 L48.3913247,366.8 L51.3578475,366.8 L44.2990425,392.851758 L52.4527375,392.851758 L51.9328885,395.073926 Z M70.3009126,395.073926 L58.7560103,395.073926 L65.5454619,366.8 L76.3871424,366.8 L76.0310114,369.022168 L68.044634,369.022168 L65.6998772,379.572949 L73.2859053,379.572949 L72.7883756,381.83125 L65.1710024,381.83125 L62.4534989,392.851758 L70.9234036,392.851758 L70.3009126,395.073926 Z M92.4862508,393.068555 C92.2931362,393.658727 91.8922839,394.140493 91.2862211,394.513867 C90.6795253,394.887241 90.0091075,395.073926 89.2753811,395.073926 L80.2236386,395.073926 C79.4899122,395.073926 78.948705,394.887241 78.5984967,394.513867 C78.2463363,394.140493 78.1573936,393.658727 78.3312427,393.068555 L83.3463718,368.805371 C83.4164964,368.215199 83.693799,367.733433 84.1777946,367.360059 C84.6586165,366.986684 85.2463945,366.8 85.9435665,366.8 L94.5443484,366.8 C95.2415203,366.8 95.813028,366.986684 96.2594009,367.360059 C96.7064017,367.733433 96.920857,368.215199 96.8992882,368.805371 L96.383365,375.381543 L93.2607153,375.381543 L93.86028,369.022168 L86.3284119,369.022168 L81.5339981,392.851758 L89.3940697,392.851758 L91.3234514,385.896191 L94.5075971,385.896191 L92.4862508,393.068555 Z M116.277928,369.022168 L111.04025,369.022168 L106.497899,395.073926 L103.375834,395.073926 L108.031831,369.022168 L102.750866,369.022168 L102.734891,366.8 L116.073573,366.8 L116.277928,369.022168 Z" id="SELECT" stroke="#979797" stroke-width="1.5" fill="#979797"></path>
+                <path d="M402.82,302.3 C403.18,302.3 403.42,302.06 403.48,301.7 L406.3,286.04 L422.2,262.1 C422.38,261.8 422.26,261.5 421.78,261.5 L414.28,261.5 C413.92,261.5 413.62,261.68 413.38,262.1 L403.48,277.4 L403.3,277.4 L398.8,262.1 C398.68,261.68 398.38,261.5 397.96,261.5 L390.94,261.5 C390.52,261.5 390.28,261.8 390.4,262.1 L397.9,286.04 L395.08,301.7 C395.02,302.06 395.26,302.3 395.62,302.3 L402.82,302.3 Z" id="Y" fill="#C2C2C2"></path>
+                <path d="M543.18,424.7 C543.12,425.06 543.36,425.3 543.72,425.3 L558.66,425.3 C568.62,425.3 574.44,419.9 574.44,411.32 C574.44,407.6 572.58,405.08 570.48,404.18 L570.48,404.06 C574.8,401.84 576.96,398.18 576.96,393.26 C576.96,387.86 573.54,384.5 566.1,384.5 L550.86,384.5 C550.5,384.5 550.26,384.74 550.2,385.1 L543.18,424.7 Z M556.08,401.3 C555.84,401.3 555.72,401.18 555.78,400.94 L557.4,391.64 C557.46,391.4 557.58,391.28 557.82,391.28 L563.82,391.28 C566.76,391.28 568.32,392.66 568.32,395.12 C568.32,398.84 565.62,401.3 562.02,401.3 L556.08,401.3 Z M552.78,418.16 L554.52,408.14 C554.58,407.9 554.7,407.78 554.94,407.78 L561.36,407.78 C564.48,407.78 565.98,409.34 565.98,411.86 C565.98,415.88 563.28,418.52 559.5,418.52 L553.02,418.52 C552.78,418.52 552.72,418.4 552.78,418.16 Z" id="B" fill="#BEBEBE"></path>
+                <path d="M762.82,41.3 C763.24,41.3 763.42,40.94 763.24,40.58 L755.02,20.12 L769.24,1.21999999 C769.48,0.85999999 769.42,0.49999999 769,0.49999999 L760.96,0.49999999 C760.48,0.49999999 760.18,0.67999999 759.88,1.09999999 L751.66,12.32 L751.54,12.32 L747.22,1.09999999 C747.04,0.67999999 746.8,0.49999999 746.32,0.49999999 L738.64,0.49999999 C738.22,0.49999999 738.04,0.85999999 738.16,1.21999999 L745.84,20 L730.24,40.58 C729.94,40.94 730.06,41.3 730.42,41.3 L738.88,41.3 C739.36,41.3 739.54,41.12 739.84,40.7 L749.32,27.86 L749.44,27.86 L754.36,40.7 C754.54,41.12 754.78,41.3 755.26,41.3 L762.82,41.3 Z" id="X" fill="#C8C8C8"></path>
+                <path d="M887.54,164.3 L895.46,164.3 C895.88,164.3 896.06,164.12 896.24,163.7 L899.78,156.38 L913.52,156.38 L914.48,163.7 C914.54,164.12 914.78,164.3 915.2,164.3 L922.52,164.3 C922.82,164.3 923,164.06 922.94,163.7 L916.64,124.1 C916.58,123.74 916.4,123.5 915.98,123.5 L908.72,123.5 C908.3,123.5 908,123.74 907.82,124.1 L887.24,163.7 C887.06,164.06 887.18,164.3 887.54,164.3 Z M903.32,149.18 L910.58,134.3 L910.76,134.3 L912.62,149.18 L903.32,149.18 Z" id="A" fill="#BFBFBF"></path>
+            </g>
+            <circle id="noise" fill-opacity="0.3" fill="url(#pattern-9)" cx="1253.7" cy="557" r="301"></circle>
+            <g id="Button-Shrouds" transform="translate(1026.000000, 360.000000)" stroke="url(#linearGradient-10)" stroke-width="4" fill="#D6D6D6">
+                <use id="Combined-Shape" mask="url(#mask-12)" xlink:href="#path-11"></use>
+                <use id="Combined-Shape" mask="url(#mask-14)" xlink:href="#path-13"></use>
+            </g>
+            <g data-button="START" id="Start-Button" transform="translate(824.850331, 609.288640) rotate(-37.000000) translate(-824.850331, -609.288640) translate(759.850331, 587.788640)">
+                <g id="Rectangle">
+                    <use fill="url(#linearGradient-15)" fill-rule="evenodd" xlink:href="#path-17"></use>
+                    <use stroke="url(#linearGradient-16)" mask="url(#mask-18)" stroke-width="26" xlink:href="#path-17"></use>
+                    <use stroke="#1E1E24" stroke-width="4" xlink:href="#path-17"></use>
+                </g>
+                <use id="Rectangle" stroke="url(#linearGradient-19)" mask="url(#mask-21)" stroke-width="4" fill="#333339" xlink:href="#path-20"></use>
+            </g>
+            <g data-button="B" id="B-Button" transform="translate(1191.978166, 609.300000)" stroke-width="4">
+                <circle id="Oval" stroke="#1E1E22" fill="url(#linearGradient-22)" cx="63.723741" cy="64.3683453" r="63.5395683"></circle>
+                <use id="Oval" stroke="url(#linearGradient-24)" mask="url(#mask-26)" fill="url(#radialGradient-23)" xlink:href="#path-25"></use>
+            </g>
+            <g data-button="A" id="A-Button" transform="translate(1344.378166, 489.800000)" stroke-width="4">
+                <circle id="Oval" stroke="#1E1E22" fill="url(#linearGradient-22)" cx="63.723741" cy="64.3683453" r="63.5395683"></circle>
+                <use id="Oval" stroke="url(#linearGradient-24)" mask="url(#mask-28)" fill="url(#radialGradient-23)" xlink:href="#path-27"></use>
+            </g>
+            <g data-button="Y" id="Y-Button" transform="translate(1039.578166, 490.700000)" stroke-width="4">
+                <circle id="Oval" stroke="#1E1E22" fill="url(#linearGradient-29)" cx="63.723741" cy="63.9079137" r="63.5395683"></circle>
+                <use id="Oval" stroke="url(#linearGradient-31)" mask="url(#mask-33)" fill="url(#linearGradient-30)" xlink:href="#path-32"></use>
+            </g>
+            <g data-button="X" id="X-Button" transform="translate(1191.978166, 371.700000)" stroke-width="4">
+                <circle id="Oval" stroke="#1E1E22" fill="url(#linearGradient-29)" cx="63.723741" cy="63.9079137" r="63.5395683"></circle>
+                <use id="Oval" stroke="url(#linearGradient-31)" mask="url(#mask-35)" fill="url(#linearGradient-30)" xlink:href="#path-34"></use>
+            </g>
+            <g data-button="SELECT" id="Select-Button" transform="translate(653.150331, 609.288640) rotate(-37.000000) translate(-653.150331, -609.288640) translate(588.150331, 587.788640)">
+                <g id="Rectangle">
+                    <use fill="url(#linearGradient-15)" fill-rule="evenodd" xlink:href="#path-36"></use>
+                    <use stroke="url(#linearGradient-16)" mask="url(#mask-37)" stroke-width="26" xlink:href="#path-36"></use>
+                    <use stroke="#1E1E24" stroke-width="4" xlink:href="#path-36"></use>
+                </g>
+                <use id="Rectangle" stroke="url(#linearGradient-19)" mask="url(#mask-39)" stroke-width="4" fill="#333339" xlink:href="#path-38"></use>
+            </g>
+            <g id="Thumbpad" transform="translate(197.000000, 419.000000)">
+                <g id="Combined-Shape">
+                    <use fill="url(#linearGradient-40)" fill-rule="evenodd" xlink:href="#path-41"></use>
+                    <use stroke="#1D1D24" mask="url(#mask-42)" stroke-width="6" xlink:href="#path-41"></use>
+                </g>
+                <g id="Combined-Shape">
+                    <use fill="url(#linearGradient-43)" fill-rule="evenodd" xlink:href="#path-45"></use>
+                    <use stroke="url(#linearGradient-44)" mask="url(#mask-46)" stroke-width="4" xlink:href="#path-45"></use>
+                </g>
+                <g id="Indentations" transform="translate(19.000000, 19.000000)">
+                    <g id="Center-circle" transform="translate(89.000000, 88.000000)" stroke="url(#linearGradient-48)" stroke-width="1.15" fill="url(#linearGradient-47)">
+                        <circle id="Oval-2" cx="33.2" cy="33.9" r="33"></circle>
+                    </g>
+                    <g data-button="DOWN" id="Bottom-arrow" transform="translate(93.000000, 180.400000)">
+                        <g id="Combined-Shape">
+                            <use fill="#2C2C33" fill-rule="evenodd" xlink:href="#path-49"></use>
+                            <use stroke="url(#linearGradient-48)" mask="url(#mask-50)" stroke-width="2" xlink:href="#path-49"></use>
+                        </g>
+                    </g>
+                    <g data-button="LEFT" id="Left-arrow" transform="translate(30.900000, 122.800000) rotate(90.000000) translate(-30.900000, -122.800000) translate(2.400000, 92.300000)">
+                        <g id="Combined-Shape">
+                            <use fill="#2C2C33" fill-rule="evenodd" xlink:href="#path-51"></use>
+                            <use stroke="url(#linearGradient-48)" mask="url(#mask-52)" stroke-width="2" xlink:href="#path-51"></use>
+                        </g>
+                    </g>
+                    <g data-button="RIGHT" id="Right-arrow" transform="translate(212.100000, 122.400000) scale(-1, 1) rotate(90.000000) translate(-212.100000, -122.400000) translate(183.600000, 91.900000)">
+                        <g id="Combined-Shape">
+                            <use fill="#2C2C33" fill-rule="evenodd" xlink:href="#path-53"></use>
+                            <use stroke="url(#linearGradient-48)" mask="url(#mask-54)" stroke-width="2" xlink:href="#path-53"></use>
+                        </g>
+                    </g>
+                    <g data-button="UP" id="Top-arrow" transform="translate(121.700000, 31.400000) rotate(180.000000) translate(-121.700000, -31.400000) translate(93.200000, 0.900000)">
+                        <g id="Combined-Shape">
+                            <use fill="#2C2C33" fill-rule="evenodd" xlink:href="#path-56"></use>
+                            <use stroke="url(#linearGradient-55)" mask="url(#mask-57)" stroke-width="2" xlink:href="#path-56"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
