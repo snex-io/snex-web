@@ -9,6 +9,9 @@ const controllers = {
     'nes': {
         title: 'Nintendo 8-bit',
     },
+    'snes': {
+        title: 'Super Nintendo',
+    },
 };
 
 const app = express();
