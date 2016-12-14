@@ -35,16 +35,46 @@
 }
 
 .demo .input {
-  zoom: .8;
+  display: flex;
+  align-items: center;
+}
+
+.demo .input .skip {
+  flex: 1 1 auto;
+}
+
+.demo .input .skip.prev {
+  order: -1;
+}
+
+.demo .input .skip.next {
+  order: 1;
 }
 
 .demo .input .overlay {
   background: url('./images/htc.png') no-repeat;
   background-size: contain;
-  margin: 0 auto;
+  flex: 0 0 768px;
+    order: 0;
   height: 382px;
   width: 768px;
   position: relative;
+  zoom: .8;
+}
+
+.demo .input .controllers {
+  perspective: 1000px;
+  position: relative;
+}
+
+.demo .input .controllers .controller {
+  position: absolute;
+  transition: all .5s ease;;
+}
+
+.demo .input .controllers .controller.hidden {
+  opacity: 0;
+  transform: rotateX(90deg) scale(.2);
 }
 
 .demo .input .controllers .controller .link {
