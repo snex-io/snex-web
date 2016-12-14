@@ -122,6 +122,7 @@ window.addEventListener('load', function() {
   }
 
   const canvas = document.body.querySelector('.demo .game canvas');
+  const game = new Game(canvas);
   const log = document.body.querySelector('.demo .game .log');
 
   const peer = new Peer({key: 'b0gtzdyp37ffxbt9'});
@@ -132,8 +133,6 @@ window.addEventListener('load', function() {
   });
 
   peer.on('connection', function(conn) {
-    const game = new Game(canvas);
-
     conn.on('data', function(data) {
       log.textContent = JSON.stringify(data);
 
