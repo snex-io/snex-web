@@ -1,39 +1,46 @@
 window.addEventListener('load', function() {
-  const args = document.body.attributes;
-  const API_KEY = args['data-api-key'].value;
-  const controllers = args['data-controllers'].value.split(',');
+  function ControllerFactory() {
+    const API_KEY = getAPIKey();
 
-  const controllerTemplate = document.querySelector('template.controller');
-  const controllerPool = document.querySelector('.demo .controllers');
+    const template = document.querySelector('template.controller');
+    const pool = document.querySelector('.demo .controllers');
+    let count = 0;
 
-  function createLink(type, channel) {
-    return `/${type}/?key=${API_KEY}&id=${channel}`;
-  }
+    function createLink(type, channel) {
+      return `/${type}/?key=${API_KEY}&id=${channel}`;
+    }
 
-  function createController(type, channel) {
-    const element = document
-      .importNode(controllerTemplate.content, true)
-      .children[0];
+    return function createController(type, channel) {
+      const element = document
+        .importNode(template.content, true)
+        .children[0];
 
-    const url = createLink(type, channel);
+      const url = createLink(type, channel);
 
-    const link = element.querySelector('a');
-    link.href = url;
-    link.textContent = link.href;
-    link.target = '_blank';
-    const iframe = element.querySelector('iframe');
-    iframe.src = url;
+      const link = element.querySelector('a');
+      link.href = url;
+      link.textContent = link.href;
+      link.target = '_blank';
+      const iframe = element.querySelector('iframe');
+      iframe.src = url;
 
-    controllerPool.appendChild(element);
+      if (++count === 1) {
+        element.classList.remove('hidden');
+      }
 
-    fetch('/api/v1/link?url=' + encodeURIComponent(link.href))
-      .then(res => res.json())
-      .then(payload => {
-        if (payload.status_code === 200) {
-          link.href = payload.data.url;
-          link.textContent = payload.data.url;
-        }
-      });
+      pool.appendChild(element);
+
+      fetch('/api/v1/link?url=' + encodeURIComponent(link.href))
+        .then(res => res.json())
+        .then(payload => {
+          if (payload.status_code === 200) {
+            link.href = payload.data.url;
+            link.textContent = payload.data.url;
+          }
+        });
+
+      return element;
+    }
   }
 
   function Game(canvas) {
@@ -117,18 +124,38 @@ window.addEventListener('load', function() {
     this.jump = 0;
   }
 
+  function offset(input, diff, max) {
+      const next = input + diff;
+      return (next % max + max) % max;
+  }
+
+  function getAPIKey() {
+    return document.body.attributes['data-api-key'].value;
+  }
+
+  function getControllerList() {
+    return document.body.attributes['data-controllers'].value.split(',');
+  }
+
   function resize() {
     canvas.width = canvas.getBoundingClientRect().width;
   }
 
-  const canvas = document.body.querySelector('.demo .game canvas');
+  const demoElement = document.querySelector('.demo');
+
+  const createController = ControllerFactory();
+  const controllers = [];
+
+
+  const log = demoElement.querySelector('.log');
+  const canvas = demoElement.querySelector('canvas');
   const game = new Game(canvas);
-  const log = document.body.querySelector('.demo .game .log');
 
   const peer = new Peer({key: 'b0gtzdyp37ffxbt9'});
   peer.on('open', function(id) {
-    controllers.forEach(type => {
-      const element = createController(type, id);
+    getControllerList().forEach(type => {
+      const e = createController(type, id);
+      controllers.push(e);
     });
   });
 
@@ -150,27 +177,22 @@ window.addEventListener('load', function() {
 
   window.addEventListener('resize', resize);
 
-  function offset(input, diff, max) {
-      const next = input + diff;
-      return (next % max + max) % max;
-  }
-
-  const inputElement = document.querySelector('.demo .input');
-  inputElement.addEventListener('click', (event) => {
-    if (event.target.matches('[data-skip]')) {
-      const skip = parseInt(event.target.getAttribute('data-skip'), 10);
-      const controllers = [...inputElement.querySelectorAll('.controller:not(template)')];
-      let visibleIndex = 0;
-      controllers.forEach((controller, index) => {
-        if (!controller.classList.contains('hidden')) {
-          visibleIndex = index;
-        }
-        controller.classList.add('hidden');
-      });
-      const next = offset(visibleIndex, skip, controllers.length);
-      console.log(skip, visibleIndex, next, controllers.length);
-      controllers[next].classList.remove('hidden');
+  demoElement.querySelector('.input')
+  .addEventListener('click', (event) => {
+    const skip = parseInt(event.target.getAttribute('data-skip'), 10);
+    if (!skip) {
+      return;
     }
+
+    let index = 0;
+    controllers.forEach((c, i) => {
+      if (!c.classList.contains('hidden')) {
+        index = i;
+      }
+      c.classList.add('hidden');
+    });
+    index = offset(index, skip, controllers.length)
+    controllers[index].classList.remove('hidden');
   });
 
   resize()
