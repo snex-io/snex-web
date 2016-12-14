@@ -38,12 +38,19 @@
     </div>
 
     <div class="input">
+      <div class="skip prev">
+          <button data-skip="-1">Prev</button>
+      </div>
+
+      <div class="skip next">
+          <button data-skip="1">Next</button>
+      </div>
+
       <div class="overlay">
         <div class="controllers">
           <template class="controller">
-            <div class="controller">
+            <div class="controller hidden">
               <div class="window">
-                <div class="overlay">
                 <iframe src="" width="604" height="340"></iframe>
               </div>
 
@@ -52,8 +59,10 @@
               </div>
             </div>
           </template>
+
         </div>
       </div>
+
     </div>
   </section>
 

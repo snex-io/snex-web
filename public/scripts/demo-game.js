@@ -149,5 +149,29 @@ window.addEventListener('load', function() {
   });
 
   window.addEventListener('resize', resize);
+
+  function offset(input, diff, max) {
+      const next = input + diff;
+      return (next % max + max) % max;
+  }
+
+  const inputElement = document.querySelector('.demo .input');
+  inputElement.addEventListener('click', (event) => {
+    if (event.target.matches('[data-skip]')) {
+      const skip = parseInt(event.target.getAttribute('data-skip'), 10);
+      const controllers = [...inputElement.querySelectorAll('.controller:not(template)')];
+      let visibleIndex = 0;
+      controllers.forEach((controller, index) => {
+        if (!controller.classList.contains('hidden')) {
+          visibleIndex = index;
+        }
+        controller.classList.add('hidden');
+      });
+      const next = offset(visibleIndex, skip, controllers.length);
+      console.log(skip, visibleIndex, next, controllers.length);
+      controllers[next].classList.remove('hidden');
+    }
+  });
+
   resize()
 });
