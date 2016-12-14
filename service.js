@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression');
 const api = require('./server/api');
 
 const PEERJS_API_KEY = process.env.PEERJS_API_KEY || 'lwjd5qra8257b9';
@@ -11,6 +12,8 @@ const controllers = {
 };
 
 const app = express();
+
+app.use(compression());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
