@@ -43,12 +43,24 @@
   flex: 1 1 auto;
 }
 
+.demo .input .skip button {
+  border-radius: 1em;
+  background: #5db7ff;
+  border: 0;
+  color: #fff;
+  font-size: 24px;
+  margin: 1em;
+  padding: .6em 1em;
+}
+
 .demo .input .skip.prev {
   order: -1;
+  text-align: right;
 }
 
 .demo .input .skip.next {
   order: 1;
+  text-align: left;
 }
 
 .demo .input .overlay {
