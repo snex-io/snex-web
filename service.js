@@ -12,6 +12,9 @@ const controllers = {
     'snes': {
         title: 'Super Nintendo',
     },
+    'genesis': {
+        title: 'Sega Genesis',
+    },
 };
 
 const app = express();
