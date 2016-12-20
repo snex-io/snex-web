@@ -43,6 +43,20 @@ window.addEventListener('load', function() {
     }
   }
 
+  function Carousel(controllers) {
+    this.skip = function(skip) {
+      let index = 0;
+      controllers.forEach((c, i) => {
+        if (!c.classList.contains('hidden')) {
+          index = i;
+        }
+        c.classList.add('hidden');
+      });
+      index = offset(index, skip, controllers.length)
+      controllers[index].classList.remove('hidden');
+    }
+  }
+
   function Game(canvas) {
     const ctx = canvas.getContext('2d');
 
@@ -142,6 +156,8 @@ window.addEventListener('load', function() {
   const createController = ControllerFactory();
   const controllers = [];
 
+  const carousel = new Carousel(controllers);
+
 
   const log = demoElement.querySelector('.log');
   const canvas = demoElement.querySelector('canvas');
@@ -173,22 +189,12 @@ window.addEventListener('load', function() {
 
   window.addEventListener('resize', resize);
 
-  demoElement.querySelector('.input')
-  .addEventListener('click', (event) => {
-    const skip = parseInt(event.target.getAttribute('data-skip'), 10);
-    if (!skip) {
-      return;
-    }
 
-    let index = 0;
-    controllers.forEach((c, i) => {
-      if (!c.classList.contains('hidden')) {
-        index = i;
-      }
-      c.classList.add('hidden');
-    });
-    index = offset(index, skip, controllers.length)
-    controllers[index].classList.remove('hidden');
+  const switches = demoElement.querySelectorAll('.input [data-skip]');
+  console.log(switches);
+  [...switches].forEach(sw => {
+    const skip = parseInt(sw.getAttribute('data-skip'), 10);
+    sw.addEventListener('click', () => carousel.skip(skip));
   });
 
   resize()

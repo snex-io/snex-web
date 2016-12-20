@@ -9,8 +9,8 @@
 
 .demo .game .screen {
   background: linear-gradient(to bottom,
-    #b8e1ff,
-    #31a8fd 50%,
+    #000,
+    #31a8fd 25%,
     #ff60b0 75%,
     #621990 75%,
     #9247c1 85%,
@@ -42,13 +42,13 @@
 }
 
 .demo .input .skip button {
-  border-radius: 1em;
-  background: #5db7ff;
   border: 0;
+  background: transparent;
   color: #fff;
-  font-size: 24px;
+  cursor: pointer;
+  font-size: 96px;
   margin: 1em;
-  padding: .6em 1em;
+  padding: 10px;
 }
 
 .demo .input .skip.prev {
