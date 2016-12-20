@@ -28,7 +28,6 @@
   </section>
 
   <section class="demo">
-    <h2>Try it!</h2>
 
     <div class="game">
       <div class="screen">
@@ -69,30 +68,39 @@
   <section class="get-started">
     <h2>Get started</h2>
 
-    <h3>Include Peer.js script</h3>
-    <pre>
-      <%= '<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>' %>
-    </pre>
+    <section class="steps">
 
-    <h3>Open channel</h3>
-    <pre>
-      var peer = new Peer({key: 'lwjd5qra8257b9'});
-      peer.on('open', function(id) {
-        var url = 'http://gamepad.pomle.com/nes/?key=lwjd5qra8257b9&amp;id=' + id;
-        console.info('Go to url', url);
-      });
-    </pre>
+      <div class="step">
+        <h3>Include Peer.js script</h3>
+        <code>
+          <%= '<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>' %>
+        </code>
+      </div>
 
-    <h3>Receive events</h3>
-    <pre>
-      peer.on('connection', function(conn) {
-        conn.on('data', function(data) {
-          if (data.key === 'A' && data.state === 'keydown') {
-            game.character.jump();
-          }
-        });
-      });
-    </pre>
+      <div class="step">
+        <h3>Open channel</h3>
+        <code>
+          var peer = new Peer({key: 'lwjd5qra8257b9'});
+          peer.on('open', function(id) {
+            var url = 'http://gamepad.pomle.com/nes/?key=lwjd5qra8257b9&amp;id=' + id;
+            console.info('Go to url', url);
+          });
+        </code>
+      </div>
+
+      <div class="step">
+        <h3>Receive events</h3>
+        <code>
+          peer.on('connection', function(conn) {
+            conn.on('data', function(data) {
+              if (data.key === 'A' && data.state === 'keydown') {
+                game.character.jump();
+              }
+            });
+          });
+        </code>
+      </div>
+    </section>
 
   </section>
 </body>
