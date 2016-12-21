@@ -76,16 +76,32 @@
 .demo .input .controllers {
   perspective: 1000px;
   position: relative;
+    left: 79px;
+    top: 22px;
 }
 
 .demo .input .controllers .controller {
   position: absolute;
-  transition: all .5s ease;;
 }
 
-.demo .input .controllers .controller.hidden {
+.demo .input .controllers .controller .window {
+  transition: all .5s ease;
+}
+
+.demo .input .controllers .controller.hidden .window {
   opacity: 0;
   transform: rotateX(90deg) scale(.2);
+}
+
+.demo .input .controllers .controller .link {
+  margin-top: 20px;
+  opacity: 1;
+  transition: all .5s ease;
+}
+
+.demo .input .controllers .controller.hidden .link {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .demo .input .controllers .controller .link {
@@ -94,5 +110,4 @@
 
 .demo .input .controllers .controller iframe {
   border: 0;
-  padding: 22px 0 0 79px;
 }
