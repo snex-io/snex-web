@@ -60,6 +60,7 @@ section h2 {
 }
 
 .get-started .step code {
+  color: #286a80;
   display: block;
   margin: .5em;
   white-space: pre-wrap;

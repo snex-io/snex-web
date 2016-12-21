@@ -191,7 +191,6 @@ window.addEventListener('load', function() {
 
 
   const switches = demoElement.querySelectorAll('.input [data-skip]');
-  console.log(switches);
   [...switches].forEach(sw => {
     const skip = parseInt(sw.getAttribute('data-skip'), 10);
     sw.addEventListener('click', () => carousel.skip(skip));
