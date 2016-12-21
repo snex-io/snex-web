@@ -73,3 +73,9 @@ section h2 {
   margin: .5em;
   white-space: pre-wrap;
 }
+
+footer {
+  margin: 2em;
+  text-align: center;
+  text-shadow: 0 0 10px #000;
+}
