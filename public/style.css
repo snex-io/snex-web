@@ -21,24 +21,46 @@ section.headline {
   text-align: center;
 }
 
+section h2 {
+  text-align: center;
+}
+
+.get-started {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
 .get-started .steps {
   display: flex;
+  align-items: stretch;
+  flex-direction: column;
 }
 
 .get-started .step {
   color: #7e91a6;
-  flex: 1 1 auto;
   padding: 1em;
-  margin: 2em;
+  margin: 2em 1em 1em 1em;
+
+  position: relative;
 }
 
-.get-started .step pre {
-
+.get-started .step h3 {
+  color: #c0cbd6;
+  letter-spacing: .1em;
+  position: absolute;
+    top: -2.5em;
+  text-shadow: 0 5px 8px #000;
 }
 
 .get-started .step {
   background: linear-gradient(to bottom,
     #fff,
     #eaeaea 100%);
-  box-shadow: 0px 10px 20px 0px #000;
+  box-shadow: 0px 5px 20px 0px #000;
+}
+
+.get-started .step code {
+  display: block;
+  margin: .5em;
+  white-space: pre-wrap;
 }
