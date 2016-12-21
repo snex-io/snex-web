@@ -67,15 +67,19 @@ window.addEventListener('load', function() {
     }
 
     function Player() {
-      this.color = '#fff';
-
       let canJump = false;
 
       const
+        COL = COLORS[players.size % COLORS.length],
         S = new Vec(10, 10),
         F = new Vec(),
         V = new Vec(),
-        P = new Vec();
+        P = new Vec(Math.random() * canvas.width, 0);
+
+      this.draw = (ctx) => {
+        ctx.fillStyle = COL;
+        ctx.fillRect(P.x, P.y, S.x, S.y);
+      };
 
       this.update = (dt) => {
         F.x = this.dir * SPEED;
@@ -107,9 +111,6 @@ window.addEventListener('load', function() {
 
       this.dir = 0;
       this.jump = false;
-      this.pos = P;
-      this.size = S;
-      this.vel = V;
     }
 
     const ctx = canvas.getContext('2d');
@@ -129,11 +130,7 @@ window.addEventListener('load', function() {
 
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      players.forEach(p => {
-        ctx.fillStyle = p.color;
-        ctx.fillRect(p.pos.x, p.pos.y, p.size.x, p.size.y);
-      });
+      players.forEach(p => p.draw(ctx));
     }
 
     function update(dt) {
@@ -158,8 +155,6 @@ window.addEventListener('load', function() {
 
     this.addPlayer = function() {
       const p = new Player();
-      p.color = COLORS[players.size % COLORS.length];
-      p.pos.x = (Math.random() * canvas.width);
       players.add(p);
       return p;
     };
