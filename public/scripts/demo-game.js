@@ -1,7 +1,5 @@
 window.addEventListener('load', function() {
   function ControllerFactory() {
-    const API_KEY = getAPIKey();
-
     const template = document.querySelector('template.controller');
     const pool = document.querySelector('.demo .controllers');
     let count = 0;
@@ -151,6 +149,7 @@ window.addEventListener('load', function() {
     canvas.width = canvas.getBoundingClientRect().width;
   }
 
+  const API_KEY = getAPIKey();
   const demoElement = document.querySelector('.demo');
 
   const createController = ControllerFactory();
@@ -163,7 +162,7 @@ window.addEventListener('load', function() {
   const canvas = demoElement.querySelector('canvas');
   const game = new Game(canvas);
 
-  const peer = new Peer({key: 'b0gtzdyp37ffxbt9'});
+  const peer = new Peer({key: API_KEY});
   peer.on('open', function(id) {
     getControllerList().forEach(type => {
       const e = createController(type, id);
