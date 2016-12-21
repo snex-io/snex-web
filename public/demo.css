@@ -9,12 +9,12 @@
 
 .demo .game .screen {
   background: linear-gradient(to bottom,
-    #000,
-    #31a8fd 25%,
-    #ff60b0 75%,
-    #621990 75%,
-    #9247c1 85%,
-    #621990 85%);
+    #19405c,
+    #4484b2 2%,
+    #9248a8 75%,
+    #252a33 75%,
+    #545f72 85%,
+    #252a33 85%);
 }
 
 .demo .screen .log {
