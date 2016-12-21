@@ -95,8 +95,9 @@ window.addEventListener('load', function() {
 
         if (canJump && this.jump) {
           V.y -= 400;
-          this.jump = canJump = false;
+          canJump = false;
         }
+        this.jump = false;
 
         P.add(V, dt);
 
