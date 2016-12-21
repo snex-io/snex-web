@@ -1,20 +1,24 @@
 .demo {
 }
 
+.demo .game {
+  position: relative;
+}
+
 .demo .game,
 .demo .game canvas,
 .demo .game .screen {
-  height: 240px;
+  height: 190px;
 }
 
 .demo .game .screen {
   background: linear-gradient(to bottom,
     #19405c,
-    #4484b2 2%,
-    #9248a8 75%,
-    #252a33 75%,
-    #545f72 85%,
-    #252a33 85%);
+    #4484b2 8px,
+    #9248a8 172px,
+    #252a33 172px,
+    #545f72 190px,
+    #252a33 191px);
 }
 
 .demo .screen .log {
@@ -36,6 +40,7 @@
 .demo .input {
   display: flex;
   align-items: center;
+  margin-top: 10px;
 }
 
 .demo .input .skip {
@@ -48,7 +53,6 @@
   color: #fff;
   cursor: pointer;
   font-size: 96px;
-  margin: 1em;
   padding: 10px;
 }
 
@@ -67,9 +71,10 @@
   background-size: contain;
   flex: 0 0 768px;
     order: 0;
-  height: 382px;
-  width: 768px;
+  margin: 0 20px;
   position: relative;
+  height: 440px;
+  width: 768px;
   zoom: .8;
 }
 
@@ -98,9 +103,18 @@
 }
 
 .demo .input .controllers .controller .link {
-  margin-top: 20px;
+  border-radius: 2em;
+  background: #5c27a5;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-top: 26px;
   opacity: 1;
+  padding: .6em 1em;
   transition: all .5s ease;
+}
+
+.demo .input .controllers .controller .link a {
+  color: #e5d2ff;
 }
 
 .demo .input .controllers .controller.hidden .link {
