@@ -94,8 +94,6 @@ window.addEventListener('load', function() {
           this.jump = canJump = false;
         }
 
-        console.log(V.y);
-
         P.add(V, dt);
 
         if (P.x < -S.x) {
