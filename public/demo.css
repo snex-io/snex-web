@@ -67,7 +67,7 @@
 }
 
 .demo .input .overlay {
-  background: url('./images/htc.png') no-repeat;
+  background: url('./images/android.svg') no-repeat;
   background-size: contain;
   flex: 0 0 768px;
     order: 0;
@@ -81,8 +81,8 @@
 .demo .input .controllers {
   perspective: 1000px;
   position: relative;
-    left: 79px;
-    top: 22px;
+    left: 74px;
+    top: 24px;
 }
 
 .demo .input .controllers .controller {
@@ -95,6 +95,8 @@
 }
 
 .demo .input .controllers .controller .window {
+  height: 360px;
+  width: 630px;
   transition: all .5s ease;
 }
 
@@ -129,4 +131,6 @@
 
 .demo .input .controllers .controller iframe {
   border: 0;
+  height: 100%;
+  width: 100%;
 }
