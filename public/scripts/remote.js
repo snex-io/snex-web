@@ -49,7 +49,7 @@ window.addEventListener('load', function() {
     states[key] = state;
     const payload = {
       key,
-      state: state ? 'keydown' : 'keyup',
+      state: state ? 1 : 0,
     };
 
     console.info('State changed %s / %s', key, payload.state);

@@ -207,10 +207,10 @@ window.addEventListener('load', function() {
       const { key, state } = data;
 
       if (key === 'LEFT') {
-        player.dir += state === 'keydown' ? -1 : 1;
+        player.dir += state ? -1 : 1;
       } else if (key === 'RIGHT') {
-        player.dir += state === 'keydown' ? 1 : -1;
-      } else if (key === 'A' && state === 'keydown') {
+        player.dir += state ? 1 : -1;
+      } else if (state && key === 'A') {
         player.jump = true;
       }
     });
