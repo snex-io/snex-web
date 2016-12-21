@@ -24,7 +24,7 @@
     <div class="game">
       <div class="screen">
         <div class="log"></div>
-        <canvas width="320" height="240"></canvas>
+        <canvas width="320" height="220"></canvas>
       </div>
     </div>
 
@@ -67,14 +67,14 @@
     <section class="steps">
 
       <div class="step">
-        <h3>Include Peer.js script</h3>
+        <h3>Include Peer.js Script</h3>
         <code><%=
           `<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>`
         %></code>
       </div>
 
       <div class="step">
-        <h3>Create URL</h3>
+        <h3>Create Session</h3>
         <code>var peer = new Peer({key: 'lwjd5qra8257b9'});
 peer.on('open', function(id) {
   var url = 'http://gamepad.pomle.com/nes/?key=lwjd5qra8257b9&amp;id=' + id;
@@ -84,7 +84,7 @@ peer.on('open', function(id) {
       </div>
 
       <div class="step">
-        <h3>Listen to events</h3>
+        <h3>Listen to Events</h3>
         <code>peer.on('connection', function(conn) {
   conn.on('data', function(data) {
     if (data.key === 'A' && data.state === 'keydown') {
