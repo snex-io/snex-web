@@ -56,10 +56,6 @@ window.addEventListener('load', function() {
   }
 
   function Game(canvas) {
-    const ctx = canvas.getContext('2d');
-
-    const SPEED = 3000;
-    let canJump = false;
 
     function Vec(x, y) {
       this.x = x || 0;
@@ -70,47 +66,83 @@ window.addEventListener('load', function() {
       }
     }
 
-    const S = new Vec(10, 10);
-    const G = new Vec(0, 500);
-    const F = new Vec();
-    const V = new Vec();
-    const P = new Vec((canvas.width / 2) - (S.x / 2), 0);
+    function Player() {
+      this.color = '#fff';
 
-    const draw = () => {
+      let canJump = false;
+
+      const
+        S = new Vec(10, 10),
+        F = new Vec(),
+        V = new Vec(),
+        P = new Vec();
+
+      this.update = (dt) => {
+        F.x = this.dir * SPEED;
+        F.y = G.y;
+
+        V.add(F, dt);
+
+        if (P.y > GROUND - S.y) {
+          canJump = true;
+          P.y = GROUND - S.y;
+          V.y = 0;
+        }
+
+        if (canJump && this.jump) {
+          V.y -= 400;
+          this.jump = canJump = false;
+        }
+
+        console.log(V.y);
+
+        P.add(V, dt);
+
+        if (P.x < -S.x) {
+          P.x = canvas.width;
+        } else if (P.x > canvas.width) {
+          P.x = -S.x;
+        }
+
+        V.x = Math.abs(V.x) > 0.1 ? V.x * 0.95 : 0;
+      }
+
+      this.dir = 0;
+      this.jump = false;
+      this.pos = P;
+      this.size = S;
+      this.vel = V;
+    }
+
+    const ctx = canvas.getContext('2d');
+
+    const COLORS = [
+      '#ff0000',
+      '#00ff00',
+      '#0000ff',
+    ];
+
+    const
+      GROUND = canvas.height - 10,
+      SPEED = 3000,
+      G = new Vec(0, 500);
+
+    const players = new Set();
+
+    function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = '#fff';
-      ctx.fillRect(P.x, P.y, S.x, S.y);
-    };
+      players.forEach(p => {
+        ctx.fillStyle = p.color;
+        ctx.fillRect(p.pos.x, p.pos.y, p.size.x, p.size.y);
+      });
+    }
 
-    const update = (dt) => {
-      F.x = this.dir * SPEED;
-      F.y = G.y;
-
-      if (canJump && this.jump) {
-        V.y -= 400;
-        canJump = false;
-      }
-      this.jump = false;
-
-      V.add(F, dt);
-      P.add(V, dt);
-
-      const ground = canvas.height - 10 - S.y;
-      if (P.y > ground) {
-        canJump = true;
-        P.y = ground;
-        V.y = 0;
-      }
-
-      if (P.x < -S.x) {
-        P.x = canvas.width;
-      } else if (P.x > canvas.width) {
-        P.x = -S.x;
-      }
-
-      V.x = Math.abs(V.x) > 0.1 ? V.x * 0.95 : 0;
-    };
+    function update(dt) {
+      players.forEach(p => {
+        p.update(dt);
+      });
+    }
 
     function timer(step, update, draw) {
       let prev = 0, acc = 0;
@@ -126,10 +158,15 @@ window.addEventListener('load', function() {
       }
     }
 
-    timer(1/120, update, draw)();
+    this.addPlayer = function() {
+      const p = new Player();
+      p.color = COLORS[players.size % COLORS.length];
+      p.pos.x = (Math.random() * canvas.width);
+      players.add(p);
+      return p;
+    };
 
-    this.dir = 0;
-    this.jump = 0;
+    timer(1/120, update, draw)();
   }
 
   function offset(input, diff, max) {
@@ -152,11 +189,9 @@ window.addEventListener('load', function() {
   const API_KEY = getAPIKey();
   const demoElement = document.querySelector('.demo');
 
-  const createController = ControllerFactory();
   const controllers = [];
-
   const carousel = new Carousel(controllers);
-
+  const createController = ControllerFactory();
 
   const log = demoElement.querySelector('.log');
   const canvas = demoElement.querySelector('canvas');
@@ -171,17 +206,19 @@ window.addEventListener('load', function() {
   });
 
   peer.on('connection', function(conn) {
+    const player = game.addPlayer();
+
     conn.on('data', function(data) {
       log.textContent = JSON.stringify(data);
 
       const { key, state } = data;
 
       if (key === 'LEFT') {
-        game.dir += state === 'keydown' ? -1 : 1;
+        player.dir += state === 'keydown' ? -1 : 1;
       } else if (key === 'RIGHT') {
-        game.dir += state === 'keydown' ? 1 : -1;
+        player.dir += state === 'keydown' ? 1 : -1;
       } else if (key === 'A' && state === 'keydown') {
-        game.jump = true;
+        player.jump = true;
       }
     });
   });
