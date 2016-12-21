@@ -41,17 +41,17 @@ window.addEventListener('load', function() {
     }
   }
 
-  function Carousel(controllers) {
+  function Carousel(set) {
     this.skip = function(skip) {
-      let index = 0;
-      controllers.forEach((c, i) => {
-        if (!c.classList.contains('hidden')) {
-          index = i;
+      let active;
+      set.forEach((cont, i) => {
+        if (!cont.classList.contains('hidden')) {
+          const next = offset(i, skip, set.length);
+          active = set[next];
         }
-        c.classList.add('hidden');
+        cont.classList.add('hidden');
       });
-      index = offset(index, skip, controllers.length)
-      controllers[index].classList.remove('hidden');
+      active.classList.remove('hidden');
     }
   }
 
