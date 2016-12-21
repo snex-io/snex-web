@@ -98,7 +98,7 @@ window.addEventListener('load', function() {
       V.add(F, dt);
       P.add(V, dt);
 
-      const ground = canvas.height - 40 - S.y;
+      const ground = canvas.height - 10 - S.y;
       if (P.y > ground) {
         canJump = true;
         P.y = ground;
