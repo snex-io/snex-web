@@ -12,14 +12,7 @@
 }
 
 .demo .game .screen {
-  background: linear-gradient(to bottom,
-    #19405c,
-    #112f66 4px,
-    #4484b2 160px,
-    #f678cb 172px,
-    #252a33 172px,
-    #545f72 190px,
-    #252a33 191px);
+  background: #000;
 }
 
 .demo .screen .log {
@@ -51,7 +44,7 @@
 .demo .input .skip button {
   border: 0;
   background: transparent;
-  color: #fff;
+  color: #de4d5f;
   cursor: pointer;
   font-size: 96px;
   padding: 10px;
@@ -113,13 +106,7 @@
 }
 
 .demo .input .controllers .controller .link a {
-  border-radius: 2em;
-  background: #5c27a5;
-  color: #e5d2ff;
   display: block;
-  font-size: 20px;
-  letter-spacing: 1px;
-  padding: .6em 1em;
 }
 
 .demo .input .controllers .controller.hidden .link {

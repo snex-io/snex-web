@@ -2,94 +2,143 @@ html, body {
 }
 
 a {
-  color: #fff;
+  color: #de4d5f;
   text-decoration: none;
 }
 
 body {
-  background: #252a33;
-  color: #9ea7b0;
+  background: #ffffff;
+  color: #767676;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1.4;
   margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+section {
+  box-sizing: border-box;
 }
 
 button:focus {
   outline: 0;
 }
 
-section {
-  overflow: hidden;
-}
-
 .headline {
-  background: #252a33;
+  padding: 50px;
   text-align: center;
 }
 
 h1, h2, h3 {
-  font-weight: 200;
+  font-weight: 400;
   letter-spacing: 0.1em;
-  text-align: center;
-}
-
-h1 {
-  font-size: 2em;
 }
 
 h2 {
-  font-size: 1.5em;
-  font-weight: 100;
+  font-size: 28px;
 }
 
 h3 {
-  font-size: 1.3em;
-  font-weight: 200;
+  font-size: 22px;
 }
 
-.get-started {
-  margin: 0 auto;
-  max-width: 900px;
+p {
+  text-align: justify;
 }
 
-.get-started .steps {
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
+.how h2,
+.demo h2 {
+  text-align: center;
 }
 
-.get-started .step {
-  color: #7e91a6;
-  padding: 1em;
-  margin: 2em 1em 1em 1em;
 
-  position: relative;
+.explanation {
+  background: #f6eded;
+  height: 280px;
 }
 
-.get-started .step h3 {
-  color: #c0cbd6;
-  letter-spacing: .1em;
-  position: absolute;
-    top: -2.5em;
-  text-shadow: 0 5px 8px #000;
+  .explanation ul {
+    display: flex;
+    margin: 0 auto;
+    width: 1024px;
+  }
+
+  .explanation li {
+    flex: 1 1 50%;
+  }
+
+  .explanation .android {
+    background: url('/images/android.svg');
+    background-size: cover;
+    box-sizing: border-box;
+    height: 168px;
+    padding: 9px 25px 0px 30px;
+    position: absolute;
+    width: 320px;
+  }
+    .explanation .android:nth-child(1) {
+      transform: rotate(15deg) translate(50px, 120px);
+    }
+
+    .explanation .android:nth-child(2) {
+      transform: rotate(15deg) translate(140px, 20px);
+    }
+
+  .explanation .android img {
+    width: 100%;
+  }
+
+.how {
+}
+  .how ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 1024px;
+  }
+
+  .how li {
+    box-sizing: border-box;
+    flex: 1 1 50%;
+    padding: 1em;
+  }
+
+  .how code {
+    background: #494854;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px -10px #000;
+    color: white;
+    display: block;
+    margin: 0 -.8em;
+    padding: .4em .8em;
+  }
+
+.demo {
+
 }
 
-.get-started .step {
-  background: linear-gradient(to bottom,
-    #efefef,
-    #eaeaea 100%);
-  box-shadow: 0px 5px 20px 0px #000,
-              inset 0 0 20px #fff;
-}
+  .demo > p {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+  }
 
-.get-started .step code {
-  color: #286a80;
-  display: block;
-  margin: .5em;
-  white-space: pre-wrap;
-}
+  .demo .link {
+    background: #de4d5f;
+    border-radius: 2em;
+    font-size: 20px;
+    letter-spacing: 1px;
+    padding: .6em 1em;
+  }
+
+  .demo .link a {
+    color: #fff;
+  }
 
 footer {
   margin: 2em;
   text-align: center;
-  text-shadow: 0 0 10px #000;
 }
