@@ -49,63 +49,58 @@ p {
   text-align: justify;
 }
 
+
+.explanation ul,
+.how ul {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    max-width: 1024px;
+}
+
+.explanation li,
+.how li {
+  box-sizing: border-box;
+  flex: 1 1 50%;
+  /*min-width: 500px;*/
+  padding: 1em;
+}
+
 .how h2,
 .demo h2 {
   text-align: center;
 }
 
-
 .explanation {
   background: #f6eded;
-  height: 280px;
 }
-
-  .explanation ul {
-    display: flex;
-    margin: 0 auto;
-    width: 1024px;
+  .explanation .controllers {
+    height: 280px;
+    margin: auto;
+    position: relative;
+    width: 400px;
   }
-
-  .explanation li {
-    flex: 1 1 50%;
-  }
-
   .explanation .android {
     background: url('/images/android.svg');
     background-size: cover;
     box-sizing: border-box;
     height: 168px;
-    padding: 9px 25px 0px 30px;
     position: absolute;
+    padding: 9px 25px 0px 30px;
     width: 320px;
   }
     .explanation .android:nth-child(1) {
-      transform: rotate(15deg) translate(50px, 120px);
+      transform: rotate(15deg) translateY(100px);
     }
-
     .explanation .android:nth-child(2) {
-      transform: rotate(15deg) translate(140px, 20px);
+      transform: rotate(15deg) translateX(90px);
     }
-
   .explanation .android img {
     width: 100%;
   }
 
 .how {
 }
-  .how ul {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    width: 1024px;
-  }
-
-  .how li {
-    box-sizing: border-box;
-    flex: 1 1 50%;
-    padding: 1em;
-  }
-
   .how code {
     background: #494854;
     border-radius: 5px;
@@ -114,6 +109,13 @@ p {
     display: block;
     margin: 0 -.8em;
     padding: .4em .8em;
+  }
+
+  @media(max-width: 480px) {
+    .how code {
+      margin: 0 -2em;
+      padding: 1em 2em;
+    }
   }
 
 .demo {
