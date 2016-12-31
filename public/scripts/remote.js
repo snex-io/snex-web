@@ -20,11 +20,13 @@ window.addEventListener('load', function() {
   function mapKeys() {
     areas.splice(0, areas.length);
 
-    const touchables = svg.querySelectorAll('[data-button]');
+    const touchables = svg.querySelectorAll('[id^=snex-]');
+
     [...touchables].forEach(touchable => {
+      const [, type, name] = touchable.id.split('-');
       const rect = touchable.getBoundingClientRect();
       const area = {
-        id: touchable.getAttribute('data-button'),
+        id: name,
         pos: {
           x: rect.left + rect.width / 2,
           y: rect.top + rect.height / 2,
