@@ -6,6 +6,8 @@
   <link href="/style.css" rel="stylesheet" />
   <link href="/demo.css" rel="stylesheet" />
 
+  <meta name="viewport" content="width=device-width, user-scalable=1.0, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
   <meta property="og:title" content="Gamepads for Android - SNEX" />
   <meta property="og:description" content="On-screen gamepads for Android that emit JSON over WebRTC. Implement for your game in minutes!" />
   <meta property="og:url" content="http://snex.pomle.com/" />
@@ -21,7 +23,7 @@
 >
   <section class="headline">
     <img src="/images/snex-logo.svg" alt="Snex" />
-    <h2>Play games on the big screen with a Joypad on your Android</h2>
+    <h2>Play games on the big screen with a gamepad on your Android</h2>
   </section>
 
   <section class="explanation">
@@ -33,12 +35,14 @@
       </li>
 
       <li>
-        <div class="android">
-          <img src="/controllers/snes.svg" alt="SNES" />
-        </div>
+        <div class="controllers">
+          <div class="android">
+            <img src="/controllers/snes.svg" alt="SNES" />
+          </div>
 
-        <div class="android">
-          <img src="/controllers/nes.svg" alt="NES" />
+          <div class="android">
+            <img src="/controllers/nes.svg" alt="NES" />
+          </div>
         </div>
       </li>
     </ul>
@@ -49,7 +53,7 @@
 
     <ul>
       <li>
-        <h3>Include <a href="http://peerjs.com/">Peer.js</a></h3>
+        <h3>1) Include <a href="http://peerjs.com/">Peer.js</a></h3>
 
         <p>We depend on Peer.js to easily setup the connection between the user and your project.</p>
         <p>
@@ -66,7 +70,7 @@
         </p>
       </li>
       <li>
-        <h3>Create URL</h3>
+        <h3>2) Create URL</h3>
 
         <p>
           You create a unique URL to our service with help from <a href="http://peerjs.com/">Peer.js</a>.
@@ -86,7 +90,7 @@
 
       </li>
       <li>
-        <h3>User loads URL</h3>
+        <h3>3) User loads URL</h3>
 
         <p>
           Give URL to the user via SMS, email, or create a short link using <a href="http://bit.ly/">Bitly</a>.
@@ -96,7 +100,7 @@
       </li>
 
       <li>
-        <h3>Handle events</h3>
+        <h3>4) Handle events</h3>
 
         <p>
           When the user interacts with the Joypad we will send messages in JSON format containing the details of the user interaction. It's up to you what to do with them.
