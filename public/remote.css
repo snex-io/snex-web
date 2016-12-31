@@ -4,7 +4,7 @@ html, body {
 
 body {
   align-items: flex-end;
-  background: #000;
+  background: transparent;
   display: flex;
   margin: 0;
 }
