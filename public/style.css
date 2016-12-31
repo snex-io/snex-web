@@ -28,8 +28,12 @@ button:focus {
 }
 
 .headline {
-  padding: 50px;
+  padding: 40px;
   text-align: center;
+}
+
+.headline img {
+  max-width: 100%;
 }
 
 h1, h2, h3 {
