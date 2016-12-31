@@ -74,7 +74,7 @@
 
         <p>
           You create a unique URL to our service with help from <a href="http://peerjs.com/">Peer.js</a>.
-          The URL contains information on where to connect and what Joypad to display to the user.
+          The URL contains information on where to connect and what gamepad to display.
         </p>
 
         <code>
@@ -103,14 +103,14 @@
         <h3>4) Handle events</h3>
 
         <p>
-          When the user interacts with the Joypad we will send messages in JSON format containing the details of the user interaction. It's up to you what to do with them.
+          When the user interacts with the gamepad we will send messages in JSON format containing the details of the user interaction. They It's up to you what to do with them.
         </p>
 
         <code>
           peer.on('connection', function(conn) {<br/>
           &nbsp;&nbsp;conn.on('data', function(data) {<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;if (data.key === 'A' &amp;&amp; data.state === 'keydown') {<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Jump');<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;if (data.key == 'A' &amp;&amp; data.state == 1) {<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('A was pressed');<br/>
           &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
           &nbsp;&nbsp;});<br/>
           });
