@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   <title>SNEX</title>
-  <link href="/style.css" rel="stylesheet" />
-  <link href="/demo.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
+  <link href="/style.css" rel="stylesheet">
+  <link href="/demo.css" rel="stylesheet">
+  <link media="(max-width: 800px)" href="/mobile.css" rel="stylesheet">
 
   <meta name="viewport" content="width=device-width, user-scalable=1.0, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
@@ -13,7 +15,6 @@
   <meta property="og:url" content="http://snex.pomle.com/" />
   <meta property="og:image" content="http://snex.pomle.com/controllers/nes.svg" />
 
-  <script src="//use.fontawesome.com/ee3e691800.js"></script>
   <script src="/scripts/demo-game.js"></script>
   <script src="/scripts/peer.min.js"></script>
 </head>
@@ -124,6 +125,10 @@
 
     <p>Use the input below to control the game or open the URL on your Android.</p>
 
+    <div class="controller-url">
+      Go to <span class="link"></span> in your smartphone.
+    </div>
+
     <div class="game">
       <div class="screen">
         <div class="log"></div>
@@ -134,13 +139,13 @@
     <div class="input">
       <div class="skip prev">
           <button data-skip="-1">
-            <i class="fa fa-chevron-left"></i>
+            <img src="/images/arrow.svg" alt="Previous" />
           </button>
       </div>
 
       <div class="skip next">
           <button data-skip="1">
-            <i class="fa fa-chevron-right"></i>
+            <img src="/images/arrow.svg" alt="Next" />
           </button>
       </div>
 
@@ -150,10 +155,6 @@
             <div class="controller hidden">
               <div class="window">
                 <iframe src=""></iframe>
-              </div>
-
-              <div class="link">
-                <a href=""></a>
               </div>
             </div>
           </template>
