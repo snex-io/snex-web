@@ -15,7 +15,7 @@ window.addEventListener('load', function() {
 
       const url = createLink(type, channel);
 
-      const link = element.querySelector('a');
+      const link = document.createElement('a');
       link.href = url;
       link.textContent = link.href;
       link.target = '_blank';
@@ -37,21 +37,27 @@ window.addEventListener('load', function() {
           }
         });
 
-      return element;
+      return {
+        el: element,
+        link,
+      }
     }
   }
 
-  function Carousel(set) {
+  function Carousel(set, link) {
     this.skip = function(skip) {
       let active;
       set.forEach((cont, i) => {
-        if (!cont.classList.contains('hidden')) {
+        const el = cont.el;
+        if (!el.classList.contains('hidden')) {
           const next = offset(i, skip, set.length);
           active = set[next];
+          link.innerHTML = '';
         }
-        cont.classList.add('hidden');
+        el.classList.add('hidden');
       });
-      active.classList.remove('hidden');
+      active.el.classList.remove('hidden');
+      link.appendChild(active.link);
     }
   }
 
@@ -183,8 +189,9 @@ window.addEventListener('load', function() {
   const API_KEY = getAPIKey();
   const demoElement = document.querySelector('.demo');
 
+  const link = document.querySelector('.demo .link');
   const controllers = [];
-  const carousel = new Carousel(controllers);
+  const carousel = new Carousel(controllers, link);
   const createController = ControllerFactory();
 
   const log = demoElement.querySelector('.log');
@@ -197,6 +204,7 @@ window.addEventListener('load', function() {
       const e = createController(type, id);
       controllers.push(e);
     });
+    carousel.skip(0);
   });
 
   peer.on('connection', function(conn) {

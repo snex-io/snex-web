@@ -9,7 +9,7 @@ a {
 body {
   background: #ffffff;
   color: #767676;
-  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Jura', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   line-height: 1.4;
   margin: 0;
 }
@@ -21,6 +21,7 @@ ul {
 
 section {
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 button:focus {
@@ -37,15 +38,18 @@ button:focus {
 }
 
 h1, h2, h3 {
-  font-weight: 400;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 h2 {
-  font-size: 28px;
+  color: #de4d5f;
+  font-size: 32px;
+  text-shadow: 0 2px 3px rgba(0,0,0,.2);
 }
 
 h3 {
+  color: #000;
   font-size: 22px;
 }
 
@@ -66,7 +70,7 @@ p {
 .how li {
   box-sizing: border-box;
   flex: 1 1 50%;
-  /*min-width: 500px;*/
+  min-width: 280px;
   padding: 1em;
 }
 
@@ -76,7 +80,7 @@ p {
 }
 
 .explanation {
-  background: linear-gradient(to top right, #181818, #662b2b);
+  background: linear-gradient(to top right, #452222, #72116b);
   color: #eaeaea;
 }
   .explanation .controllers {
@@ -106,43 +110,54 @@ p {
 
 .how {
 }
+  .how h3 {
+    margin-top: 0;
+  }
+
   .how code {
-    background: #494854;
-    border-radius: 5px;
-    box-shadow: 0 10px 20px -10px #000;
+    background: #de4d5f;
     color: white;
     display: block;
     margin: 0 -.8em;
     padding: .4em .8em;
   }
 
-  @media(max-width: 480px) {
-    .how code {
-      margin: 0 -2em;
-      padding: 1em 2em;
-    }
-  }
-
 .demo {
-
+  align-items: center;
+  display: flex;
+  flex-flow: column;
 }
 
-  .demo > p {
-    margin-left: auto;
-    margin-right: auto;
-    width: 500px;
+  .demo .game {
+    align-self: stretch;
   }
 
-  .demo .link {
+  .demo > p {
+    margin: 1em;
+    max-width: 500px;
+  }
+
+  .demo .input {
+    margin-top: -20px;
+  }
+
+  .demo .input .overlay {
+    zoom: .8;
+  }
+
+  .demo .controller-url {
+    align-self: stretch;
     background: #de4d5f;
-    border-radius: 2em;
-    font-size: 20px;
+    color: #fff;
+    font-size: 16px;
     letter-spacing: 1px;
     padding: .6em 1em;
+    text-align: center;
   }
 
-  .demo .link a {
+  .demo .controller-url .link a {
     color: #fff;
+    font-weight: 700;
   }
 
 footer {

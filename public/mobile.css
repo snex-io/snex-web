@@ -1,0 +1,21 @@
+.how code {
+  font-size: 11px;
+  margin: 0 -2em;
+  padding: 1em 2em;
+}
+
+.demo .input .overlay {
+  zoom: 0.4;
+}
+
+.demo .screen .log {
+  font-size: 16px;
+}
+
+.demo .input .skip.prev {
+  order: 2;
+}
+
+.demo .input .skip.next {
+  order: 3;
+}

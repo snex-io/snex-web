@@ -32,9 +32,10 @@
 }
 
 .demo .input {
-  display: flex;
   align-items: center;
-  margin-top: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .demo .input .skip {
@@ -52,13 +53,18 @@
 
 .demo .input .skip.prev {
   order: -1;
-  text-align: right;
+  text-align: left;
 }
 
 .demo .input .skip.next {
   order: 1;
-  text-align: left;
+  text-align: right;
 }
+
+.demo .input .skip.next img {
+  transform: rotate(180deg);
+}
+
 
 .demo .input .overlay {
   background: url('./images/android.svg') no-repeat;
@@ -69,7 +75,6 @@
   position: relative;
   height: 470px;
   width: 768px;
-  zoom: .8;
 }
 
 .demo .input .controllers {
@@ -97,24 +102,6 @@
 .demo .input .controllers .controller.hidden .window {
   opacity: 0;
   transform: rotateX(90deg) scale(.2);
-}
-
-.demo .input .controllers .controller .link {
-  margin-top: 26px;
-  opacity: 1;
-  transition: all .5s ease;
-}
-
-.demo .input .controllers .controller .link a {
-  display: block;
-}
-
-.demo .input .controllers .controller.hidden .link {
-  opacity: 0;
-}
-
-.demo .input .controllers .controller .link {
-  text-align: center;
 }
 
 .demo .input .controllers .controller iframe {
