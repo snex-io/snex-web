@@ -1,13 +1,12 @@
 <svg width="58" height="86" viewBox="0 0 58 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
 <title>Component</title>
-<desc>Created using Figma</desc>
 <g id="Canvas" transform="translate(206 199)" figma:type="canvas">
 <g id="Component" style="mix-blend-mode:normal;" figma:type="symbol">
 <g id="Rectangle" style="mix-blend-mode:normal;" figma:type="rounded-rectangle">
-<use xlink:href="#path0_fill" transform="matrix(0.707107 -0.707107 0.707107 0.707107 -205.426 -156)" fill="#E23E3E" style="mix-blend-mode:normal;"/>
+<use xlink:href="#path0_fill" transform="matrix(0.707107 -0.707107 0.707107 0.707107 -205.426 -156)" fill="#de4d5f" style="mix-blend-mode:normal;"/>
 </g>
 <g id="Rectangle" style="mix-blend-mode:normal;" figma:type="rounded-rectangle">
-<use xlink:href="#path0_fill" transform="matrix(0.707107 0.707107 -0.707107 0.707107 -191.284 -170.142)" fill="#E23E3E" style="mix-blend-mode:normal;"/>
+<use xlink:href="#path0_fill" transform="matrix(0.707107 0.707107 -0.707107 0.707107 -191.284 -170.142)" fill="#de4d5f" style="mix-blend-mode:normal;"/>
 </g>
 </g>
 </g>
