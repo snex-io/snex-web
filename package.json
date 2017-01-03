@@ -1,7 +1,7 @@
 {
-  "name": "gamepad-remotes",
+  "name": "snex",
   "version": "0.0.0",
-  "description": "Hosted browser loadable gamepad remotes for controlling games on a smart phone.",
+  "description": "Soft gamepads for smart phones emitting JSON over WebRTC.",
   "main": "index.js",
   "scripts": {
     "start": "node service.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/snakesilk/gamepad-remotes.git"
+    "url": "git+https://github.com/pomle/snex.git"
   },
   "author": "Pontus Alexander <pontus.alexander@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/snakesilk/gamepad-remotes/issues"
+    "url": "https://github.com/github.com/pomle/snex/issues"
   },
-  "homepage": "https://github.com/snakesilk/gamepad-remotes#readme",
+  "homepage": "https://github.com/github.com/pomle/snex#readme",
   "dependencies": {
     "compression": "^1.6.2",
     "ejs": "^2.5.5",
