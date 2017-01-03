@@ -1,15 +1,17 @@
 .how code {
   font-size: 11px;
-  margin: 0 -2em;
-  padding: 1em 2em;
 }
 
 .demo .input .overlay {
-  zoom: 0.4;
+    flex-basis: 100%;
 }
 
 .demo .screen .log {
   font-size: 16px;
+}
+
+.demo .input .skip {
+  flex: 0 1 auto;
 }
 
 .demo .input .skip.prev {
@@ -18,4 +20,16 @@
 
 .demo .input .skip.next {
   order: 3;
+}
+
+@media(max-width: 480px) {
+  .demo .input .overlay {
+    zoom: 0.6;
+  }
+}
+
+@media(max-width: 320px) {
+  .demo .input .overlay {
+    zoom: 0.4;
+  }
 }
