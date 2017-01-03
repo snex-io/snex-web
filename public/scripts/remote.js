@@ -45,7 +45,7 @@ window.addEventListener('load', function() {
     }
 
     if (state) {
-      navigator.vibrate(50);
+      navigator.vibrate(20);
     }
 
     states[key] = state;
