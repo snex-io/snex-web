@@ -80,7 +80,7 @@ p {
 }
 
 .explanation {
-  background: linear-gradient(to top right, #452222, #72116b);
+  background: linear-gradient(to bottom, #282020, #6a252d);
   color: #eaeaea;
 }
   .explanation .controllers {
