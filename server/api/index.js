@@ -1,16 +1,41 @@
 const express = require('express');
 const request = require('request');
+const random = require('../random');
+
 const router = express.Router();
 
-const BITLY_TOKEN = process.env.BITLY_TOKEN;
+const linkStore = require('../link-store');
 
-router.get('/v1/link', (req, res) => {
-  const url = `https://api-ssl.bitly.com/v3/shorten?access_token=${BITLY_TOKEN}`
-    + '&longUrl=' + encodeURIComponent(req.query.url);
 
-  request(url, function (error, response, body) {
-    res.send(body);
-  });
+router.get('/v1/session/:id', (req, res) => {
+  const id = req.params.id;
+
+  if (!links.has(id)) {
+    res.statusCode = 404;
+    res.end();
+    return;
+  }
+
+  const meta = links.get(id);
+
+  res.send(JSON.stringify(meta));
+});
+
+router.post('/v1/session', (req, res) => {
+  const id = random.pretty(4, 'ABCDEFGHJKLMNOPQRSTUVWXYZ');
+
+  const meta = {
+    type: req.query.type,
+    key: req.query.key,
+    id: req.query.id,
+    time: new Date(),
+  };
+
+  linkStore.set(id, meta);
+
+  res.send(JSON.stringify({
+    url: process.env.URL_SELF + '/' + id
+  }));
 });
 
 module.exports = router;
