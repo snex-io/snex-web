@@ -22,7 +22,7 @@ router.get('/v1/session/:id', (req, res) => {
 });
 
 router.post('/v1/session', (req, res) => {
-  const id = random.pretty(4, 'ABCDEFGHJKLMNOPQRSTUVWXYZ');
+  const id = random.pretty(4, 'ABCDEFGHJKLMNPQRSTUVWXYZ');
 
   const meta = {
     type: req.query.type,
