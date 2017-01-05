@@ -114,6 +114,12 @@ p {
     margin-top: 0;
   }
 
+  .how img {
+    display: block;
+    margin: 10px auto;
+    width: 90%;
+  }
+
   .how code {
     background: #de4d5f;
     color: white;
