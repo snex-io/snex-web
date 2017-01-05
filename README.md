@@ -6,7 +6,7 @@ Please file issues on repo issue tracker.
 
 ### Known bugs
 
-There is a delay in the network request generated between 0 and 100 ms on touchstart in Google Chrome. That bug has been filed here: 
+There is a delay between 0ms and 100ms in the network request generateds on `touchstart` in Google Chrome. This delay does not occur on `touchmove` or `touchend`. This creates an uncanny experience when using SNEX on Google Chrome on Android. That bug has been filed here: 
 https://bugs.chromium.org/p/chromium/issues/detail?id=639300. Please give feedback to Chromium team if you care about this bug and can reproduce.
 
 Reproduction cases
