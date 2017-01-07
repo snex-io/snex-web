@@ -4,10 +4,6 @@ window.addEventListener('load', function() {
     const pool = document.querySelector('.demo .controllers');
     let count = 0;
 
-    function createLink(type, channel) {
-      return `/${type}/?key=${API_KEY}&id=${channel}`;
-    }
-
     return function createController(type, channel) {
       const element = document
         .importNode(template.content, true)
@@ -24,19 +20,12 @@ window.addEventListener('load', function() {
 
       pool.appendChild(element);
 
-      const url = '/api/v1/session'
-        + '?type=' + type
-        + '&key=' + API_KEY
-        + '&id=' + channel;
-
-      fetch(url, {method: 'POST'})
-        .then(res => res.json())
-        .then(payload => {
-
-          iframe.src = payload.url;
-          link.href = payload.url;
-          link.textContent = payload.url;
-        });
+      snex.createSession(API_KEY, channel, type)
+      .then(session => {
+          iframe.src = session.url;
+          link.href = session.url;
+          link.textContent = session.url;
+      });
 
       return {
         el: element,
@@ -97,24 +86,23 @@ window.addEventListener('load', function() {
       const e = createController(type, id);
       controllers.push(e);
     });
+
     carousel.skip(0);
-  });
 
-  peer.on('connection', function(conn) {
-    const player = game.addPlayer();
+    peer.on('connection', function(conn) {
+      const player = game.addPlayer();
 
-    conn.on('data', function(data) {
-      log.textContent = JSON.stringify(data);
-
-      const { key, state } = data;
-
-      if (key === 'LEFT') {
-        player.dir += state ? -1 : 1;
-      } else if (key === 'RIGHT') {
-        player.dir += state ? 1 : -1;
-      } else if (state && key === 'A') {
-        player.jump = true;
-      }
+      conn.on('data', function(data) {
+        log.textContent = JSON.stringify(data);
+        const { key, state } = data;
+        if (key === 'LEFT') {
+          player.dir += state ? -1 : 1;
+        } else if (key === 'RIGHT') {
+          player.dir += state ? 1 : -1;
+        } else if (state && key === 'A') {
+          player.jump = true;
+        }
+      });
     });
   });
 

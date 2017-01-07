@@ -1,11 +1,12 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const request = require('request');
 const random = require('../random');
 
 const router = express.Router();
 
 const linkStore = require('../link-store');
-
+const propExtract = require('../prop-extract');
 
 router.get('/v1/session/:id', (req, res) => {
   const id = req.params.id;
@@ -21,19 +22,22 @@ router.get('/v1/session/:id', (req, res) => {
   res.send(JSON.stringify(meta));
 });
 
-router.post('/v1/session', (req, res) => {
-  const id = random.pretty(4, 'ABCDEFGHJKLMNPQRSTUVWXYZ');
+router.post('/v1/session', bodyParser.json(), (req, res) => {
+  const payload = propExtract(req.body);
 
   const meta = {
-    type: req.query.type,
-    key: req.query.key,
-    id: req.query.id,
+    type: payload('type'),
+    key: payload('key'),
+    id: payload('id'),
     time: new Date(),
   };
+
+  const id = random.pretty(4, 'ABCDEFGHJKLMNPQRSTUVWXYZ');
 
   linkStore.set(id, meta);
 
   res.send(JSON.stringify({
+    id,
     url: process.env.URL_SELF + '/' + id
   }));
 });
