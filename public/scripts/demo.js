@@ -91,14 +91,13 @@ window.addEventListener('load', function() {
   const canvas = demoElement.querySelector('canvas');
   const game = new Game(canvas);
 
-  getControllerList().forEach(type => {
-      const e = createController(type, '1rt12t1t2');
+  const peer = new Peer({key: API_KEY});
+  peer.on('open', function(id) {
+    getControllerList().forEach(type => {
+      const e = createController(type, id);
       controllers.push(e);
     });
     carousel.skip(0);
-  const peer = new Peer({key: API_KEY});
-  peer.on('open', function(id) {
-
   });
 
   peer.on('connection', function(conn) {
