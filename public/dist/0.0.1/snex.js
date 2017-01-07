@@ -13,7 +13,6 @@
     createSession: function createSession(key, id, pad = 'nes') {
       const request = new Request(snex.URL + '/api/v1/session', {
         method: 'POST',
-        mode: 'cors',
         headers: new Headers({
           'Content-Type': 'application/json'
         }),
