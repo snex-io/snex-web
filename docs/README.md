@@ -1,5 +1,7 @@
 # SNEX Docs
 
+[Events](events)
+
 ## Create your own controller
 
 SNEX controllers are SVG vectors. Touch sensitive areas are defined by setting the `id` attribute on a node to `snex-[touch type]-[touch name]`.
