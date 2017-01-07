@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
+const moment = require('moment');
 const random = require('../random');
 
 const router = express.Router();
@@ -25,11 +26,13 @@ router.get('/v1/session/:id', (req, res) => {
 router.post('/v1/session', bodyParser.json(), (req, res) => {
   const payload = propExtract(req.body);
 
+  const expiresAt = moment().add(5, 'minutes');
+
   const meta = {
+    expiresAt,
     type: payload('type'),
     key: payload('key'),
     id: payload('id'),
-    time: new Date(),
   };
 
   const id = random.pretty(4, 'ABCDEFGHJKLMNPQRSTUVWXYZ');
@@ -38,7 +41,8 @@ router.post('/v1/session', bodyParser.json(), (req, res) => {
 
   res.send(JSON.stringify({
     id,
-    url: process.env.URL_SELF + '/' + id
+    url: process.env.URL_SELF + '/' + id,
+    expiresAt,
   }));
 });
 
