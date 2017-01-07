@@ -57,24 +57,39 @@ p {
   text-align: justify;
 }
 
-
+.how ul,
+.demos ul,
 .explanation ul,
-.how ul {
+.get-started ul {
     display: flex;
     flex-flow: row wrap;
     margin: 0 auto;
     max-width: 1024px;
 }
 
+.how li,
+.demos li,
 .explanation li,
-.how li {
+.get-started li {
   box-sizing: border-box;
   flex: 1 1 50%;
   min-width: 280px;
   padding: 1em;
 }
 
+.how li {
+  flex: 1 1 33%;
+  text-align: center;
+}
+
+.demos li {
+  flex: 1 1 0;
+  text-align: center;
+}
+
 .how h2,
+.get-started h2,
+.demos h2,
 .demo h2 {
   text-align: center;
 }
@@ -108,19 +123,19 @@ p {
     width: 100%;
   }
 
-.how {
+.get-started {
 }
-  .how h3 {
+  .get-started h3 {
     margin-top: 0;
   }
 
-  .how img {
+  .get-started img {
     display: block;
     margin: 10px auto;
     width: 90%;
   }
 
-  .how code {
+  .get-started code {
     background: #de4d5f;
     color: white;
     display: block;

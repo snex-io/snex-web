@@ -51,81 +51,38 @@
     </ul>
   </section>
 
+
   <section class="how">
-    <h2>How does it work?</h2>
+    <a href="#how-does-it-work" name="how-does-it-work">
+      <h2>How does it work</h2>
+    </a>
 
     <ul>
       <li>
-        <h3>1) Include <a href="http://peerjs.com/">Peer.js</a></h3>
+        <h3>Create Session</h3>
 
-        <p>We depend on Peer.js to easily setup the connection between the user and your project.</p>
-        <p>
-          You will have to include their library on your site to use SNEX. We also recommend that you
-          create your own API key with <a href="http://peerjs.com/">Peer.js</a>.
-        </p>
-
-        <code>
-          <%= `<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>` %>
-        </code>
-
-        <p>
-          For more details on how to use Peer.js, visit their <a href="http://peerjs.com/docs/#start">Getting Started</a> guide.
-        </p>
-      </li>
-      <li>
-        <h3>2) Create URL</h3>
-
-        <p>
-          You create a unique URL to our service with help from <a href="http://peerjs.com/">Peer.js</a>.
-          The URL contains information on where to connect and what gamepad to display.
-        </p>
-
-        <code>
-          var API_KEY = 'lwjd5qra8257b9';<br/>
-          var peer = new Peer({key: API_KEY});<br/>
-          peer.on('open', function(id) {<br/>
-          &nbsp;&nbsp;var url = 'http://snex.pomle.com/nes/'<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;+ '?key=' + API_KEY<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;+ '&amp;id=' + id;<br/>
-          &nbsp;&nbsp;console.info('Go to url', url);<br/>
-          });
-        </code>
-
-      </li>
-      <li>
-        <h3>3) User loads URL</h3>
-
-        <p>
-          Give URL to the user via SMS, email, or create a short link using <a href="http://bit.ly/">Bitly</a>.
-
-          When the user opens the URL they will see a Joypad and we will connect to your service.
-        </p>
-
-        <img src="/images/controller-tv.png" alt="Gamepad and TV example" />
+        <p>First a developer must create a unique session. Session is represented by a URL which is associated with the type of gamepad desired and where to send signals once a user connects.</p>
       </li>
 
       <li>
-        <h3>4) Handle events</h3>
+        <h3>Join Session</h3>
 
-        <p>
-          When the user interacts with the gamepad we will send messages in JSON format containing the details of the user interaction. They It's up to you what to do with them.
-        </p>
+        <p>By going to the URL a device joins a session and will start sending events based on human interaction with the gamepads.</p>
+      </li>
 
-        <code>
-          peer.on('connection', function(conn) {<br/>
-          &nbsp;&nbsp;conn.on('data', function(data) {<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;if (data.key == 'A' &amp;&amp; data.state == 1) {<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('A was pressed');<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-          &nbsp;&nbsp;});<br/>
-          });
-        </code>
+      <li>
+        <h3>Handle events</h3>
+
+        <p>When a device joins a session an event will be emitted followed by events for every user interaction.</p>
       </li>
     </ul>
+
   </section>
 
   <section class="demo">
-    <h2>Try it!</h2>
+    <a href="#try-it" name="try-it">
+      <h2>Try it!</h2>
+    </a>
 
     <p>Use the input below to control the game or open the URL on your Android.</p>
 
@@ -169,8 +126,113 @@
     </div>
   </section>
 
+
+  <section class="demos">
+    <a href="#demos" name="demos">
+      <h2>Demos</h2>
+    </a>
+
+    <ul>
+      <li>
+        <a href="/demos/tetris">
+          <h3>Tetris</h3>
+          <img src="/images/tetris.png" alt="Tetris <3 SNEX" />
+        </a>
+
+        <p>Multiplayer side by side Tetris implementation</p>
+      </li>
+
+      <li>
+        <a href="/demos/diag">
+          <h3>Diagnostics</h3>
+          <img src="/images/diag.png" alt="Dianositcs" />
+        </a>
+
+        <p>Simple implementation to showcase what is being send and received.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="get-started">
+    <a href="#get-started" name="get-started">
+      <h2>Get started</h2>
+    </a>
+
+    <ul>
+      <li>
+        <h3>1) Include <a href="http://peerjs.com/">Peer.js</a></h3>
+
+        <p>We depend on Peer.js to easily setup the connection between the user and your project.</p>
+        <p>
+          You will have to include their library on your site to use SNEX. We also recommend that you
+          create your own API key with <a href="http://peerjs.com/">Peer.js</a>.
+        </p>
+
+        <code>
+          <%= `<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>` %>
+        </code>
+
+        <p>
+          For more details on how to use Peer.js, visit their <a href="http://peerjs.com/docs/#start">Getting Started</a> guide.
+        </p>
+      </li>
+      <li>
+        <h3>2) Create URL</h3>
+
+        <p>
+          Open a channel using <a href="http://peerjs.com/">Peer.js</a> and using
+          your API key and the channel Id create a unique URL to SNEX.
+        </p>
+
+        <code>
+          function createURL(key, channel, pad) {<br/>
+          &nbsp;&nbsp;return `http://snex.io/${pad}/?key=${key}&amp;id=${id}`;<br/>
+          }<br/>
+          <br/>
+          var API_KEY = 'lwjd5qra8257b9';<br/>
+          var peer = new Peer({key: API_KEY});<br/>
+          peer.on('open', function(id) {<br/>
+          &nbsp;&nbsp;var url = createURL(API_KEY, id, 'nes');<br/>
+          &nbsp;&nbsp;console.info('Go to url', url);<br/>
+          });
+        </code>
+
+      </li>
+      <li>
+        <h3>3) Open URL on smart phone</h3>
+
+        <p>
+          Get URL to client device via SMS, chat, email, or just type it into Firefox, Google Chrome or WebRCT compatible browser.
+          When the URL is loaded a gamepad will be displayed and the client will connect to your service.
+        </p>
+
+        <img src="/images/controller-tv.png" alt="Gamepad and TV example" />
+      </li>
+
+      <li>
+        <h3>4) Handle events</h3>
+
+        <p>
+          When user interaction is detected on the gamepad we will send messages in JSON format containing the details of the interaction. It's up to you what to do with them. For a list of all events see <a href="https://snex-io.github.io/docs/events">events docs</a>.
+        </p>
+
+        <code>
+          peer.on('connection', function(conn) {<br/>
+          &nbsp;&nbsp;conn.on('data', function(data) {<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;console.log('Key %s got state %s', data.key, data.state);<br/>
+          &nbsp;&nbsp;});<br/>
+          });
+        </code>
+
+        <p>
+          See source for the simplest implementation <a href="https://github.com/snex-io/examples/simple/">here</a>.
+        </p>
+      </li>
+    </ul>
+  </section>
+
   <footer>
-    Created by <a href="https://github.com/pomle">@pomle</a> &amp; <a href="http://www.ethandirks.com">@ethan</a>
+    Created by <a href="http://www.ethandirks.com">Ethan Dirks</a> &amp; <a href="https://github.com/pomle">Pontus Alexander</a>
   </footer>
 </body>
 </html>
