@@ -3,6 +3,8 @@
   const DRAG = 0.95;
 
   function Game(canvas) {
+    const entities = new Set();
+
     const ctx = canvas.getContext('2d');
 
     function Vec(x, y) {
@@ -20,6 +22,15 @@
         this.x *= v;
         this.y *= v;
       }
+      this.len = (l) => {
+        let cl = Math.sqrt(this.x * this.x + this.y * this.y);
+        if (l) {
+          let s = l / cl;
+          this.multiply(s);
+          return;
+        }
+        return cl;
+      }
     }
 
     function Ship() {
@@ -32,7 +43,27 @@
       this.draw = (ctx) => {
         ctx.fillStyle = '#fff';
         ctx.fillRect(P.x, P.y, 10, 10);
-      };
+      }
+
+      this.shoot = () => {
+        if (D.x || D.y) {
+          const spd = V.len() + 200;
+          const vel = new Vec();
+          vel.copy(D);
+          vel.len(spd);
+          const p = new Projectile(P, vel);
+          entities.add(p);
+        }
+      }
+
+      this.steer = (x, y) => {
+        if (x) {
+          D.x = Math.min(1, Math.max(-1, x));
+        }
+        if (y) {
+          D.y = Math.min(1, Math.max(-1, y));
+        }
+      }
 
       this.update = (dt) => {
         F.copy(D, THRUST * this.thrust);
@@ -52,16 +83,31 @@
       this.thrust = 0;
     }
 
+    function Projectile(p, v) {
+      const
+        V = new Vec(),
+        P = new Vec();
 
-    const players = new Set();
+      V.copy(v);
+      P.copy(p);
+
+      this.draw = (ctx) => {
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(P.x, P.y, 3, 3);
+      };
+
+      this.update = (dt) => {
+        P.add(V, dt);
+      }
+    }
 
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      players.forEach(p => p.draw(ctx));
+      entities.forEach(p => p.draw(ctx));
     }
 
     function update(dt) {
-      players.forEach(p => {
+      entities.forEach(p => {
         p.update(dt);
       });
     }
@@ -82,9 +128,13 @@
 
     this.addPlayer = function() {
       const p = new Ship();
-      players.add(p);
+      entities.add(p);
       return p;
     };
+
+    this.removePlayer = function(p) {
+      entities.delete(p);
+    }
 
     timer(1/120, update, draw)();
   }

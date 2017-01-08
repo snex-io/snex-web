@@ -82,6 +82,11 @@ p {
   text-align: center;
 }
 
+.how li img {
+  max-height: 200px;
+  max-width: 100%;
+}
+
 .demos li {
   flex: 1 1 0;
   text-align: center;
