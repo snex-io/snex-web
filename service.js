@@ -1,5 +1,6 @@
 const express = require('express');
 const compression = require('compression');
+const cors = require('cors');
 const api = require('./server/api');
 const linkStore = require('./server/link-store');
 
@@ -20,6 +21,7 @@ const controllers = {
 
 const app = express();
 
+app.use(cors());
 app.use(compression());
 
 app.use((req, res, next) => {
