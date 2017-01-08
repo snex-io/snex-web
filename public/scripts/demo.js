@@ -78,9 +78,11 @@ window.addEventListener('load', function() {
 
   const log = demoElement.querySelector('.log');
   const canvas = demoElement.querySelector('canvas');
-  const game = new Game(canvas);
+  const game = new SpaceGame(canvas);
 
-  const peer = new Peer({key: API_KEY});
+  const player = game.addPlayer();
+
+  /*const peer = new Peer({key: API_KEY});
   peer.on('open', function(id) {
     getControllerList().forEach(type => {
       const e = createController(type, id);
@@ -104,7 +106,42 @@ window.addEventListener('load', function() {
         }
       });
     });
-  });
+  });*/
+
+  function onkey(event) {
+    event.preventDefault();
+    if (event.keyCode === 80) {
+      player.thrust = event.type === 'keydown' ? 1 : 0;
+    } else {
+      let dir, val;
+      switch (event.keyCode) {
+        case 37:
+        case 39:
+          dir = 'x';
+          break;
+        case 38:
+        case 40:
+          dir = 'y';
+          break;
+      }
+
+      switch (event.keyCode) {
+        case 37:
+        case 38:
+          val = -1;
+          break;
+        case 39:
+        case 40:
+          val = 1;
+          break;
+      }
+
+      player.dir[dir] += event.type === 'keydown' ? val : -val;
+    }
+  }
+
+  window.addEventListener('keydown', onkey);
+  window.addEventListener('keyup', onkey);
 
   window.addEventListener('resize', resize);
 
