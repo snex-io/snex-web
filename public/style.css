@@ -69,8 +69,7 @@ p {
 
 .how li,
 .demos li,
-.explanation li,
-.get-started li {
+.explanation li {
   box-sizing: border-box;
   flex: 1 1 50%;
   min-width: 280px;
@@ -134,13 +133,21 @@ p {
     margin-top: 0;
   }
 
+  .get-started li {
+    box-sizing: border-box;
+    min-width: 280px;
+    padding: 1em;
+    max-width: 600px;
+    margin: auto;
+  }
+
   .get-started img {
     display: block;
     margin: 10px auto;
     width: 90%;
   }
 
-  .get-started code {
+  .get-started li > code {
     background: #de4d5f;
     color: white;
     display: block;

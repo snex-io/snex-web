@@ -104,7 +104,10 @@
       <h2>Try it!</h2>
     </a>
 
-    <p>Use the input below to control the game or open the URL on your Android.</p>
+    <p>
+      Use the input below to control the game or open the URL on your Android.
+      You can also try our multiplayer <a href="/demos/tetris">Tetris + SNEX</a> implementation.
+    </p>
 
     <div class="controller-url">
       Go to <span class="link"></span> in your smartphone.
@@ -147,6 +150,7 @@
   </section>
 
 
+  <!--
   <section class="demos">
     <a href="#demos" name="demos">
       <h2>Demos</h2>
@@ -172,6 +176,7 @@
       </li>
     </ul>
   </section>
+  -->
 
   <section class="get-started">
     <a href="#get-started" name="get-started">
@@ -216,6 +221,31 @@
           &nbsp;&nbsp;console.info('Go to url', url);<br/>
           });
         </code>
+
+        <p>
+          You may also use our URL-shorterner service that can be accessed via our tiny SNEX lib.
+          Include it in your browser or use our <a href="https://www.npmjs.com/package/snex">NPM package</a>.
+        </p>
+
+        <code>
+          <%= `<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>` %>
+        </code>
+
+        <p>
+          Then you can create URL short URLs like <code>snex.io/HFJA</code> . URL is not case sensitive and are active in 5 minutes.
+        </p>
+
+        <code>
+          var API_KEY = 'lwjd5qra8257b9';<br/>
+          var peer = new Peer({key: API_KEY});<br/>
+          peer.on('open', function(id) {<br/>
+          &nbsp;&nbsp;snex.createSession(API_KEY, id, 'nes')<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;.then(session => {<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Go to url' session.url);<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;});<br/>
+          });
+        </code>
+
 
       </li>
       <li>
