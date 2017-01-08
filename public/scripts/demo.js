@@ -95,16 +95,22 @@ window.addEventListener('load', function() {
       conn.on('data', function(data) {
         log.textContent = JSON.stringify(data);
         const { key, state } = data;
-        if (key === 'UP') {
-          player.dir.y += state ? -1 : 1;
-        } else if (key === 'DOWN') {
-          player.dir.y += state ? 1 : -1;
-        } else if (key === 'LEFT') {
-          player.dir.x += state ? -1 : 1;
-        } else if (key === 'RIGHT') {
-          player.dir.y += state ? 1 : -1;
-        } else if (state && key === 'A') {
-          player.jump = true;
+        if (state && key === 'UP') {
+          player.dir.x = 0;
+          player.dir.y = -1;
+        } else if (state && key === 'DOWN') {
+          player.dir.x = 0;
+          player.dir.y = 1;
+        } else if (state && key === 'LEFT') {
+          player.dir.x = -1;
+          player.dir.y = 0;
+        } else if (state && key === 'RIGHT') {
+          player.dir.x = 1;
+          player.dir.y = 0;
+        } else if (key === 'B' && state) {
+          player.shoot();
+        } else if (key === 'A') {
+          player.thrust = state;
         }
       });
 

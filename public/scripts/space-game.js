@@ -2,6 +2,9 @@
   const THRUST = 4000;
   const DRAG = 0.95;
 
+  const ship = new Image();
+  ship.src = '/images/ship.png';
+
   function Game(canvas) {
     const entities = new Set();
 
@@ -35,14 +38,20 @@
 
     function Ship() {
       const
-        D = new Vec(),
+        D = new Vec(1, 0),
         F = new Vec(),
         V = new Vec(),
-        P = new Vec();
+        P = new Vec(
+          canvas.width * Math.random(),
+          canvas.height * Math.random()
+        );
 
       this.draw = (ctx) => {
-        ctx.fillStyle = '#fff';
-        ctx.fillRect(P.x, P.y, 10, 10);
+        const angle = Math.atan2(D.y, D.x);
+        ctx.translate(P.x, P.y);
+        ctx.rotate(angle + (90 * Math.PI / 180));
+        ctx.drawImage(ship, -ship.width / 2, -ship.height / 2);
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
       }
 
       this.shoot = () => {
@@ -56,24 +65,18 @@
         }
       }
 
-      this.steer = (x, y) => {
-        if (x) {
-          D.x = Math.min(1, Math.max(-1, x));
-        }
-        if (y) {
-          D.y = Math.min(1, Math.max(-1, y));
-        }
-      }
-
       this.update = (dt) => {
         F.copy(D, THRUST * this.thrust);
         V.add(F, dt);
         P.add(V, dt);
 
-        const w = canvas.width;
-        const h = canvas.height;
-        P.x = ((P.x) % w + w) % w;
-        P.y = ((P.y) % h + h) % h;
+        const sW = ship.width;
+        const sH = ship.height;
+
+        const w = canvas.width + sW;
+        const h = canvas.height + sH;
+        P.x = (((P.x + sW / 2) % w + w) % w) - sW / 2;
+        P.y = (((P.y + sH / 2) % h + h) % h) - sH / 2;
 
         V.x = Math.abs(V.x) > 0.1 ? V.x * DRAG : 0;
         V.y = Math.abs(V.y) > 0.1 ? V.y * DRAG : 0;
@@ -93,7 +96,7 @@
 
       this.draw = (ctx) => {
         ctx.fillStyle = '#fff';
-        ctx.fillRect(P.x, P.y, 3, 3);
+        ctx.fillRect(P.x, P.y, 6, 6);
       };
 
       this.update = (dt) => {
@@ -127,7 +130,10 @@
     }
 
     this.addPlayer = function() {
-      const p = new Ship();
+      const p = new Ship({
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+      });
       entities.add(p);
       return p;
     };
