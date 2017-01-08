@@ -8,11 +8,11 @@
 .demo .game,
 .demo .game canvas,
 .demo .game .screen {
-  height: 190px;
+  height: 240px;
 }
 
 .demo .game .screen {
-  background: #000;
+  background: #000 url('/images/starfield.png');
 }
 
 .demo .screen .log {

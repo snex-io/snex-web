@@ -1,6 +1,6 @@
 (function() {
-  const THRUST = 4000;
-  const DRAG = 0.95;
+  const THRUST = 3000;
+  const DRAG = 0.99;
 
   const ship = new Image();
   ship.src = '/images/ship.png';
@@ -42,8 +42,8 @@
         F = new Vec(),
         V = new Vec(),
         P = new Vec(
-          canvas.width * Math.random(),
-          canvas.height * Math.random()
+          canvas.width / 2,
+          canvas.height / 2
         );
 
       this.draw = (ctx) => {

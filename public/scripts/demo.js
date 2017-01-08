@@ -89,9 +89,9 @@ window.addEventListener('load', function() {
 
     carousel.skip(0);
 
-    peer.on('connection', function(conn) {
-      const player = game.addPlayer();
+    const player = game.addPlayer();
 
+    peer.on('connection', function(conn) {
       conn.on('data', function(data) {
         log.textContent = JSON.stringify(data);
         const { key, state } = data;
@@ -112,10 +112,6 @@ window.addEventListener('load', function() {
         } else if (key === 'A') {
           player.thrust = state;
         }
-      });
-
-      conn.on('close', () => {
-        game.removePlayer(player);
       });
     });
   });
