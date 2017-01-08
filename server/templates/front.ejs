@@ -260,7 +260,11 @@
         <h3>4) Handle events</h3>
 
         <p>
-          When user interaction is detected on the gamepad we will send messages in JSON format containing the details of the interaction. It's up to you what to do with them. For a list of all events see <a href="https://snex-io.github.io/docs/events">events docs</a>.
+          When a user loads the gamepad the <code>connection</code> event will trigger in Peer.js. You can use this to setup a new player.
+        </p>
+
+        <p>
+          When user interaction is detected the <code>data</code> event on the connection will fire. The gamepad will send messages in JSON format containing the details of the interaction. It's up to you what to do with them. For more information on events see our <a href="https://snex-io.github.io/docs/events">events docs</a>.
         </p>
 
         <code>
@@ -272,7 +276,7 @@
         </code>
 
         <p>
-          For more details <a href="https://github.com/snex-io/snex-web/tree/master/docs">Read our docs</a>.
+          For more details <a href="https://github.com/snex-io/snex-web/tree/master/docs">Read our docs</a> or have a look at our <a href="https://github.com/pomle/snex-tetris/blob/master/main.js">Tetris Source Code</a>.
         </p>
       </li>
     </ul>
