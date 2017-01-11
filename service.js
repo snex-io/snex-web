@@ -12,6 +12,9 @@ const controllers = {
         title: 'Nintendo 8-bit',
     },
     'snes': {
+        title: 'Super Famicom',
+    },
+    'snes-us': {
         title: 'Super Nintendo',
     },
     'genesis': {
