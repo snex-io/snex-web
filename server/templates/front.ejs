@@ -241,7 +241,7 @@
           peer.on('open', function(id) {<br/>
           &nbsp;&nbsp;snex.createSession(API_KEY, id, 'nes')<br/>
           &nbsp;&nbsp;&nbsp;&nbsp;.then(session => {<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Go to url' session.url);<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Go to url', session.url);<br/>
           &nbsp;&nbsp;&nbsp;&nbsp;});<br/>
           });
         </code>
