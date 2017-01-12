@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-  if (!(window.webkitRTCPeerConnection || window.mozRTCPeerConnection)) {
+  if (!snex.isSupported()) {
     document.body.className = 'error';
     document.getElementById('webrtc-support').style.display = 'block';
     return;

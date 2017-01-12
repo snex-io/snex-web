@@ -1,4 +1,10 @@
 window.addEventListener('load', function() {
+  if (!snex.isSupported()) {
+    return;
+  }
+
+  document.body.classList.add('supported');
+
   function ControllerFactory() {
     const template = document.querySelector('template.controller');
     const pool = document.querySelector('.demo .controllers');

@@ -20,7 +20,10 @@ ul {
 }
 
 section {
+  align-items: center;
   box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
   overflow: hidden;
 }
 
@@ -55,6 +58,15 @@ h3 {
 
 p {
   text-align: justify;
+}
+
+section h2 {
+  text-align: center;
+}
+
+section > p {
+  margin: 1em;
+  max-width: 500px;
 }
 
 .how ul,
@@ -100,13 +112,6 @@ p {
 
 .demos li {
   flex: 1 1 0;
-  text-align: center;
-}
-
-.how h2,
-.get-started h2,
-.demos h2,
-.demo h2 {
   text-align: center;
 }
 
@@ -177,13 +182,16 @@ p {
   flex-flow: column;
 }
 
+.demo {
+  display: none;
+}
+
+.supported .demo  {
+  display: flex;
+}
+
   .demo .game {
     align-self: stretch;
-  }
-
-  .demo > p {
-    margin: 1em;
-    max-width: 500px;
   }
 
   .demo .input {
