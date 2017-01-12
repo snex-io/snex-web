@@ -118,6 +118,7 @@ section > p {
 .explanation {
   background: linear-gradient(to bottom, #282020, #6a252d);
   color: #eaeaea;
+  display: block;
 }
   .explanation li {
     padding: 1.5em;
