@@ -5,10 +5,60 @@ html, body {
 body {
   align-items: flex-end;
   background: #000;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 4vw;
+  font-weight: bold;
   display: flex;
+  justify-content: center;
   margin: 0;
 }
 
+#message {
+  background: rgba(0, 0, 0, .6);
+  color: #fff;
+  display: none;
+  margin: 2em;
+  padding: .5em;
+  text-align: center;
+}
+
 #controller {
+  display: none;
   width: 100%;
+}
+
+.ready #controller {
+  display: block;
+}
+
+@keyframes static {
+  0% {
+    background-position: 0 0;
+  }
+  20% {
+    background-position: 113px 123px;
+  }
+  40% {
+    background-position: 1241px 1230px;
+  }
+  60% {
+    background-position: 12414px 2350px;
+  }
+  80% {
+    background-position: 1111px 2222px;
+  }
+  100% {
+
+  }
+}
+
+body.error {
+  animation: static .5s infinite;
+  background: url('/images/static.svg');
+  background-size: cover;
+  align-items: center;
+}
+
+body.error  #message {
+  display: block;
 }

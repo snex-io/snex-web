@@ -1,4 +1,13 @@
 window.addEventListener('load', function() {
+  if (!(window.webkitRTCPeerConnection || window.mozRTCPeerConnection)) {
+    document.body.className = 'error';
+    document.getElementById('webrtc-support').style.display = 'block';
+    return;
+  }
+
+  document.body.classList.add('ready');
+
+
   const params = document.body.attributes;
   const API_KEY = params['data-key'].value;
   const CHANNEL = params['data-id'].value;
