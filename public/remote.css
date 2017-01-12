@@ -26,8 +26,8 @@ body {
   width: 100%;
 }
 
-.ready #controller {
-  display: block;
+.error #controller {
+  display: none;
 }
 
 @keyframes static {
