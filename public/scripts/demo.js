@@ -3,8 +3,6 @@ window.addEventListener('load', function() {
     return;
   }
 
-  document.body.classList.add('supported');
-
   function ControllerFactory() {
     const template = document.querySelector('template.controller');
     const pool = document.querySelector('.demo .controllers');
@@ -88,6 +86,9 @@ window.addEventListener('load', function() {
 
   const peer = new Peer({key: API_KEY});
   peer.on('open', function(id) {
+
+    document.body.classList.add('supported');
+
     getControllerList().forEach(type => {
       const e = createController(type, id);
       controllers.push(e);
