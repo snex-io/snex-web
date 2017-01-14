@@ -88,6 +88,7 @@ window.addEventListener('load', function() {
   peer.on('open', function(id) {
 
     document.body.classList.add('supported');
+    resize();
 
     getControllerList().forEach(type => {
       const e = createController(type, id);
