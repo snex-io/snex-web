@@ -5,6 +5,8 @@ window.addEventListener('load', function() {
     return;
   }
 
+  let useTouch = null;
+
   document.body.classList.add('ready');
 
 
@@ -72,6 +74,7 @@ window.addEventListener('load', function() {
   }
 
   function handleTouch(event) {
+    useTouch = true;
     event.preventDefault();
 
     const filter = Object.create(null);
@@ -89,6 +92,9 @@ window.addEventListener('load', function() {
 
   function handleMouse(event) {
     event.preventDefault();
+    if (useTouch) {
+      return;
+    }
 
     const filter = Object.create(null);
     if (event.buttons > 0) {
@@ -110,6 +116,7 @@ window.addEventListener('load', function() {
   svg.addEventListener('mouseup', handleMouse);
   svg.addEventListener('mousemove', handleMouse);
 
+  svg.addEventListener('contextmenu', e => e.preventDefault());
 
   mapKeys();
   window.addEventListener('resize', mapKeys)
