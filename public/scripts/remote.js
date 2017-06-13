@@ -5,6 +5,8 @@ window.addEventListener('load', function() {
     return;
   }
 
+  const hasPointerEvents = 'onpointerdown' in document.body;
+
   document.body.classList.add('ready');
 
 
@@ -102,13 +104,19 @@ window.addEventListener('load', function() {
   }
 
   const svg = controller.contentDocument;
-  svg.addEventListener('touchstart', handleTouch);
-  svg.addEventListener('touchend', handleTouch);
-  svg.addEventListener('touchmove', handleTouch);
+  if (hasPointerEvents) {
+    svg.addEventListener('pointerdown', handleTouch);
+    svg.addEventListener('pointerup', handleTouch);
+    svg.addEventListener('pointermove', handleTouch);
+  } else {
+    svg.addEventListener('touchstart', handleTouch);
+    svg.addEventListener('touchend', handleTouch);
+    svg.addEventListener('touchmove', handleTouch);
 
-  svg.addEventListener('mousedown', handleMouse);
-  svg.addEventListener('mouseup', handleMouse);
-  svg.addEventListener('mousemove', handleMouse);
+    svg.addEventListener('mousedown', handleMouse);
+    svg.addEventListener('mouseup', handleMouse);
+    svg.addEventListener('mousemove', handleMouse);
+  }
 
 
   mapKeys();
