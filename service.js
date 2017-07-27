@@ -67,6 +67,7 @@ app.get('/:pointer', (req, res, next) => {
 
 app.get('/', (req, res) => {
     res.locals = {
+        URL_SELF: process.env.URL_SELF,
         controllers: Object.keys(controllers),
         api_key: PEERJS_API_KEY,
     };
