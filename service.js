@@ -76,6 +76,10 @@ app.get('/', (req, res) => {
 
 app.use('/api', api);
 
+app.use('*', (req, res) => {
+    res.redirect('/');
+});
+
 const server = app.listen(PORT);
 server.on('listening', () => {
     const bound = server.address();
