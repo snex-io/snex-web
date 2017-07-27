@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node service.js",
-    "test": "mocha test/**.spec.js"
+    "test": "jest"
   },
   "engines": {
     "node": "6.8.0"
@@ -26,7 +26,11 @@
     "cors": "^2.8.1",
     "ejs": "^2.5.5",
     "express": "^4.14.0",
+    "memcached": "^2.2.2",
     "moment": "^2.17.1",
     "request": "^2.79.0"
+  },
+  "devDependencies": {
+    "jest": "^20.0.4"
   }
 }

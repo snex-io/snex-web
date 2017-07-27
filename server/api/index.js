@@ -3,27 +3,63 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const moment = require('moment');
 const random = require('../random');
+const controllers = require('../controllers');
 
 const router = express.Router();
 
-const linkStore = require('../link-store');
+const linkStore = require('../link-store').createStore();
 const propExtract = require('../prop-extract');
 
-router.get('/v1/session/:id', (req, res) => {
-  const id = req.params.id;
+router.get('/:pointer', (req, res, next) => {
+    let typeOrId = req.params.pointer;
+    let meta;
 
-  if (!links.has(id)) {
-    res.statusCode = 404;
-    res.end();
-    return;
-  }
+    linkStore.has(typeOrId)
+    .then(has => {
+        if (has) {
+            return linkStore.get(typeOrId);
+        }
 
-  const meta = links.get(id);
+        return {
+          type: typeOrId,
+          key: req.query.key,
+          id: req.query.id,
+        };
+    })
+    .then(meta => {
+        if (!controllers.hasOwnProperty(meta.type)) {
+            return next();
+        }
 
-  res.send(JSON.stringify(meta));
+        const controller = controllers[meta.type];
+
+        res.locals = Object.assign({
+            title: controller.title,
+        }, meta);
+
+        res.render('remote');
+    });
 });
 
-router.post('/v1/session', bodyParser.json(), (req, res) => {
+router.get('/api/v1/session/:id', (req, res) => {
+  const id = req.params.id;
+
+  linkStore.has(id)
+  .then(has => {
+    if (!has) {
+      res.statusCode = 404;
+      res.end();
+      return;
+    }
+
+    return linkStore.get(id);
+  })
+  .then(meta => {
+    res.send(JSON.stringify(meta));
+  });
+});
+
+router.post('/api/v1/session', bodyParser.json(), (req, res) => {
   const payload = propExtract(req.body);
 
   const expiresAt = moment().add(5, 'minutes');
@@ -37,13 +73,14 @@ router.post('/v1/session', bodyParser.json(), (req, res) => {
 
   const id = random.pretty(4, 'ABCDEFGHJKLMNPQRSTUVWXYZ');
 
-  linkStore.set(id, meta);
-
-  res.send(JSON.stringify({
-    id,
-    url: process.env.URL_SELF + '/' + id,
-    expiresAt,
-  }));
+  linkStore.set(id, meta)
+  .then(() => {
+    res.send(JSON.stringify({
+      id,
+      url: process.env.URL_SELF + '/' + id,
+      expiresAt,
+    }));
+  });
 });
 
 module.exports = router;
