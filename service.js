@@ -32,9 +32,14 @@ app.get('/', (req, res) => {
 
 app.use(api);
 
-/*app.use('*', (req, res) => {
-    res.redirect('/');
-});*/
+app.use('*', (req, res) => {
+    res.locals = {
+        URL_SELF: process.env.URL_SELF,
+    };
+
+    res.statusCode = 404;
+    res.render('404');
+});
 
 const server = app.listen(PORT);
 server.on('listening', () => {

@@ -1,21 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <%- include('fragments/head'); %> .
   <title>SNEX - Gamepads for Smartphones</title>
-  <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
-  <link href="/style.css" rel="stylesheet">
   <link href="/demo.css" rel="stylesheet">
-  <link media="(max-width: 800px)" href="/mobile.css" rel="stylesheet">
-
-  <meta name="theme-color" content="#de4d5f" />
-  <meta name="viewport" content="width=device-width, user-scalable=1.0, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-
-  <meta property="og:title" content="Gamepads for Smartphones - SNEX" />
-  <meta property="og:description" content="Play games on the big screen with a gamepad on your Smartphone. Listen to JSON events over WebRTC. Implement for your game in minutes!" />
-  <meta property="og:url" content="<%= URL_SELF %>/" />
-  <meta property="og:image" content="<%= URL_SELF %>/images/og-image.png" />
-
   <script src="https://cdn.snex.io/snex.latest.min.js"></script>
   <script src="/scripts/space-game.js"></script>
   <script src="/scripts/demo.js"></script>
