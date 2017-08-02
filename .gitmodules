@@ -1,3 +1,0 @@
-[submodule "public/demos/tetris"]
-	path = public/demos/tetris
-	url = git@github.com:pomle/snex-tetris.git
