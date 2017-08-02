@@ -11,9 +11,8 @@ window.addEventListener('load', function() {
 
 
   const params = document.body.attributes;
-  const API_KEY = params['data-key'].value;
   const CHANNEL = params['data-id'].value;
-  console.info('Setting up using key "%s" and id "%s"', API_KEY, CHANNEL);
+  console.info('Setting up using id "%s"', CHANNEL);
 
   const controller = document.getElementById('controller');
   const conns = new Set();
@@ -121,10 +120,10 @@ window.addEventListener('load', function() {
   mapKeys();
   window.addEventListener('resize', mapKeys)
 
-  if (API_KEY && CHANNEL) {
-    const peer = new Peer({key: API_KEY});
-    const conn = peer.connect(CHANNEL);
-    conn.on('open', function() {
+  if (CHANNEL) {
+    const peer = snex.createPeer('snex-peer-server.herokuapp.com:80');
+    snex.joinSession(CHANNEL, peer)
+    .then(conn => {
       conns.add(conn);
       console.info('Connection established on channel "%s"', CHANNEL);
 
