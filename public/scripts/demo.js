@@ -1,9 +1,10 @@
 window.addEventListener('load', function() {
   if (!snex.isSupported()) {
+    console.info('SNEX is not supported on this browser. Inline demo cancelled.');
     return;
   }
 
-  function ControllerFactory() {
+  function ControllerFactory(session) {
     const template = document.querySelector('template.controller');
     const pool = document.querySelector('.demo .controllers');
     let count = 0;
@@ -17,23 +18,23 @@ window.addEventListener('load', function() {
         element.classList.remove('hidden');
       }
 
-      const link = document.createElement('a');
-      link.target = '_blank';
+      const anchor = document.createElement('a');
+      anchor.target = '_blank';
 
       const iframe = element.querySelector('iframe');
 
       pool.appendChild(element);
 
-      snex.createSession(API_KEY, channel, type)
-      .then(session => {
-          iframe.src = session.url;
-          link.href = session.url;
-          link.textContent = session.url;
+      session.createURL(type, '')
+      .then(link => {
+          iframe.src = link.url;
+          anchor.href = link.url;
+          anchor.textContent = link.url;
       });
 
       return {
         el: element,
-        link,
+        link: anchor,
       }
     }
   }
@@ -60,10 +61,6 @@ window.addEventListener('load', function() {
       return (next % max + max) % max;
   }
 
-  function getAPIKey() {
-    return document.body.attributes['data-api-key'].value;
-  }
-
   function getControllerList() {
     return document.body.attributes['data-controllers'].value.split(',');
   }
@@ -72,26 +69,25 @@ window.addEventListener('load', function() {
     canvas.width = canvas.getBoundingClientRect().width;
   }
 
-  const API_KEY = getAPIKey();
   const demoElement = document.querySelector('.demo');
 
   const link = document.querySelector('.demo .link');
   const controllers = [];
   const carousel = new Carousel(controllers, link);
-  const createController = ControllerFactory();
 
   const log = demoElement.querySelector('.log');
   const canvas = demoElement.querySelector('canvas');
   const game = new SpaceGame(canvas);
 
-  const peer = new Peer({key: API_KEY});
-  peer.on('open', function(id) {
-
+  snex.createSession()
+  .then(session => {
     document.body.classList.add('supported');
     resize();
 
+    const createController = ControllerFactory(session);
+
     getControllerList().forEach(type => {
-      const e = createController(type, id);
+      const e = createController(type, session.id);
       controllers.push(e);
     });
 
@@ -99,7 +95,7 @@ window.addEventListener('load', function() {
 
     const player = game.addPlayer();
 
-    peer.on('connection', function(conn) {
+    session.on('connection', function(conn) {
       conn.on('data', function(data) {
         log.textContent = JSON.stringify(data);
         const { key, state } = data;

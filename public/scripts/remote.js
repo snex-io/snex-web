@@ -9,7 +9,6 @@ window.addEventListener('load', function() {
 
   document.body.classList.add('ready');
 
-
   const params = document.body.attributes;
   const CHANNEL = params['data-id'].value;
   console.info('Setting up using id "%s"', CHANNEL);
@@ -121,14 +120,13 @@ window.addEventListener('load', function() {
   window.addEventListener('resize', mapKeys)
 
   if (CHANNEL) {
-    const peer = snex.createPeer('snex-peer-server.herokuapp.com:80');
-    snex.joinSession(CHANNEL, peer)
+    snex.joinSession(CHANNEL)
     .then(conn => {
       conns.add(conn);
       console.info('Connection established on channel "%s"', CHANNEL);
 
       conn.on('data', function(data) {
-        console.info('Received', data);
+        console.info('Remote Received', data);
       });
     });
   }

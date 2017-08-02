@@ -67,7 +67,6 @@ router.post('/api/v1/session', bodyParser.json(), (req, res) => {
   const meta = {
     expiresAt,
     type: payload('type'),
-    key: payload('key'),
     id: payload('id'),
   };
 

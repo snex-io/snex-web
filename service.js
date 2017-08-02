@@ -4,7 +4,6 @@ const cors = require('cors');
 const api = require('./server/api');
 const controllers = require('./server/controllers');
 
-const PEERJS_API_KEY = process.env.PEERJS_API_KEY || 'lwjd5qra8257b9';
 const PORT = process.env.PORT || 8080;
 
 const app = express();
@@ -26,7 +25,6 @@ app.get('/', (req, res) => {
     res.locals = {
         URL_SELF: process.env.URL_SELF,
         controllers: Object.keys(controllers),
-        api_key: PEERJS_API_KEY,
     };
 
     res.render('front');

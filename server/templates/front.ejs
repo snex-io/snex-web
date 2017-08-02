@@ -16,8 +16,7 @@
   <meta property="og:url" content="<%= URL_SELF %>/" />
   <meta property="og:image" content="<%= URL_SELF %>/images/og-image.png" />
 
-  <script src="/lib/peerjs/0.3/peer.min.js"></script>
-  <script src="/dist/0.0.2/snex.js"></script>
+  <script src="https://cdn.snex.io/snex.latest.min.js"></script>
   <script src="/scripts/space-game.js"></script>
   <script src="/scripts/demo.js"></script>
 </head>
@@ -41,7 +40,7 @@
 
         <p>
           SNEX is open source and we encourage contributions.<br>
-          Please visit us on <a href="https://github.com/snex-io/snex-web">GitHub</a>.
+          Please visit us on <a href="https://github.com/snex-io/">GitHub</a>.
         </p>
       </li>
 
@@ -106,7 +105,7 @@
 
     <p>
       Use the input below to control the game or open the URL on your Android.
-      You can also try our multiplayer <a href="/demos/tetris">Tetris + SNEX</a> implementation.
+      You can also try our multiplayer <a href="http://demos.snex.io/tetris">Tetris + SNEX</a> implementation.
     </p>
 
     <div class="controller-url">
@@ -192,70 +191,52 @@
     </a>
 
     <p>
-      Follow the steps below or have a look at our <a href="http://snex.io/demos/minimal/">Minimal single HTML page implementation</a>. View HTML source code to see how it works.
+      Follow the steps below or have a look at our <a href="http://demos.snex.io/minimal/">Minimal single HTML page implementation</a>. View HTML source code to see how it works.
     </p>
 
     <ul>
       <li>
-        <h3>1) Include <a href="http://peerjs.com/">Peer.js</a></h3>
-
-        <p>We depend on Peer.js to easily setup the connection between the user and your project.</p>
-        <p>
-          You will have to include their library on your site to use SNEX. We also recommend that you
-          create your own API key with <a href="http://peerjs.com/">Peer.js</a>.
-        </p>
+        <h3>1) Include <a href="http://cdn.snex.io/snex.latest.min.js">snex.js</a></h3>
 
         <code>
-          <%= `<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>` %>
+          <%= `<script src="http://cdn.snex.io/snex.latest.min.js"></script>` %>
         </code>
 
         <p>
-          For more details on how to use Peer.js, visit their <a href="http://peerjs.com/docs/#start">Getting Started</a> guide.
+          Library also available as <a href="https://www.npmjs.com/package/snex">NPM package</a>.
         </p>
       </li>
       <li>
-        <h3>2) Create URL</h3>
+        <h3>2) Create Session</h3>
 
         <p>
-          Open a channel using <a href="http://peerjs.com/">Peer.js</a>. Then using
-          your API key and the channel Id, create a unique URL to SNEX.
+          Create a session using <code>snex.createSession()</code> and start listening for connections.
+          Each time <code>connection</code> event is emitted it is like a player plugging in a controller.
         </p>
 
         <code>
-          function createURL(key, channel, pad) {<br/>
-          &nbsp;&nbsp;return `http://snex.io/${pad}/?key=${key}&amp;id=${id}`;<br/>
-          }<br/>
-          <br/>
-          var API_KEY = 'lwjd5qra8257b9';<br/>
-          var peer = new Peer({key: API_KEY});<br/>
-          peer.on('open', function(id) {<br/>
-          &nbsp;&nbsp;var url = createURL(API_KEY, id, 'nes');<br/>
-          &nbsp;&nbsp;console.info('Go to url', url);<br/>
-          });
-        </code>
-
-        <p>
-          You may also use our URL-shorterner service that can be accessed via our tiny SNEX lib.
-          Include it in your browser or use our <a href="https://www.npmjs.com/package/snex">NPM package</a>.
-        </p>
-
-        <code>
-          <%= `<script src="http://cdn.snex.io/dist/0.0.1/snex.js"></script>` %>
-        </code>
-
-        <p>
-          Then you can create short URLs like <code>snex.io/HFJA</code> that are active for 5 minutes.
-        </p>
-
-        <code>
-          var API_KEY = 'lwjd5qra8257b9';<br/>
-          var peer = new Peer({key: API_KEY});<br/>
-          peer.on('open', function(id) {<br/>
-          &nbsp;&nbsp;snex.createSession(API_KEY, id, 'nes')<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;.then(session => {<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Go to url', session.url);<br/>
+          snex.createSession()<br/>
+          .then(session => {<br/>
+          &nbsp;&nbsp;session.on('connection', conn => {<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;console.log('Player joined!');<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;conn.on('data', data => {<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Player signal', data);<br/>
           &nbsp;&nbsp;&nbsp;&nbsp;});<br/>
-          });
+          &nbsp;&nbsp;});<br/>
+          });<br/>
+        </code>
+
+        <p>
+          You may also use our URL-shorterner service by running <code>session.createURL()</code>.
+        </p>
+
+        <code>
+          snex.createSession()<br/>
+          .then(session => session.createURL('nes'))<br/>
+          .then(link => {<br/>
+          &nbsp;&nbsp;// Prints "Go to http://snex.io/XAGE to play!"<br/>
+          &nbsp;&nbsp;console.log(`Go to ${link.url} to play!`);<br/>
+          });<br/>
         </code>
       </li>
 
@@ -263,32 +244,37 @@
         <h3>3) Open URL on smartphone</h3>
 
         <p>
-          Get URL to client device via SMS, chat, email, or just type it into Firefox, Google Chrome or WebRTC compatible browser.
+          Send URL to client device via SMS, chat, email, or just type it into Firefox, Google Chrome or WebRTC compatible browser.
           When the URL is loaded a gamepad will be displayed and the client will connect to your service.
         </p>
+
+        <img src="/images/how2.svg"/>
       </li>
 
       <li>
         <h3>4) Handle events</h3>
 
         <p>
-          When a user loads the gamepad the <code>connection</code> event will trigger in Peer.js. You can use this to setup a new player.
-        </p>
-
-        <p>
-          When user interaction is detected the <code>data</code> event on the connection will fire. The gamepad will send messages in JSON format containing the details of the interaction. It's up to you what to do with them. For more information on events see our <a href="https://github.com/snex-io/snex-web/tree/master/docs/events">events docs</a>.
+          When a user interacts with gamepad the <code>data</code> event will trigger on the connection.
+          The gamepad will send messages in JSON format containing the details of the interaction.
+          It's up to you what to do with them. For more information on events see <a href="https://github.com/snex-io/snex-web/tree/master/docs/events">events docs</a>.
         </p>
 
         <code>
-          peer.on('connection', function(conn) {<br/>
-          &nbsp;&nbsp;conn.on('data', function(data) {<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;console.log('Key %s got state %s', data.key, data.state);<br/>
+          snex.createSession()<br/>
+          .then(session => {<br/>
+          &nbsp;&nbsp;session.on('connection', conn => {<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;console.log('Player joined!');<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;conn.on('data', data => {<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (data.state &amp;&amp; data.key === 'A') {<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;player.jump();<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;});<br/>
           &nbsp;&nbsp;});<br/>
-          });
+          });<br/>
         </code>
-
         <p>
-          For more details <a href="https://github.com/snex-io/snex-web/tree/master/docs">Read our docs</a> or have a look at our <a href="https://github.com/pomle/snex-tetris/blob/master/main.js">Tetris Source Code</a>.
+          For more details <a href="https://github.com/snex-io/snex-web/tree/master/docs">Read our docs</a> or have a look at our <a href="https://github.com/snex-io/snex-tetris/">Tetris Source Code</a>.
         </p>
       </li>
     </ul>
