@@ -1,7 +1,8 @@
 {
-  "name": "snex",
-  "version": "0.0.0",
+  "name": "snex-website",
+  "version": "0.1.0",
   "description": "Soft gamepads for smart phones emitting JSON over WebRTC.",
+  "homepage": "http://snex.io",
   "main": "index.js",
   "scripts": {
     "start": "node service.js",
