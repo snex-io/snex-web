@@ -1,7 +1,11 @@
 window.addEventListener('load', function() {
-  if (!snex.isSupported()) {
+  function abort(error) {
     document.body.className = 'error';
-    document.getElementById('webrtc-support').style.display = 'block';
+    document.getElementById(error).style.display = 'block';
+  }
+
+  if (!snex.isSupported()) {
+    abort('webrtc-support');
     return;
   }
 
@@ -128,6 +132,10 @@ window.addEventListener('load', function() {
       conn.on('data', function(data) {
         console.info('Remote Received', data);
       });
+    })
+    .catch(err => {
+      console.error(err);
+      abort('connection-failed');
     });
   }
 });

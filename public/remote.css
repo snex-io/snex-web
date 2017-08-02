@@ -23,6 +23,10 @@ body {
   text-align: center;
 }
 
+#message > * {
+  display: none;
+}
+
 #controller {
   width: 100%;
 }
