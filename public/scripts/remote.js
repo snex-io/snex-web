@@ -16,7 +16,7 @@ window.addEventListener('load', function() {
   const controller = document.getElementById('controller');
   const conns = new Set();
   const keys = [];
-  const areas = [];
+  const areas = new Set();
   const states = Object.create(null);
 
   function circlesIntersect(r1, r2, x1, y1, x2, y2) {
@@ -27,7 +27,7 @@ window.addEventListener('load', function() {
   }
 
   function mapKeys() {
-    areas.splice(0, areas.length);
+    areas.clear();
 
     const touchables = svg.querySelectorAll('[id^=snex-]');
 
@@ -42,7 +42,7 @@ window.addEventListener('load', function() {
         },
         radius: rect.width * 0.5,
       };
-      areas.push(area);
+      areas.add(area);
       keys.push(area.id);
       states[area.id] = false;
     });
