@@ -36,15 +36,12 @@
       }
     }
 
-    function Ship() {
+    function Ship(x, y) {
       const
         D = new Vec(1, 0),
         F = new Vec(),
         V = new Vec(),
-        P = new Vec(
-          canvas.width / 2,
-          canvas.height / 2
-        );
+        P = new Vec(x, y);
 
       this.draw = (ctx) => {
         const angle = Math.atan2(D.y, D.x);
@@ -130,10 +127,9 @@
     }
 
     this.addPlayer = function() {
-      const p = new Ship({
-        x: canvas.width / 2,
-        y: canvas.height / 2,
-      });
+      const p = new Ship(
+        canvas.width * Math.random(),
+        canvas.height * Math.random());
       entities.add(p);
       return p;
     };

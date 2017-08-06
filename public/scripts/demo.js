@@ -22,6 +22,7 @@ window.addEventListener('load', function() {
       anchor.target = '_blank';
 
       const iframe = element.querySelector('iframe');
+      iframe.allowFullscreen = true;
 
       pool.appendChild(element);
 
@@ -66,10 +67,20 @@ window.addEventListener('load', function() {
   }
 
   function resize() {
-    canvas.width = canvas.getBoundingClientRect().width;
+    canvas.width = canvas.parentNode.clientWidth;
+    canvas.height = canvas.parentNode.clientHeight;
+  }
+
+  function fullscreen() {
+    const element = demoElement.querySelector('.screen');
+    const requestFullscreen = element.webkitRequestFullScreen
+      || element.mozRequestFullScreen
+      || element.requestFullscreen;
+    requestFullscreen.call(element);
   }
 
   const demoElement = document.querySelector('.demo');
+  demoElement.querySelector('#fullscreen').addEventListener('click', fullscreen);
 
   const link = document.querySelector('.demo .link');
   const controllers = [];
@@ -93,9 +104,9 @@ window.addEventListener('load', function() {
 
     carousel.skip(0);
 
-    const player = game.addPlayer();
-
     session.on('connection', function(conn) {
+      const player = game.addPlayer();
+
       conn.on('data', function(data) {
         log.textContent = JSON.stringify(data);
         const { key, state } = data;
@@ -111,11 +122,15 @@ window.addEventListener('load', function() {
         } else if (state && key === 'RIGHT') {
           player.dir.x = 1;
           player.dir.y = 0;
-        } else if (key === 'B' && state) {
-          player.shoot();
         } else if (key === 'A') {
           player.thrust = state;
+        } else if (state) {
+          player.shoot();
         }
+      });
+
+      conn.on('close', function() {
+        game.removePlayer(player);
       });
     });
   });

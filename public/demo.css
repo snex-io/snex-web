@@ -5,14 +5,15 @@
   position: relative;
 }
 
-.demo .game,
-.demo .game canvas,
-.demo .game .screen {
+.demo .game {
   height: 240px;
+  width: 100%;
 }
 
 .demo .game .screen {
   background: #000 url('/images/starfield.png');
+  height: 100%;
+  width: 100%;
 }
 
 .demo .screen .log {
@@ -25,6 +26,20 @@
   right: 0;
   text-align: center;
   text-shadow: 1px 1px 4px #000;
+}
+
+.demo #fullscreen {
+  background: rgba(0, 0, 0, 0.5) url('/images/fullscreen.svg') center no-repeat;
+  background-size: 46px 46px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  position: absolute;
+    top: 0;
+    right: 0;
+  height: 50px;
+  margin: 10px;
+  width: 60px;
 }
 
 .demo canvas {
