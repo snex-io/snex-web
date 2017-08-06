@@ -11,8 +11,6 @@ window.addEventListener('load', function() {
 
   let useTouch = null;
 
-  document.body.classList.add('ready');
-
   const controller = document.getElementById('controller');
   const conns = new Set();
   const keys = [];
