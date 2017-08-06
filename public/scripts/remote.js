@@ -118,8 +118,6 @@ window.addEventListener('load', function() {
   svg.addEventListener('mouseup', handleMouse);
   svg.addEventListener('mousemove', handleMouse);
 
-  svg.addEventListener('contextmenu', e => e.preventDefault());
-
   mapKeys();
   window.addEventListener('resize', mapKeys)
 

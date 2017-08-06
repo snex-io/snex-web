@@ -38,54 +38,64 @@
   justify-content: space-around;
 }
 
-.demo .input .skip {
-  flex: 1 1 auto;
-}
-
 .demo .input .skip button {
   border: 0;
   background: transparent;
   color: #de4d5f;
   cursor: pointer;
   font-size: 96px;
-  padding: 10px;
+  margin: 20px;
 }
 
 .demo .input .skip.prev {
   order: -1;
-  text-align: left;
 }
 
 .demo .input .skip.next {
   order: 1;
-  text-align: right;
 }
 
 .demo .input .skip.next img {
   transform: rotate(180deg);
 }
 
-
-.demo .input .overlay {
-  flex: 1 1 auto;
-  order: 0;
-  margin: 0 20px;
+@media(max-width: 840px) {
+  .demo .input .skip {
+    text-align: center;
+  }
+  .demo .input .skip.prev {
+    order: 2;
+    width: 50%;
+  }
+  .demo .input .skip.next {
+    order: 3;
+    width: 50%;
+  }
 }
 
-.demo .input .controllers {
+.demo .input .phone {
   background: url('./images/android.svg') no-repeat;
   background-size: contain;
-  box-sizing: border-box;
-  margin: 0 auto;
-  padding: 24px 0 0 74px;
   perspective: 1000px;
-  height: 470px;
-  width: 768px;
+  position: relative;
+  max-height: 335px;
+  max-width: 640px;
+  height: 41.875vw;
+  width: 80vw;
+}
+
+.demo .input .phone .screen {
+  position: absolute;
+    top: 6%;
+    right: 8%;
+    bottom: 6%;
+    left: 9.6%;
 }
 
 .demo .input .controllers .controller {
   position: absolute;
-  width: 604px;
+  height: 100%;
+  width: 100%;
 }
 
 .demo .input .controllers .controller.hidden {
@@ -93,13 +103,14 @@
 }
 
 .demo .input .controllers .controller .window {
-  height: 360px;
-  width: 630px;
+  height: 100%;
+  width: 100%;
   transition: all .5s ease;
 }
 
 .demo .input .controllers .controller.hidden .window {
   opacity: 0;
+  pointer-events: none;
   transform: rotateX(90deg) scale(.2);
 }
 
