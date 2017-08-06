@@ -13,10 +13,6 @@ window.addEventListener('load', function() {
 
   document.body.classList.add('ready');
 
-  const params = document.body.attributes;
-  const CHANNEL = params['data-id'].value;
-  console.info('Setting up using id "%s"', CHANNEL);
-
   const controller = document.getElementById('controller');
   const conns = new Set();
   const keys = [];
@@ -121,11 +117,16 @@ window.addEventListener('load', function() {
   mapKeys();
   window.addEventListener('resize', mapKeys)
 
+  const params = document.body.attributes;
+  const CHANNEL = params['data-id'].value;
+
   if (CHANNEL) {
+    console.info('Connecting to "%s"', CHANNEL);
+
     snex.joinSession(CHANNEL)
     .then(conn => {
       conns.add(conn);
-      console.info('Connection established on channel "%s"', CHANNEL);
+      console.info('Connection established');
 
       conn.on('data', function(data) {
         console.info('Remote Received', data);
