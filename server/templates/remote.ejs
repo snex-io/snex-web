@@ -11,6 +11,9 @@
   <script src="/scripts/remote.js"></script>
 </head>
 <body data-id="<%= id %>">
+  <div id="buttons">
+    <button id="fullscreen"></button>
+  </div>
 
   <div id="message">
     <div id="webrtc-support">
@@ -23,10 +26,12 @@
     </div>
   </div>
 
-  <object
-    data="/controllers/<%= type %>.svg"
-    type="image/svg+xml"
-    id="controller">
-  </object>
+  <div id="controller-screen">
+    <object
+      data="/controllers/<%= type %>.svg"
+      type="image/svg+xml"
+      id="controller">
+    </object>
+  </div>
 </body>
 </html>

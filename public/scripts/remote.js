@@ -17,6 +17,15 @@ window.addEventListener('load', function() {
   const areas = new Set();
   const states = Object.create(null);
 
+  function fullscreen() {
+    const element = document.getElementById('controller-screen');
+    const requestFullscreen = element.webkitRequestFullScreen
+      || element.mozRequestFullScreen
+      || element.requestFullscreen;
+    requestFullscreen.call(element);
+  }
+  document.getElementById('fullscreen').addEventListener('click', fullscreen);
+
   function circlesIntersect(r1, r2, x1, y1, x2, y2) {
     const dx = x2 - x1;
     const dy = y2 - y1;

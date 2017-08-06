@@ -13,7 +13,24 @@ body {
   margin: 0;
 }
 
-#message {
+#buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#fullscreen {
+  background: rgba(0, 0, 0, 0.5) url('/images/fullscreen.svg') center no-repeat;
+  background-size: 46px 46px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  height: 50px;
+  margin: 10px;
+  width: 60px;
+}
+
+#error-message {
   background: rgba(0, 0, 0, .6);
   color: #fff;
   display: none;
@@ -26,7 +43,9 @@ body {
   display: none;
 }
 
-#controller {
+#controller,
+#controller-screen {
+  display: block;
   width: 100%;
 }
 
