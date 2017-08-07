@@ -24,6 +24,7 @@ body {
   background-size: 46px 46px;
   border-radius: 5px;
   border: none;
+  opacity: 0.5;
   outline: none;
   height: 50px;
   margin: 10px;
