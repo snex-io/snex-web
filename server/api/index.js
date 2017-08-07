@@ -61,7 +61,7 @@ router.post('/api/v1/session', bodyParser.json(), (req, res) => {
   const payload = propExtract(req.body);
 
   const gracePeriod = 30;
-  const lifetime = 60 * 5;
+  const lifetime = 60 * 10;
 
   const expiresAt = moment().add(lifetime, 'seconds');
 
