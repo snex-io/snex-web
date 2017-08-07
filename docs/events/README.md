@@ -4,7 +4,7 @@ SNEX requires two steps to work.
 
 1) **Create a Session**
 
-A session is basically a unique ID to which controllers can connect and send events. If you created a game, you set up a session using the SNEX lib on your end and your users needs to know the session ID to connect.
+A session is basically a unique ID to which controllers can connect and send events. If you create a game and want users to play it using SNEX, you first set up a session using the SNEX library on your end and then your users needs to know the session ID to connect to.
 
 ```js
 const snex = require('snex');
@@ -17,7 +17,7 @@ snex.createSession()
 
 2) **Create a controller URL**
 
-The controller URL is where your users go to see a controller. The SNEX controllers have to know what session to send their signals to. There are two ways to create URLs; manually and via the `session`.
+The controller URL is where your users go to see a controller. The SNEX controllers have to know what session to send their signals to thus you have to create a unique URL for your session. There are two ways to create URLs; *manually* and via the `session`.
 
 **Manual**
 ```js
