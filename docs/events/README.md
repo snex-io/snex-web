@@ -12,7 +12,7 @@ Event keys are uppercase strings. For [NES](#nes) they are `UP`, `DOWN`, `LEFT`,
 
 ## Controllers
 
-We provide three different controllers, [NES](#nes), Sega Genesis (Sega Mega Drive), [SNES (Famicom)](#snes--super-famicom).
+We provide three different controllers, [NES](#nes), [Sega Genesis (Sega Mega Drive)](#sega-genesis--sega-mega-drive), [SNES (Famicom)](#snes--super-famicom).
 
 ### <a name="nes"></a>NES
 <img src="https://cdn.snex.io/pads/nes.svg" alt="NES" title="NES" width="400">
