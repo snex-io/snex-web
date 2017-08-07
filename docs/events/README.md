@@ -1,6 +1,40 @@
-# SNEX Controller Events
+# SNEX Documentation
 
-The SNEX controllers emit events in JSON and will contain the key (name) of the event and its current state.
+SNEX requires two steps to work. 
+
+1) Create a Session
+
+A session is basically a unique ID to which controllers can connect and send events. If you created a game, you set up a session using the SNEX lib on your end and your users needs to know the session ID to connect.
+
+```js
+const snex = require('snex');
+
+snex.createSession()
+.then(session => {
+  console.log(session.id); //
+});
+```
+
+2) Create a controller URL
+
+The controller URL is where your users go to see a controller. The SNEX controllers have to know what session to send their signals to. There are two ways to create URLs; manually and via the SNEX lib.
+
+Manual:
+```js
+const URL = `http://snex.io/nes?id=${session.id}`;
+console.log(`Go to ${URL} to play!`);
+```
+
+Using session object
+```js
+session.createURL('nes')
+.then(link => {
+  const URL = link.url;
+  console.log(`Go to ${URL} to play!`);
+});
+```
+
+Once a user is connected you will receive events when a controller is interacted with. The SNEX controllers emit events in JSON and will contain the key (name) of the event and its current state. You don't have to decode the JSON yourself, it is handled by the library.
 
 ```json
 {"key":"UP","state":1}
@@ -17,6 +51,18 @@ We provide three different controllers, [NES](#nes), [Sega Genesis (Sega Mega Dr
 ### <a name="nes"></a>NES
 <img src="https://cdn.snex.io/pads/nes.svg" alt="NES" title="NES" width="400">
 
+#### Usage
+
+
+
+| *API* | `snex.createURL()` |
+| *URL* | `http://snex.io/nes?id=[
+
+
+
+
+
+#### Events
 
 | Event           | JSON                            |
 |-----------------|---------------------------------|
@@ -40,7 +86,7 @@ We provide three different controllers, [NES](#nes), [Sega Genesis (Sega Mega Dr
 
 ### SNES / Super Famicom
 <img src="https://cdn.snex.io/pads/snes.svg" alt="SNES" title="SNES" width="400">
-<img src="https://cdn.snex.io/pads/snes-us.svg" alt="SNES" title="SNES" width="400">
+<img src="https://cdn.snex.io/pads/snes-us.svg?v2" alt="SNES" title="SNES" width="400">
 
 | Event           | JSON                            |
 |-----------------|---------------------------------|
