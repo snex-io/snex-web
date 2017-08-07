@@ -31,7 +31,7 @@ body {
   width: 60px;
 }
 
-#error-message {
+#message {
   background: rgba(0, 0, 0, .6);
   color: #fff;
   display: none;
@@ -54,7 +54,7 @@ body {
   background: #000;
 }
 
-.error #controller {
+.error #controller-screen {
   display: none;
 }
 
@@ -75,7 +75,7 @@ body {
     background-position: 1111px 2222px;
   }
   100% {
-
+    background-position: 1241px 1230px;
   }
 }
 
