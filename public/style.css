@@ -71,8 +71,7 @@ section > p {
 
 .how ul,
 .demos ul,
-.explanation ul,
-.get-started ul {
+.explanation ul {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -151,16 +150,20 @@ section > p {
 
 .get-started {
 }
+
+  .get-started ul {
+    display: flex;
+    max-width: 600px;
+    flex-flow: row wrap;
+  }
+
   .get-started h3 {
     margin-top: 0;
   }
 
   .get-started li {
-    box-sizing: border-box;
     min-width: 280px;
     padding: 1em;
-    max-width: 600px;
-    margin: auto;
   }
 
   .get-started img {
