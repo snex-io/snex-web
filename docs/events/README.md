@@ -17,7 +17,7 @@ snex.createSession()
 
 2) **Create a controller URL**
 
-The controller URL is where your users go to see a controller. The SNEX controllers have to know what session to send their signals to. There are two ways to create URLs; manually and via the SNEX lib.
+The controller URL is where your users go to see a controller. The SNEX controllers have to know what session to send their signals to. There are two ways to create URLs; manually and via the `session`.
 
 **Manual**
 ```js
@@ -34,6 +34,8 @@ session.createURL('nes')
 });
 ```
 
+When you create a URL using the session a short code will be stored with SNEX that contain both the session id and the type of controller so that your users can connect using a short  URL like `snex.io/XAFE`.
+
 Once a user is connected you will receive events when a controller is interacted with. Controllers emit events in JSON and will contain the key (button name) of the event and the button's current state. You don't have to decode the JSON yourself, it is handled by the library.
 
 ```json
@@ -48,7 +50,7 @@ Event keys are uppercase strings. For [NES](#nes) they are `UP`, `DOWN`, `LEFT`,
 
 We provide three different controllers, [NES](#nes), [Sega Genesis (Sega Mega Drive)](#sega-genesis--sega-mega-drive), [SNES (Famicom)](#snes--super-famicom).
 
-### <a name="nes"></a>NES
+### NES
 <img src="https://cdn.snex.io/pads/nes.svg" alt="NES" title="NES" width="400">
 
 #### URL
