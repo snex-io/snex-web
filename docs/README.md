@@ -38,13 +38,24 @@ When you create a URL using the `session`, a short code will be stored with SNEX
 
 3) **Handle events**
 
-Once a user is connected you will receive a `connection` event. The `connection` event will emit an object representing a connected controller. This object will emit `data` events when a controller is interacted with. Controllers send events in JSON and will contain the key (button name) of the event and the button's current state. You don't have to decode the JSON yourself, it is handled by the library.
+Once a user is connected you will receive a `connection` event. Think of this as a human plugging in a new controller. The `connection` event will emit an object representing a connected controller. This object will emit `data` events when a controller is interacted with. Controllers send events in JSON and will contain the key (button name) of the event and the button's current state. You don't have to decode the JSON yourself, it is handled by the library.
+
+When a user leaves the controller page, a `close` event will be emitted on the controller object.
 
 ```js
-session.on('connection', player => {
-  player.on('data', data => {
-    // Prints 'Object {key: "START", state: 1}'
-    console.log(data);
+session.on('connection', controller => {
+
+  console.log('Controller was connected.');
+  
+  controller.on('data', data => {
+  
+    // Prints 'Player pressed {key: "START", state: 1}'
+    console.log('Player pressed', data);
+    
+  });
+  
+  contoller.on('close', () => {
+    console.log('Controller was disconnected.');
   });
 });
 ```
@@ -66,16 +77,16 @@ const game = new Game();
 
 snex.createSession()
 .then(session => {
-  session.on('connection', conn => {
+  session.on('connection', controller => {
     const player = game.addPlayer();
 
-    conn.on('data', data => {
+    controller.on('data', data => {
       if (data.state && data.key === 'A') {
         player.jump();
       }
     }
 
-    conn.on('close', () => {
+    controller.on('close', () => {
       game.removePlayer(player);
     });
   });
