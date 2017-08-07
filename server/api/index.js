@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const request = require('request');
 const moment = require('moment');
 const random = require('../random');
 const controllers = require('../controllers');
@@ -11,8 +10,7 @@ const linkStore = require('../link-store').createStore();
 const propExtract = require('../prop-extract');
 
 router.get('/:pointer', (req, res, next) => {
-    let typeOrId = req.params.pointer;
-    let meta;
+    const typeOrId = req.params.pointer;
 
     linkStore.has(typeOrId)
     .then(has => {
