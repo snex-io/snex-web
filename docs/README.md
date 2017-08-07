@@ -87,6 +87,11 @@ snex.createSession()
 });
 ```
 
+## Implementation examples
+* [Multiplayer Tetris](http://demos.snex.io/tetris/)
+* [Minimal Example](http://demos.snex.io/minimal/) ([source code](https://github.com/snex-io/snex-demos/blob/master/public/minimal/index.html))
+
+
 ## Controllers
 
 We provide three different controllers, [NES](#nes), [Sega Genesis (Sega Mega Drive)](#sega-genesis--sega-mega-drive), [SNES (Famicom)](#snes--super-famicom).
