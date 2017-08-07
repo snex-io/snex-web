@@ -90,6 +90,7 @@ snex.createSession()
 ## Implementation examples
 * [Multiplayer Tetris](http://demos.snex.io/tetris/)
 * [Minimal Example](http://demos.snex.io/minimal/) ([source code](https://github.com/snex-io/snex-demos/blob/master/public/minimal/index.html))
+* [React Example](https://github.com/snex-io/snex-react-example/)
 
 
 ## Controllers
