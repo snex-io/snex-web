@@ -1,6 +1,6 @@
 # SNEX Controller Events
 
-The SNEX controllers emit events in JSON and will contain the key (name) of the event as well as its current state.
+The SNEX controllers emit events in JSON and will contain the key (name) of the event and its current state.
 
 ```json
 {"key":"UP","state":1}
@@ -8,13 +8,13 @@ The SNEX controllers emit events in JSON and will contain the key (name) of the 
 
 Buttons only have two states; `1` for when it is pressed, `0` for when it is released.
 
-Event keys are uppercase strings. For NES they are `UP`, `DOWN`, `LEFT`, `RIGHT`. `SELECT`, `START`, `A`, `B`.
+Event keys are uppercase strings. For [NES](#nes) they are `UP`, `DOWN`, `LEFT`, `RIGHT`. `SELECT`, `START`, `A`, `B`.
 
 ## Controllers
 
-We provide four different controllers, NES, Sega Genesis (Sega Mega Drive), SNEX, and Famicom.
+We provide three different controllers, [NES](#nes), Sega Genesis (Sega Mega Drive), [SNES (Famicom)](#snes--super-famicom).
 
-### NES
+### <a name="nes"></a>NES
 <img src="https://cdn.snex.io/pads/nes.svg" alt="NES" title="NES" width="400">
 
 
