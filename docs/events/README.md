@@ -1,10 +1,10 @@
 # SNEX Documentation
 
-SNEX requires two steps to work. 
+SNEX requires three steps to work. 
 
 1) **Create a Session**
 
-A session is basically a unique ID to which controllers can connect and send events. If you create a game and want users to play it using SNEX, you first set up a session using the SNEX library on your end and then your users needs to know the session ID to connect to.
+A session is basically a unique id to which controllers can connect and send events. If you create a game and want users to play it using SNEX, you first set up a session using the SNEX library on your end and then your users needs to know the session id to connect to.
 
 ```js
 const snex = require('snex');
@@ -34,17 +34,58 @@ session.createURL('nes')
 });
 ```
 
-When you create a URL using the session a short code will be stored with SNEX that contain both the session id and the type of controller so that your users can connect using a short  URL like `snex.io/XAFE`.
+When you create a URL using the `session`, a short code will be stored with SNEX that contain both the session id and the type of controller so that your users can connect using a short  URL like `snex.io/XAFE`.
 
-Once a user is connected you will receive events when a controller is interacted with. Controllers emit events in JSON and will contain the key (button name) of the event and the button's current state. You don't have to decode the JSON yourself, it is handled by the library.
+3) **Handle events**
 
-```json
-{"key":"UP","state":1}
+Once a user is connected you will receive a `connection` event. The `connection` event will emit an object representing a connected controller. This object will emit `data` events when a controller is interacted with. Controllers send events in JSON and will contain the key (button name) of the event and the button's current state. You don't have to decode the JSON yourself, it is handled by the library.
+
+```js
+session.on('connection', player => {
+  player.on('data', data => {
+    // Prints 'Object {key: "START", state: 1}'
+    console.log(data);
+  });
+});
 ```
 
 Buttons only have two states; `1` for when it is pressed, `0` for when it is released.
 
 Event keys are uppercase strings. For [NES](#nes) they are `UP`, `DOWN`, `LEFT`, `RIGHT`. `SELECT`, `START`, `A`, `B`.
+
+
+## Full life cycle example
+```js
+// Your game
+const Game = require('my-space-game');
+
+// SNEX library
+const snex = require('snex');
+
+const game = new Game();
+
+snex.createSession()
+.then(session => {
+  session.on('connection', conn => {
+    const player = game.addPlayer();
+    
+    conn.on('data', data => {
+      if (data.state && data.key === 'A') {
+        player.jump();
+      }
+    }
+    
+    conn.on('close', () => {
+      game.removePlayer(player);
+    });
+  });
+  
+  session.createURL('nes')
+  .then(link => {
+    console.log(`Go to ${link.url} to join game!`);
+  });
+});
+```
 
 ## Controllers
 
