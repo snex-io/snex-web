@@ -50,6 +50,10 @@ body {
   width: 100%;
 }
 
+#controller-screen {
+  background: #000;
+}
+
 .error #controller {
   display: none;
 }
