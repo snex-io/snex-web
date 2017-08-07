@@ -53,10 +53,15 @@ We provide three different controllers, [NES](#nes), [Sega Genesis (Sega Mega Dr
 ### NES
 <img src="https://cdn.snex.io/pads/nes.svg" alt="NES" title="NES" width="400">
 
-#### URL
+#### Session link
+```js
+session.createURL('nes')
+```
 
-    http://snex.io/nes?id=[SESSION ID]
-
+#### Manual URL
+```js
+console.log(`http://snex.io/nes?id=${session.id}`);
+```
 
 #### Events
 
@@ -84,11 +89,17 @@ We provide three different controllers, [NES](#nes), [Sega Genesis (Sega Mega Dr
 <img src="https://cdn.snex.io/pads/snes.svg" alt="SNES" title="SNES" width="400">
 <img src="https://cdn.snex.io/pads/snes-us.svg?v2" alt="SNES" title="SNES" width="400">
 
-#### URL
+#### Session link
+```js
+session.createURL('snes')
+session.createURL('snes-us')
+```
 
-    http://snex.io/snes?id=[SESSION ID]
-    http://snex.io/snes-us?id=[SESSION ID]
-    
+#### Manual URL
+```js
+console.log(`http://snex.io/snes?id=${session.id}`);
+console.log(`http://snex.io/snes-us?id=${session.id}`);
+```
 
 #### Events
 
@@ -119,10 +130,15 @@ We provide three different controllers, [NES](#nes), [Sega Genesis (Sega Mega Dr
 ### Sega Genesis / Sega Mega Drive
 <img src="https://cdn.snex.io/pads/genesis.svg" alt="Genesis" title="Sega Genesis / Mega Drive" width="400">
 
-#### URL
+#### Session link
+```js
+session.createURL('genesis')
+```
 
-    http://snex.io/genesis?id=[SESSION ID]
-    
+#### Manual URL
+```js
+console.log(`http://snex.io/genesis?id=${session.id}`);
+```
 
 #### Events
 
