@@ -11,7 +11,7 @@ const snex = require('snex');
 
 snex.createSession()
 .then(session => {
-  console.log(session.id); //
+  console.log(session.id);
 });
 ```
 
