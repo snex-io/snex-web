@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pomle/snex.git"
+    "url": "git+https://github.com/snex-io/snex-web.git"
   },
   "author": "Pontus Alexander <pontus.alexander@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/github.com/pomle/snex/issues"
+    "url": "https://github.com/github.com/snex-io/snex-web/issues"
   },
-  "homepage": "https://github.com/github.com/pomle/snex#readme",
+  "homepage": "https://github.com/github.com/snex-io/snex-web#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
