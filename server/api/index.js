@@ -61,9 +61,9 @@ router.post('/api/v1/session', bodyParser.json(), (req, res) => {
   const payload = propExtract(req.body);
 
   const gracePeriod = 30;
-  const lifetime = 60 * 10;
+  const lifeTime = 60 * 10;
 
-  const expiresAt = moment().add(lifetime, 'seconds');
+  const expiresAt = moment().add(lifeTime, 'seconds');
 
   const meta = {
     expiresAt,
@@ -73,12 +73,13 @@ router.post('/api/v1/session', bodyParser.json(), (req, res) => {
 
   const id = random.pretty(4, 'ABCDEFGHJKLMNPQRSTUVWXYZ');
 
-  linkStore.set(id, meta, lifetime + gracePeriod)
+  linkStore.set(id, meta, lifeTime + gracePeriod)
   .then(() => {
     res.send(JSON.stringify({
       id,
       url: process.env.URL_SELF + '/' + id,
       expiresAt,
+      lifeTime,
     }));
   });
 });
