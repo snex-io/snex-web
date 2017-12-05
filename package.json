@@ -8,9 +8,6 @@
     "start": "node service.js",
     "test": "jest"
   },
-  "engines": {
-    "node": "6.8.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/snex-io/snex-web.git"
