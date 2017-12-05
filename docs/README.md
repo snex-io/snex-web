@@ -21,7 +21,7 @@ The controller URL is where your users go to see a controller. The SNEX controll
 
 **Manual**
 ```js
-const URL = `http://snex.io/nes?id=${session.id}`;
+const URL = `https://snex.io/nes?id=${session.id}`;
 console.log(`Go to ${URL} to play!`);
 ```
 
@@ -46,14 +46,14 @@ When a user leaves the controller page, a `close` event will be emitted on the c
 session.on('connection', controller => {
 
   console.log('Controller was connected.');
-  
+
   controller.on('data', data => {
-  
+
     // Prints 'Player pressed {key: "START", state: 1}'
     console.log('Player pressed', data);
-    
+
   });
-  
+
   contoller.on('close', () => {
     console.log('Controller was disconnected.');
   });
@@ -99,8 +99,8 @@ snex.createSession()
 ```
 
 ## Implementation examples
-* [Multiplayer Tetris](http://demos.snex.io/tetris/)
-* [Minimal Example](http://demos.snex.io/minimal/) ([source code](https://github.com/snex-io/snex-demos/blob/master/public/minimal/index.html))
+* [Multiplayer Tetris](https://snex-io.github.io/demos/tetris/)
+* [Minimal Example](https://snex-io.github.io/demos/minimal/) ([source code](https://github.com/snex-io/snex-demos/blob/master/public/minimal/index.html))
 * [React Example](https://github.com/snex-io/snex-react-example/)
 
 
@@ -118,7 +118,7 @@ session.createURL('nes')
 
 #### Manual URL
 ```js
-console.log(`http://snex.io/nes?id=${session.id}`);
+console.log(`https://snex.io/nes?id=${session.id}`);
 ```
 
 #### Events
@@ -155,8 +155,8 @@ session.createURL('snes-us')
 
 #### Manual URL
 ```js
-console.log(`http://snex.io/snes?id=${session.id}`);
-console.log(`http://snex.io/snes-us?id=${session.id}`);
+console.log(`https://snex.io/snes?id=${session.id}`);
+console.log(`https://snex.io/snes-us?id=${session.id}`);
 ```
 
 #### Events
@@ -195,7 +195,7 @@ session.createURL('genesis')
 
 #### Manual URL
 ```js
-console.log(`http://snex.io/genesis?id=${session.id}`);
+console.log(`https://snex.io/genesis?id=${session.id}`);
 ```
 
 #### Events
