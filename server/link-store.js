@@ -18,7 +18,7 @@ class Store
   }
 
   has(key) {
-    return this._has(key);
+    return this._has(upper(key));
   }
 
   set(key, val) {
