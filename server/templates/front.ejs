@@ -4,7 +4,7 @@
   <% include fragments/head %>
   <title>SNEX - Virtual gamepads</title>
   <link href="/demo.css" rel="stylesheet">
-  <script src="https://cdn.snex.io/snex.latest.min.js"></script>
+  <script src="https://cdn.snex.io/snex.0.2.0.min.js"></script>
   <script src="/scripts/space-game.js"></script>
   <script src="/scripts/demo.js"></script>
 </head>
@@ -90,7 +90,7 @@
 
     <p>
       Use the input below to control the game or open the URL on your Android.
-      You can also try our multiplayer <a href="http://demos.snex.io/tetris">Tetris + SNEX</a> implementation.
+      You can also try our multiplayer <a href="https://snex-io.github.io/demos/tetris/">Tetris + SNEX</a> implementation.
     </p>
 
     <div class="controller-url">
@@ -153,7 +153,7 @@
 
     <ul>
       <li>
-        <a href="/demos/tetris">
+        <a href="https://snex-io.github.io/demos/tetris/">
           <h3>Tetris</h3>
           <img src="/images/tetris.png" alt="Tetris <3 SNEX" />
         </a>
@@ -179,15 +179,15 @@
     </a>
 
     <p>
-      Follow the steps below or have a look at our <a href="http://demos.snex.io/minimal/">Minimal single HTML page implementation</a>. View HTML source code to see how it works.
+      Follow the steps below or have a look at our <a href="https://snex-io.github.io/demos/minimal/">Minimal single HTML page implementation</a>. View HTML source code to see how it works.
     </p>
 
     <ul>
       <li>
-        <h3>1) Include <a href="http://cdn.snex.io/snex.latest.min.js">snex.js</a></h3>
+        <h3>1) Include <a href="https://cdn.snex.io/snex.latest.min.js">snex.js</a></h3>
 
         <code>
-          <%= `<script src="http://cdn.snex.io/snex.latest.min.js"></script>` %>
+          <%= `<script src="https://cdn.snex.io/snex.latest.min.js"></script>` %>
         </code>
 
         <p>
@@ -222,7 +222,7 @@
           snex.createSession()<br/>
           .then(session => session.createURL('nes'))<br/>
           .then(link => {<br/>
-          &nbsp;&nbsp;// Prints "Go to http://snex.io/XAGE to play!"<br/>
+          &nbsp;&nbsp;// Prints "Go to https://snex.io/XAGE to play!"<br/>
           &nbsp;&nbsp;console.log(`Go to ${link.url} to play!`);<br/>
           });<br/>
         </code>
