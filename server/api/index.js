@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const moment = require('moment');
 const random = require('../random');
 const controllers = require('../controllers');
+const templateLocals = require('../template-locals');
 
 const router = express.Router();
 
@@ -33,7 +34,7 @@ router.get('/:pointer', (req, res, next) => {
 
         res.locals = Object.assign({
             title: controller.title,
-        }, meta);
+        }, meta, templateLocals);
 
         res.render('remote');
     });
