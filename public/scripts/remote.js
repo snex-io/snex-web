@@ -94,7 +94,7 @@ window.addEventListener('load', function() {
       [...event.touches].forEach(touch => {
         areas.forEach(area => {
           const intersects = circlesIntersect(area.radius, 12,
-            area.pos.x, area.pos.y, touch.clientX, touch.clientY);
+            area.pos.x, area.pos.y, touch.pageX, touch.pageY);
           filter[area.id] = filter[area.id] || intersects;
         });
       });
@@ -119,7 +119,7 @@ window.addEventListener('load', function() {
     if (mouseState) {
       areas.forEach(area => {
         const intersects = circlesIntersect(area.radius, 12,
-          area.pos.x, area.pos.y, event.clientX, event.clientY);
+          area.pos.x, area.pos.y, event.pageX, event.pageY);
         filter[area.id] = filter[area.id] || intersects;
       });
     }
