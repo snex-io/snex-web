@@ -27,6 +27,12 @@ window.addEventListener('load', function() {
   }
   document.getElementById('fullscreen').addEventListener('click', fullscreen);
 
+  function vibe(ms) {
+    if (navigator.vibrate) {
+      navigator.vibrate(ms);
+    }
+  }
+
   function circlesIntersect(r1, r2, x1, y1, x2, y2) {
     const dx = x2 - x1;
     const dy = y2 - y1;
@@ -62,7 +68,7 @@ window.addEventListener('load', function() {
     }
 
     if (state) {
-      navigator.vibrate(20);
+      vibe(20);
     }
 
     states[key] = state;
