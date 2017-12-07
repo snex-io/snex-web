@@ -2,7 +2,7 @@ const express = require('express');
 const compression = require('compression');
 const cors = require('cors');
 const api = require('./server/api');
-const controllers = require('./server/controllers');
+const templateLocals = require('./server/template-locals');
 
 const PORT = process.env.PORT || 8080;
 
@@ -22,10 +22,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.locals = {
-        URL_SELF: process.env.URL_SELF,
-        controllers: Object.keys(controllers),
-    };
+    res.locals = templateLocals;
 
     res.render('front');
 });
@@ -33,9 +30,7 @@ app.get('/', (req, res) => {
 app.use(api);
 
 app.use('*', (req, res) => {
-    res.locals = {
-        URL_SELF: process.env.URL_SELF,
-    };
+    res.locals = templateLocals;
 
     res.statusCode = 404;
     res.render('404');
