@@ -10,6 +10,7 @@ window.addEventListener('load', function() {
   }
 
   let useTouch = null;
+  let mouseState = false;
 
   const controller = document.getElementById('controller');
   const conns = new Set();
@@ -97,12 +98,19 @@ window.addEventListener('load', function() {
 
   function handleMouse(event) {
     event.preventDefault();
+
+    if (event.type === 'mousedown') {
+      mouseState = true;
+    } else if (event.type === 'mouseup') {
+      mouseState = false;
+    }
+
     if (useTouch) {
       return;
     }
 
     const filter = Object.create(null);
-    if (event.buttons > 0) {
+    if (mouseState) {
       areas.forEach(area => {
         const intersects = circlesIntersect(area.radius, 12,
           area.pos.x, area.pos.y, event.clientX, event.clientY);
