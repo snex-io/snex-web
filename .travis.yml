@@ -1,0 +1,13 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - scripts/dockerize.sh
+
+deploy:
+  provider: script
+  script: scripts/publish.sh
+  on:
+    tags: true
