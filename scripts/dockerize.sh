@@ -1,4 +1,8 @@
 #! /usr/bin/env bash
 set -e
 
-docker build -t snex/web:$TRAVIS_TAG -t snex/web:latest .
+TAG="${TRAVIS_TAG:-$TRAVIS_COMMIT}"
+
+echo "Docker tag: $TAG"
+
+docker build -t snex/web:$TAG -t snex/web:latest .
