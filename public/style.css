@@ -32,6 +32,23 @@ button:focus {
   outline: 0;
 }
 
+.topline {
+  background: #000;
+  color: #aaa;
+}
+
+.topline a:hover {
+  color: #fff;
+}
+
+.topline ul {
+  display: flex;
+}
+
+.topline li {
+  margin: 0 .8em;
+}
+
 .headline {
   padding: 40px;
   text-align: center;
