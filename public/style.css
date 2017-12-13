@@ -60,10 +60,6 @@ p {
   text-align: justify;
 }
 
-section h2 {
-  text-align: center;
-}
-
 section > p {
   margin: 1em;
   max-width: 500px;
