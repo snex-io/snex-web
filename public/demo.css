@@ -29,6 +29,8 @@
 }
 
 .demo #fullscreen {
+  display: none;
+
   background: rgba(0, 0, 0, 0.5) url('/images/fullscreen.svg') center no-repeat;
   background-size: 46px 46px;
   border-radius: 5px;
