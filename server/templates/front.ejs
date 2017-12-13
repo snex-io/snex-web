@@ -225,11 +225,8 @@
         <code>
           snex.createSession()<br/>
           .then(session => {<br/>
-          &nbsp;&nbsp;session.on('connection', conn => {<br/>
+          &nbsp;&nbsp;session.on('connection', remote => {<br/>
           &nbsp;&nbsp;&nbsp;&nbsp;console.log('Player joined!');<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;conn.on('data', data => {<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Player signal', data);<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;});<br/>
           &nbsp;&nbsp;});<br/>
           });<br/>
         </code>
@@ -269,15 +266,12 @@
         </p>
 
         <code>
-          snex.createSession()<br/>
-          .then(session => {<br/>
-          &nbsp;&nbsp;session.on('connection', conn => {<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;console.log('Player joined!');<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;conn.on('data', data => {<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (data.state &amp;&amp; data.key === 'A') {<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;player.jump();<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;});<br/>
+          session.on('connection', remote => {<br/>
+          &nbsp;&nbsp;console.log('Player joined!');<br/>
+          &nbsp;&nbsp;remote.on('data', data => {<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;if (data.state &amp;&amp; data.key === 'A') {<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;player.jump();<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
           &nbsp;&nbsp;});<br/>
           });<br/>
         </code>
