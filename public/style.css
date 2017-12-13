@@ -37,6 +37,10 @@ button:focus {
   color: #aaa;
 }
 
+.topline img {
+  height: 1.5em;
+}
+
 .topline a:hover {
   color: #fff;
 }
@@ -47,6 +51,11 @@ button:focus {
 
 .topline li {
   margin: 0 .8em;
+}
+
+.topline li > a {
+  align-items: center;
+  display: flex;
 }
 
 .headline {
