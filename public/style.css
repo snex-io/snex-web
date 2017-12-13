@@ -158,9 +158,7 @@ section > p {
 }
 
   .get-started ul {
-    display: flex;
     max-width: 600px;
-    flex-flow: row wrap;
   }
 
   .get-started h3 {
