@@ -111,10 +111,18 @@ section > p {
 }
 
 .explanation {
-  background: linear-gradient(to bottom, #282020, #6a252d);
+  background: #de4c5e;
   color: #eaeaea;
   display: block;
 }
+  .explanation a {
+    color: #fff;
+  }
+
+  .explanation h2 {
+    color: #fff;
+  }
+
   .explanation li {
     padding: 1.5em;
   }
