@@ -9,10 +9,8 @@ A session is basically a unique id to which controllers can connect and send eve
 ```js
 const snex = require('snex');
 
-snex.createSession()
-.then(session => {
-  console.log(session.id);
-});
+const session = await snex.createSession();
+console.log(session.id);
 ```
 
 2) **Create a controller URL**
@@ -22,16 +20,15 @@ The controller URL is where your users go to see a controller. The SNEX controll
 **Manual**
 ```js
 const URL = `https://snex.io/nes?id=${session.id}`;
+
 console.log(`Go to ${URL} to play!`);
 ```
 
 **Using session**
 ```js
-session.createURL('nes')
-.then(link => {
-  const URL = link.url;
-  console.log(`Go to ${URL} to play!`);
-});
+const link = await session.createURL('nes');
+
+console.log(`Go to ${link.url} to play!`);
 ```
 
 When you create a URL using the `session`, a short code will be stored with SNEX that contain both the session id and the type of controller so that your users can connect using a short  URL like `snex.io/XAFE`.
@@ -73,29 +70,33 @@ const Game = require('my-space-game');
 // SNEX library
 const snex = require('snex');
 
+// This variable represents a fictional game instance.
 const game = new Game();
 
-snex.createSession()
-.then(session => {
-  session.on('connection', controller => {
-    const player = game.addPlayer();
+const session = await snex.createSession();
 
-    controller.on('data', data => {
-      if (data.state && data.key === 'A') {
-        player.jump();
-      }
+// Listen to "connection" event.
+session.on('connection', controller => {
+  // Create a new player everytime a controller is connected.
+  const player = game.addPlayer();
+  
+  // Listen to data from controller.
+  controller.on('data', data => {
+    if (data.state && data.key === 'A') {
+      player.jump();
     }
-
-    controller.on('close', () => {
-      game.removePlayer(player);
-    });
-  });
-
-  session.createURL('nes')
-  .then(link => {
-    console.log(`Go to ${link.url} to join game!`);
+  }
+  
+  // Remote player when the controller disconnects.
+  controller.on('close', () => {
+    game.removePlayer(player);
   });
 });
+
+// Create link and display to user.
+const link = await session.createURL('nes');
+
+console.log(`Go to ${link.url} to join game!`);
 ```
 
 ## Implementation examples
