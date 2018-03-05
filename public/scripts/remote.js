@@ -29,8 +29,8 @@ window.addEventListener('load', function() {
     console.info('State changed', data);
 
     if (conns.size) {
-      conns.forEach(conn => conn.send(payload));
-      console.info('Sent', payload);
+      conns.forEach(conn => conn.send(data));
+      console.info('Sent', data);
     }
   }
 
