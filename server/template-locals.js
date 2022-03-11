@@ -1,7 +1,7 @@
 const controllers = require('./controllers');
 
 const URL = '';
-const SNEX_LIB = 'https://cdn.snex.io/snex.v0.5.0.min.js';
+const SNEX_LIB = 'https://snex-cdn.pomle.com/snex.0.5.2.min.js';
 
 module.exports = {
     controllers: Object.keys(controllers),
