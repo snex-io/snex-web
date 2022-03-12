@@ -99,8 +99,8 @@ snex.createSession()
 ```
 
 ## Implementation examples
-* [Multiplayer Tetris](https://demo.snex.io/tetris/)
-* [Minimal Example](https://demo.snex.io/minimal/) ([source code](https://github.com/snex-io/snex-demos/blob/master/public/minimal/index.html))
+* [Multiplayer Tetris](https://snex-demo.pomle.com/tetris/)
+* [Minimal Example](https://snex-demo.pomle.com/minimal/) ([source code](https://github.com/snex-io/snex-demos/blob/master/public/minimal/index.html))
 * [React Example](https://github.com/snex-io/snex-react-example/)
 
 
