@@ -34,7 +34,7 @@ session.createURL('nes')
 });
 ```
 
-When you create a URL using the `session`, a short code will be stored with SNEX that contain both the session id and the type of controller so that your users can connect using a short  URL like `snex.io/XAFE`.
+When you create a URL using the `session`, a short code will be stored with SNEX that contain both the session id and the type of controller so that your users can connect using a short  URL like `snex.pomle.com/XAFE`.
 
 3) **Handle events**
 
@@ -100,7 +100,7 @@ snex.createSession()
 
 ## Implementation examples
 * [Multiplayer Tetris](https://snex-demo.pomle.com/tetris/)
-* [Minimal Example](https://snex-demo.pomle.com/minimal/) ([source code](https://github.com/snex-io/snex-demos/blob/master/public/minimal/index.html))
+* [Minimal Example](https://snex-demo.pomle.com/minimal/) ([source code](https://github.com/snex-io/demo/blob/master/demos/minimal/index.html))
 * [React Example](https://github.com/snex-io/snex-react-example/)
 
 
@@ -109,7 +109,7 @@ snex.createSession()
 We provide three different controllers, [NES](#nes), [Sega Genesis (Sega Mega Drive)](#sega-genesis--sega-mega-drive), [SNES (Famicom)](#snes--super-famicom).
 
 ### NES
-<img src="https://cdn.snex.io/pads/nes.svg" alt="NES" title="NES" width="400">
+<img src="https://snex-cdn.pomle.com/pads/nes.svg" alt="NES" title="NES" width="400">
 
 #### Session link
 ```js
@@ -118,7 +118,7 @@ session.createURL('nes')
 
 #### Manual URL
 ```js
-console.log(`https://snex.io/nes?id=${session.id}`);
+console.log(`https://snex.pomle.com/nes?id=${session.id}`);
 ```
 
 #### Events
