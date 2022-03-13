@@ -21,7 +21,7 @@ The controller URL is where your users go to see a controller. The SNEX controll
 
 **Manual**
 ```js
-const URL = `https://snex.io/nes?id=${session.id}`;
+const URL = `https://snex.pomle.com/nes?id=${session.id}`;
 console.log(`Go to ${URL} to play!`);
 ```
 
