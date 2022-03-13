@@ -144,8 +144,8 @@ console.log(`https://snex.pomle.com/nes?id=${session.id}`);
 
 
 ### SNES / Super Famicom
-<img src="https://cdn.snex.io/pads/snes.svg" alt="SNES" title="SNES" width="400">
-<img src="https://cdn.snex.io/pads/snes-us.svg?v2" alt="SNES" title="SNES" width="400">
+<img src="https://snex-cdn.pomle.com/pads/snes.svg" alt="SNES" title="SNES" width="400">
+<img src="https://snex-cdn.pomle.com/pads/snes-us.svg?v2" alt="SNES" title="SNES" width="400">
 
 #### Session link
 ```js
@@ -186,7 +186,7 @@ console.log(`https://snex.io/snes-us?id=${session.id}`);
 
 
 ### Sega Genesis / Sega Mega Drive
-<img src="https://cdn.snex.io/pads/genesis.svg" alt="Genesis" title="Sega Genesis / Mega Drive" width="400">
+<img src="https://snex-cdn.pomle.com/pads/genesis.svg" alt="Genesis" title="Sega Genesis / Mega Drive" width="400">
 
 #### Session link
 ```js
