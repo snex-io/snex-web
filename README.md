@@ -1,6 +1,6 @@
 # SNEX Website and Documentation
 
-[Read the full documentation](https://docs.snex.io)
+[Read the full documentation](/docs/README.md)
 
 Official repo and issue tracker for SNEX Service and Website.
 
